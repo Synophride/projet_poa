@@ -1,12 +1,15 @@
 #ifndef LABYRINTHE_H
 #define LABYRINTHE_H
 
-#include "Environnement.h"
 #include <utility>
 #include <list>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ios>
+#include <map>
+#include <fstream>
+#include "Environnement.h"
 
 struct coord{
     int x;

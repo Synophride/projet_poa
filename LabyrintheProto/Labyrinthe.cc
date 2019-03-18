@@ -18,12 +18,12 @@ Labyrinthe::Labyrinthe (){
     // taille du labyrinthe.
     lab_height = 80;
     lab_width = 25;
-
+    
     // les murs: 4 dans cet EXEMPLE!
     int n = 0;
-
+    
     _walls = new Wall [4];
-
+    
     // le premier.
     _walls [n]._x1 = 0;
     _walls [n]._y1 = 0; 
@@ -139,10 +139,10 @@ Labyrinthe::Labyrinthe (){
 
 // string, vector, fstream
 std::vector<std::string> make_str_vect(char* path){
-    ifstream fd;
+    std::ifstream fd;
     std::string line;
     // "while pas fin du fichier"
-    fd.open(path, ios::in);
+    fd.open(path);
     fd >> line;
     //TODO : do shit
     fd.close();
@@ -160,7 +160,7 @@ std::list<coord> mk_wall_list(const coord &base_coord,
     // 1. On regarde vers la droite du point en paramètre
     for(int j = x+1; j < line.length(); j++){
 	if(line[j] == '+'){
-	    coord c;
+	  coord c;
 	    c.x = j;
 	    c.y = y;
 	    ret.push_front(c);
@@ -179,10 +179,10 @@ std::list<coord> mk_wall_list(const coord &base_coord,
 	if(laby[i][x] == '+'){ // Fin du mur
 	    coord c;
 	    c.x = x;
-	    c.y = j;
+	    c.y = i;
 	    ret.push_front(c);
 	    break;
-	} else if( !( laby[i][x] > 'a' && laby[i][x] < 'z'  ||  laby[i][x] == '|')){ 
+	} else if( !( (laby[i][x] > 'a' && laby[i][x] < 'z')  ||  laby[i][x] == '|')){ 
 	    // cas où le mur ne continue pas.
 	    break;
 	}
@@ -210,7 +210,7 @@ Labyrinthe::Labyrinthe(char* filename){
     std::list<coord> box_list = {};
     std::list<std::pair<coord, coord>> wall_list = {}; // Coordonnées des murs
     coord player_pos;
-    
+    coord treasure_pos;
     lab_height = 0;
     lab_width = 0;
   
@@ -222,7 +222,7 @@ Labyrinthe::Labyrinthe(char* filename){
        lab_height, lab_width
        Liste des G
        Liste des B 
-       Map (char -> LinkedList coord) (liste des affiches) 
+       Map (char -> LinkedList coord) (liste des affiches)
     */
     for(int i=0; i<laby_lines.size(); i++){
 	std::string line = laby_lines[i];
@@ -238,40 +238,52 @@ Labyrinthe::Labyrinthe(char* filename){
 		char c = line[j];
 		if (c == '#')
 		    break;
-	
+		coord co;
+		
 		switch(c){
-		case '+': // Début de mur
-		    coord c;
-		    c.y = i;
-		    c.x = j;
-		    std::list<coord> coord_list = mk_wall_list(x, laby_lines);
+		case '+': // Début de mur      
+		{
+		    co.y = i;
+		    co.x = j;
+		    std::list<coord> coord_list = mk_wall_list(co, laby_lines);
 		    while(!coord_list.empty()){
-			coord wall_end = coord_list.pop_front();
-			wall_list.push_front(pair(c, wall_end));
+			coord wall_end = coord_list.front();
+			coord_list.pop_front();
+			wall_list.push_front(std::make_pair(co, wall_end));
+		
 		    }
-		    break;
-		    
+			break;
+		}
 		case 'G':
-		    coord c;
-		    c.y = i;
-		    c.x = j;
-		    guard_list.push_front(c);
+		{
+		    co.y = i;
+		    co.x = j;
+		    guard_list.push_front(co);
 		    break;
-	  
+		}
 		case 'X':
-		    coord c;
-		    c.y = i;
-		    c.x = j;
-		    box_list.push_front(c);
+		{
+		    co.y = i;
+		    co.x = j;
+		    box_list.push_front(co);
 		    break;
-	  
+		}   
 		case 'C':
+		{
 		    player_pos.y = j;
 		    player_pos.x = i;
 		    break;
-		    
-		default:
+		}
+		case 'T':
+		{
+		    treasure_pos.y = j;
+		    treasure_pos.x = i;
 		    break;
+		}
+		default:
+		{
+		    break;
+		}
 		} // switch
 	    } // for (krs)
 	} else if(is_blank(laby_lines[i])){
@@ -286,7 +298,8 @@ Labyrinthe::Labyrinthe(char* filename){
     _walls = new Wall[wall_list.size()];
     int cpt = 0;
     while(! wall_list.empty()){
-	std::pair<coord, coord> paire_coord = wall_list.pop_front();
+	std::pair<coord, coord> paire_coord = wall_list.front();
+	wall_list.pop_front();
 	coord c1 = std::get<0>(paire_coord),
 	    c2 = std::get<1>(paire_coord);
 	_walls[cpt]._x1 = c1.x;
@@ -298,10 +311,11 @@ Labyrinthe::Labyrinthe(char* filename){
     }
 
     // Dépôt des boîtes
-    _boxes = new Box(box_list.size());
+    _boxes = new Box[box_list.size()];
     cpt = 0;
     while(!box_list.empty()){
-	coord c = box_list.pop_front();
+	coord c = box_list.front();
+	box_list.pop_front();
 	_boxes[cpt]._x = c.x;
 	_boxes[cpt]._y = c.y;
 	_boxes[cpt]._ntex = 0;
@@ -314,12 +328,13 @@ Labyrinthe::Labyrinthe(char* filename){
     _guards[0]->_x = player_pos.x;
     _guards[0]->_y = player_pos.y;
     
-    n = 1;
+    cpt = 1;
     while(!guard_list.empty()){
-	coord c = guard_list.pop_front();
-	_guards[n] = new Gardien(this, "Potator"); // Todo : génération aléatoire de gardien
-	_guard[n]->_x = c.x;
-	_guard[n]->_y = c.y;
+	coord c = guard_list.front();
+	guard_list.pop_front();
+	_guards[cpt] = new Gardien(this, "Potator"); // Todo : génération aléatoire de gardien
+	_guards[cpt]->_x = c.x;
+	_guards[cpt]->_y = c.y;
     }
 
     // TODO : affiches, réglage des tableaux d'occupation du sol
