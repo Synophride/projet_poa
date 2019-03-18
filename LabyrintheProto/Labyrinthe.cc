@@ -139,9 +139,11 @@ Labyrinthe::Labyrinthe (){
 
 
 // string, vector, fstream
+//Retourne un vecteur de strings
 std::vector<std::string> make_str_vect(char* path){
     std::ifstream fd;
     std::string line;
+    
     // "while pas fin du fichier"
     fd.open(path);
     fd >> line;
