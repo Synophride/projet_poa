@@ -160,12 +160,12 @@ std::list<coord> mk_wall_list(const coord &base_coord,
     // 1. On regarde vers la droite du point en paramètre
     for(int j = x+1; j < line.length(); j++){
 	if(line[j] == '+'){
-	  coord c;
+	    coord c;
 	    c.x = j;
 	    c.y = y;
 	    ret.push_front(c);
 	    break;
-	} else if( !( line[j] > 'a' && line[j] < 'z'  ||  line[j] == '-')){ 
+	} else if( !( (line[j] > 'a' && line[j] < 'z')  ||  line[j] == '-')){ 
 	    // cas où le mur ne continue pas. Fin de la boucle
 	    break;
 	}
@@ -201,12 +201,29 @@ bool is_blank(const std::string &str){
     return true;
 }
 
+int width_of_line(std::string line){
+    int n = 0;
+    for(int i = 0; i < line.length(); i++){
+	if(line[i] != ' ' && line[i] != '\t' && line[i] != '\n'){
+	    n = i;
+	} else if (line[i] == '#'){
+	    return n;
+	}
+    }
+    return n;
+}
+
+int max(int a, int b){
+    if(a < b)
+	return b;
+    else return a;
+}
 
 Labyrinthe::Labyrinthe(char* filename){
     std::string line;    
     std::vector<std::string> laby_lines;
     std::map<char, std::string> affiches; // associe à chaque caractère le chemin d'accès à l'affiche
-    std::list<coord> guard_list = {}; 
+    std::list<coord> guard_list = {};
     std::list<coord> box_list = {};
     std::list<std::pair<coord, coord>> wall_list = {}; // Coordonnées des murs
     coord player_pos;
@@ -231,8 +248,10 @@ Labyrinthe::Labyrinthe(char* filename){
 	
 	// Todo : calculer la width correctement
 	if(is_laby){
-	    if(!is_blank(line))
+	    if(!is_blank(line)){
 		lab_height++;
+		lab_width = max(width_of_line, lab_width);
+	    }
 	    
 	    for(int j = 0; j<line.length(); j++){
 		char c = line[j];
@@ -252,7 +271,7 @@ Labyrinthe::Labyrinthe(char* filename){
 			wall_list.push_front(std::make_pair(co, wall_end));
 		
 		    }
-			break;
+		    break;
 		}
 		case 'G':
 		{
@@ -289,9 +308,18 @@ Labyrinthe::Labyrinthe(char* filename){
 	} else if(is_blank(laby_lines[i])){
 	    continue;
 	} else {
-	    // TODO : parsing de la ligne de la forme [<char> \t <str>]. 
+	    // TODO : parsing de la ligne de la forme [<char> \t <str>]
 	} // else
     } // for (lignes)
+
+    // initialisation de data
+    _data = new char* [lab_width];
+    for(int i = 0; k < lab_width; k++)
+        _data[i] = new char[lab_height];
+
+    for(int i = 0; i < lab_width; i++)
+	for(int j = 0; j < lab_height; j++)
+	    _data[i][j] = EMPTY;
     
     // 2 : on a toutes les listes. On construit maintenant le labyrinthe
     // Construction des murs
@@ -302,6 +330,11 @@ Labyrinthe::Labyrinthe(char* filename){
 	wall_list.pop_front();
 	coord c1 = std::get<0>(paire_coord),
 	    c2 = std::get<1>(paire_coord);
+
+	for(int i = c1.x; i<=c2.x; i++) // Vérifier génération des coords pour etre sur de ce truc
+	    for(int j = c1.y; j<= c2.y; j++)
+		_data[i][j] = 1;
+	
 	_walls[cpt]._x1 = c1.x;
 	_walls[cpt]._y1 = c1.y;
 	_walls[cpt]._x2 = c2.x;
@@ -316,6 +349,7 @@ Labyrinthe::Labyrinthe(char* filename){
     while(!box_list.empty()){
 	coord c = box_list.front();
 	box_list.pop_front();
+	_data[c.x][c.y] = 1;
 	_boxes[cpt]._x = c.x;
 	_boxes[cpt]._y = c.y;
 	_boxes[cpt]._ntex = 0;
@@ -332,11 +366,17 @@ Labyrinthe::Labyrinthe(char* filename){
     while(!guard_list.empty()){
 	coord c = guard_list.front();
 	guard_list.pop_front();
+
 	_guards[cpt] = new Gardien(this, "Potator"); // Todo : génération aléatoire de gardien
-	_guards[cpt]->_x = c.x;
-	_guards[cpt]->_y = c.y;
+	_guards[cpt]->_x = (float) scale * c.x;
+	_guards[cpt]->_y = (float) scale * c.y;
+	_data[c.x][c.y] = 1;
     }
 
-    // TODO : affiches, réglage des tableaux d'occupation du sol
-    // Occupation des murs
+    // Trésor
+    treasor._x = treasure_pos.x;
+    treasor._y = treasure_pos.y;
+    _data[treasure_pos.x][treasure_pos.y] = 1;
+    
+    // TODO : affiches
 }
