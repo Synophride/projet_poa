@@ -1,6 +1,7 @@
 #include "Labyrinthe.h"
 #include "Chasseur.h"
 #include "Gardien.h"
+#include <sstream>
 
 
 Sound*	Chasseur::_hunter_fire;	// bruit de l'arme du chasseur.
@@ -138,14 +139,29 @@ Labyrinthe::Labyrinthe (){
 
 
 // string, vector, fstream
+//Retourne un vecteur de strings
 std::vector<std::string> make_str_vect(char* path){
     std::ifstream fd;
     std::string line;
+    
     // "while pas fin du fichier"
     fd.open(path);
     fd >> line;
-    //TODO : do shit
+    
+    std::vector<std::string> ret = std::vector<std::string>();
+    
+    while(std::getline(fd, line))
+	{
+    std::stringstream   linestream(line);
+    std::string         data;
+    
+    std::getline(linestream, data, '\n');
+    ret.push_back(data);
+
+	
+	}
     fd.close();
+    return ret;
     throw "pas implémenté";
 }
 
