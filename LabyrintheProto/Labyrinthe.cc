@@ -11,11 +11,11 @@ Sound*	Chasseur::_wall_hit;	// on a tapé un mur.
 Environnement* Environnement::init (char* filename){
     return new Labyrinthe (filename);
 }
-
+#if 0
 /**
  * EXEMPLE de labyrinthe.
  */
-Labyrinthe::Labyrinthe (){
+Labyrinthe::Labyrinthe (char*){
     // taille du labyrinthe.
     lab_height = 80;
     lab_width = 25;
@@ -36,8 +36,10 @@ Labyrinthe::Labyrinthe (){
     ++n;
 
     // le deuxieme.
-    _walls [n]._x1 = 0; _walls [n]._y1 = lab_height-1;
-    _walls [n]._x2 = lab_width-1; _walls [n]._y2 = lab_height-1;
+    _walls [n]._x1 = 0;
+    _walls [n]._y1 = lab_height-1;
+    _walls [n]._x2 = lab_width-1;
+    _walls [n]._y2 = lab_height-1;
     _walls [n]._ntex = 0;
     ++n;
 
@@ -82,7 +84,9 @@ Labyrinthe::Labyrinthe (){
     _boxes [n]._x = 12; _boxes [n]._y = 70; _boxes [n]._ntex = 0;
     ++n;
     // la deuxieme.
-    _boxes [n]._x = 5; _boxes [n]._y = 10; _boxes [n]._ntex = 0;
+    _boxes [n]._x = 5;
+    _boxes [n]._y = 10;
+    _boxes [n]._ntex = 0;
     ++n;
     // la dernière.
     _boxes [n]._x = 22; _boxes [n]._y = 65; _boxes [n]._ntex = 0;
@@ -137,48 +141,45 @@ Labyrinthe::Labyrinthe (){
     _data [(int)(_guards [4] -> _x / scale)][(int)(_guards [4] -> _y / scale)] = 1;
 }
 
+#endif
 
 // string, vector, fstream
 //Retourne un vecteur de strings
 std::vector<std::string> make_str_vect(char* path){
-    std::ifstream fd;
-    std::string line;
+    printf("make_str_vect: début\n");
     
-    // "while pas fin du fichier"
+    std::ifstream fd = std::ifstream();
+    std::string line = "";
+    
     fd.open(path);
-    fd >> line;
-    
-    std::vector<std::string> ret = std::vector<std::string>();
-    
-    while(std::getline(fd, line))
-	{
-    std::stringstream   linestream(line);
-    std::string         data;
-    
-    std::getline(linestream, data, '\n');
-    ret.push_back(data);
 
-	
-	}
-    fd.close();
+    std::vector<std::string>ret = std::vector<std::string>();
+    printf("Entree dans la boucle\n");
+    
+    while(std::getline(fd, line)){
+	std::cout << line << std::endl;
+	ret.push_back(line);
+    } // ?? 
+    std::cout << ret.size() << std::endl;
+    printf("fin de la boucle\n");
+    printf("return\n");
     return ret;
-    throw "pas implémenté";
 }
 
 
 std::list<coord> mk_wall_list(const coord &base_coord,
-			      const std::vector<std::string> &laby){
+			      const std::vector<std::string> &laby, int offset){
     int x = base_coord.x,
 	y = base_coord.y;
-    std::list<coord> ret = {};
-    std::string line = laby[x];
+    std::list<coord> ret =  std::list<coord>();
+    std::string line = laby[y];
     
     // 1. On regarde vers la droite du point en paramètre
     for(int j = x+1; j < line.length(); j++){
 	if(line[j] == '+'){
 	    coord c;
 	    c.x = j;
-	    c.y = y;
+	    c.y = y-offset;
 	    ret.push_front(c);
 	    break;
 	} else if( !( (line[j] > 'a' && line[j] < 'z')  ||  line[j] == '-')){ 
@@ -188,14 +189,14 @@ std::list<coord> mk_wall_list(const coord &base_coord,
     }
 
     // 2. On regarde en dessous du point en paramètre
-    for(int i = x+1; i<laby.size(); i++){
+    for(int i = y+1; i<laby.size(); i++){
 	if(laby[i].length() <= x) // cas a priori inexistant
 	    break;
 	
 	if(laby[i][x] == '+'){ // Fin du mur
 	    coord c;
 	    c.x = x;
-	    c.y = i;
+	    c.y = i-offset;
 	    ret.push_front(c);
 	    break;
 	} else if( !( (laby[i][x] > 'a' && laby[i][x] < 'z')  ||  laby[i][x] == '|')){ 
@@ -232,87 +233,84 @@ int width_of_line(std::string line){
 int max(int a, int b){
     if(a < b)
 	return b;
-    else return a;
+    else
+	return a;
 }
 
 Labyrinthe::Labyrinthe(char* filename){
-    std::string line;    
-    std::vector<std::string> laby_lines;
+    std::string line; // Une ligne 
+    std::vector<std::string> laby_lines; // Tableau contenant la str du fichier en entrée
     std::map<char, std::string> affiches; // associe à chaque caractère le chemin d'accès à l'affiche
-    std::list<coord> guard_list = {};
-    std::list<coord> box_list = {};
-    std::list<std::pair<coord, coord>> wall_list = {}; // Coordonnées des murs
-    coord player_pos;
-    coord treasure_pos;
+    std::list<coord> guard_list = {}; // Liste des coordonnées des gardes
+    std::list<coord> box_list = {}; // Liste des cooronnées des boites
+    std::list<std::pair<coord, coord>> wall_list = {}; // Coordonnées des extrémités des murs
+    coord player_pos, treasure_pos; // Position du joueur et du trésor
+    bool is_laby = false; // False tant qu'on parse pas la structure du laby
+    int offset = 0; // Nombre de lignes ne correspondant pas au labyrinthe, au début du fichier. 
+    int true_i = 0;
     lab_height = 0;
     lab_width = 0;
-  
+    
     // chargement du fichier
     laby_lines = make_str_vect(filename);
-    bool is_laby = false;
-    
-    /* Construction de :
-       lab_height, lab_width
-       Liste des G
-       Liste des B 
-       Map (char -> LinkedList coord) (liste des affiches)
-    */
-    for(int i=0; i<laby_lines.size(); i++){
-	std::string line = laby_lines[i];
-	if(line[0] == '+') // Todo : changer ce truc pour "si le premier kr de la ligne est +"
-	    is_laby = true;
+
+    for(int i = 0; i<laby_lines.size(); i++){
+	true_i = i - offset;
+        line = laby_lines[i];
 	
-	// Todo : calculer la width correctement
+	if(line[0] == '+' && !is_laby){ // Todo : changer ce truc pour "si le premier kr de la ligne est +"
+	    is_laby = true;
+	    offset = i;
+	}
+	
 	if(is_laby){
-	    if(!is_blank(line)){
-		lab_height++;
-		lab_width = max(width_of_line, lab_width);
-	    }
+	    lab_height++;
+	    lab_width = max(line.length(), lab_width);
 	    
 	    for(int j = 0; j<line.length(); j++){
 		char c = line[j];
-		if (c == '#')
-		    break;
+		if (c == '#') break;
+		
 		coord co;
 		
 		switch(c){
 		case '+': // Début de mur      
 		{
-		    co.y = i;
+		    co.y = true_i;
 		    co.x = j;
-		    std::list<coord> coord_list = mk_wall_list(co, laby_lines);
+		    std::list<coord> coord_list = mk_wall_list(co, laby_lines, offset);
+		    
 		    while(!coord_list.empty()){
 			coord wall_end = coord_list.front();
 			coord_list.pop_front();
-			wall_list.push_front(std::make_pair(co, wall_end));
-		
+			wall_list.push_front(std::make_pair(co, wall_end)); 
 		    }
 		    break;
 		}
 		case 'G':
 		{
-		    co.y = i;
+		    co.y = true_i;
 		    co.x = j;
 		    guard_list.push_front(co);
 		    break;
 		}
 		case 'X':
 		{
-		    co.y = i;
+		    co.y = true_i;
 		    co.x = j;
 		    box_list.push_front(co);
 		    break;
 		}   
 		case 'C':
 		{
-		    player_pos.y = j;
-		    player_pos.x = i;
+		    player_pos.y = true_i;
+		    player_pos.x = j;
 		    break;
 		}
 		case 'T':
 		{
-		    treasure_pos.y = j;
-		    treasure_pos.x = i;
+		    treasure_pos.y = true_i;
+		    treasure_pos.x = j;
 		    break;
 		}
 		default:
@@ -328,9 +326,12 @@ Labyrinthe::Labyrinthe(char* filename){
 	} // else
     } // for (lignes)
 
-    // initialisation de data
+    
+    printf("width=%i \t height=%i\n", lab_width, lab_height);
+    
     _data = new char* [lab_width];
-    for(int i = 0; k < lab_width; k++)
+    
+    for(int i = 0; i < lab_width; i++)
         _data[i] = new char[lab_height];
 
     for(int i = 0; i < lab_width; i++)
@@ -338,16 +339,18 @@ Labyrinthe::Labyrinthe(char* filename){
 	    _data[i][j] = EMPTY;
     
     // 2 : on a toutes les listes. On construit maintenant le labyrinthe
-    // Construction des murs
+    printf("Construction des murs..\n");
     _walls = new Wall[wall_list.size()];
+    _nwall = wall_list.size();
     int cpt = 0;
     while(! wall_list.empty()){
 	std::pair<coord, coord> paire_coord = wall_list.front();
 	wall_list.pop_front();
+	
 	coord c1 = std::get<0>(paire_coord),
 	    c2 = std::get<1>(paire_coord);
-
-	for(int i = c1.x; i<=c2.x; i++) // Vérifier génération des coords pour etre sur de ce truc
+	
+	for(int i = c1.x; i<=c2.x; i++)
 	    for(int j = c1.y; j<= c2.y; j++)
 		_data[i][j] = 1;
 	
@@ -359,40 +362,54 @@ Labyrinthe::Labyrinthe(char* filename){
 	cpt++;
     }
 
+
+    
+    printf("Depot des boites \n");
     // Dépôt des boîtes
     _boxes = new Box[box_list.size()];
+    _nboxes = box_list.size();
     cpt = 0;
     while(!box_list.empty()){
 	coord c = box_list.front();
 	box_list.pop_front();
+	
 	_data[c.x][c.y] = 1;
+	
 	_boxes[cpt]._x = c.x;
 	_boxes[cpt]._y = c.y;
 	_boxes[cpt]._ntex = 0;
 	cpt++;
     }
+    
+    // Trésor
+    _treasor._x = treasure_pos.x;
+    _treasor._y = treasure_pos.y;
+    _data[treasure_pos.x][treasure_pos.y] = 1;
 
+    cpt = 0;
+    _picts = new Wall [0];
+    _npicts = 0;
+
+    
+    printf("Dépot gardiens\n");
     // Gardiens
-    _guards = new Mover*[guard_list.size() +1];
+    _guards = new Mover*[guard_list.size() + 1];
     _guards[0] = new Chasseur(this);
-    _guards[0]->_x = player_pos.x;
-    _guards[0]->_y = player_pos.y;
+    _guards[0]->_x = (float) scale * player_pos.x;
+    _guards[0]->_y = (float) scale * player_pos.y;
+    
+    _nguards = guard_list.size() + 1;
     
     cpt = 1;
     while(!guard_list.empty()){
 	coord c = guard_list.front();
 	guard_list.pop_front();
-
+	
 	_guards[cpt] = new Gardien(this, "Potator"); // Todo : génération aléatoire de gardien
-	_guards[cpt]->_x = (float) scale * c.x;
-	_guards[cpt]->_y = (float) scale * c.y;
+	_guards[cpt]->_x = (float) (c.x*scale);
+	_guards[cpt]->_y = (float) (c.y*scale);
 	_data[c.x][c.y] = 1;
     }
-
-    // Trésor
-    treasor._x = treasure_pos.x;
-    treasor._y = treasure_pos.y;
-    _data[treasure_pos.x][treasure_pos.y] = 1;
     
-    // TODO : affiches
+    printf("Fin du constructeur\n");
 }

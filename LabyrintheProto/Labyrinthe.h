@@ -1,6 +1,8 @@
 #ifndef LABYRINTHE_H
 #define LABYRINTHE_H
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <utility>
 #include <list>
 #include <iostream>
@@ -33,7 +35,7 @@ std::vector<std::string> make_str_vector(char* path);
  * \return la liste (qui peut être nulle) des extrémités des murs partant de coord, et qui vont 
  * vers le bas ou la gauche
  */
-std::list<coord> mk_wall_list(const coord &base_coord, const std::vector<std::string> &laby);
+std::list<coord> mk_wall_list(const coord &base_coord, const std::vector<std::string> &laby, int offset);
 
 /**
  * \brief Décide si une ligne est considérée comme vide (commentaires inclus), id est ne contenant que des caractères espace (ou un commentaire)
@@ -45,7 +47,7 @@ bool is_blank(const std::string &str);
 
 class Labyrinthe : public Environnement {
 private:
-	char	**_data;	// indique si la case est libre ou occupée.
+        char	**_data;	// indique si la case est libre ou occupée.
 	int   lab_width;	// dimensions du rectangle.
 	int   lab_height;	// englobant le labyrinthe.
 

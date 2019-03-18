@@ -12,13 +12,13 @@ MLIBS		= -framework GLUT -framework OpenGL -framework Foundation jpeg/libmacjpeg
 
 CXX		= g++
 
-CXXFLAGS	= -I $(FMOD) -O3 -Wall -Wextra -pedantic -L/opt/lib --std=c++11
+CXXFLAGS	= -g -I $(FMOD) -Wall -Wextra -pedantic -L/opt/lib --std=c++11
 
 .cc.o:
 	$(CXX) $(CXXFLAGS) -c $<
 
 labh:	$(O)
-	$(CXX) -o $@ $(O) DebOpenGL.o $(LIBS) # OpenGL64.o 
+	$(CXX) -o $@ $(O)  OpenGL64.o  $(LIBS) # DebOpenGL.o
 
 maclabh:	$(O)
 	$(CXX) -o $@ MacOpenGL.o $(O) $(MLIBS)
