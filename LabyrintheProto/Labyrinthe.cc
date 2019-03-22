@@ -206,6 +206,7 @@ Labyrinthe::Labyrinthe(char* path){
     list<tuple<coord, char, bool >> text_list;
 
     build_map(path, terrain, text_map);
+
     parse_map(terrain,
 	      guard_list,
 	      wall_list,
@@ -221,6 +222,9 @@ Labyrinthe::Labyrinthe(char* path){
     build_walls(wall_list);
     build_boxes(box_list);
     build_treasure(treasure_pos);
+    _npicts = 0;
+    _picts = new Wall[_npicts];
+    
 //    build_text(text_map, text_list);
 		
 	
@@ -286,14 +290,16 @@ void Labyrinthe::build_walls(list<pair<coord, coord>> wall_list){
 	coord c1 = get<0>(wall_extrs); // On a la certitude que cette coord = plus à haut ou plus en gauche
 	coord c2 = get<1>(wall_extrs);
 
+
 	_walls[n]._x1 = c1.x;
-	_walls[n]._y2 = c1.y;
+	_walls[n]._y1 = c1.y;
 	
 	_walls[n]._x2 = c2.x;
 	_walls[n]._y2 = c2.y;
 	
 	_walls[n]._ntex = 0;
 
+	
 	for(int y = c1.y; y<=c2.y; y++)
 	    for(int x = c1.x; x<=c2.x; x++)
 		_data[x][y] = 1;
