@@ -222,13 +222,7 @@ Labyrinthe::Labyrinthe(char* path){
     build_walls(wall_list);
     build_boxes(box_list);
     build_treasure(treasure_pos);
-    _npicts = 0;
-    _picts = new Wall[_npicts];
-    
-//    build_text(text_map, text_list);
-		
-	
-    
+    build_text(text_map, text_list);
 }
 
 void Labyrinthe::init_data(){
@@ -323,6 +317,7 @@ void Labyrinthe::build_text(map<char, string> text_map, list<tuple<coord, char, 
 	string path_texture = text_map[kr];
 
 	char* chaine = (char*) path_texture.c_str();
+	printf("%s\tchar=%c\n", chaine, kr);
 	int id_texture = wall_texture(chaine);
 
 	if(incl == VERTICAL){
