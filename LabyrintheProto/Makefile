@@ -4,7 +4,7 @@
 FMOD		= fmod/4.3
 MFMOD		= fmod/Developer/FMOD\ Programmers\ API\ Mac/api/inc
 
-O			= Labyrinthe.o Chasseur.o
+O			= Labyrinthe.o Chasseur.o Gardien.o
 
 LIBS		= $(FMOD)/libfmodex64.so -lglut -lGLU -lGL jpeg/libjpeg.a -lm
 MLIBS		= -framework GLUT -framework OpenGL -framework Foundation jpeg/libmacjpeg.a \
@@ -18,7 +18,7 @@ CXXFLAGS	= -g -I $(FMOD) -Wall -Wextra -pedantic -L/opt/lib --std=c++11
 	$(CXX) $(CXXFLAGS) -c $<
 
 labh:	$(O)
-	$(CXX) -o $@ $(O)  OpenGL64.o  $(LIBS) # DebOpenGL.o
+	$(CXX) -o $@ $(O) DebOpenGL.o  $(LIBS) #  OpenGL64.o 
 
 maclabh:	$(O)
 	$(CXX) -o $@ MacOpenGL.o $(O) $(MLIBS)

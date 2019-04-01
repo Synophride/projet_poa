@@ -3,7 +3,6 @@
 #include "Gardien.h"
 #include <sstream>
 
-
 Sound*	Chasseur::_hunter_fire;	// bruit de l'arme du chasseur.
 Sound*	Chasseur::_hunter_hit;	// cri du chasseur touché.
 Sound*	Chasseur::_wall_hit;	// on a tapé un mur.
@@ -11,8 +10,6 @@ Sound*	Chasseur::_wall_hit;	// on a tapé un mur.
 Environnement* Environnement::init (char* filename){
     return new Labyrinthe (filename);
 }
-
-
 
 bool is_blank(const string &str){
     for(int i = 0; i < str.length(); i++){
@@ -34,7 +31,7 @@ char first_char(const string &str){
     return 0;
 }
 
-
+/// TODO : virer tabulation à la fin des str
 void build_map(char* path, vector<string> &terrain, map<char, string> &tex_list){
     ifstream in = ifstream();
     string line = "";
@@ -43,7 +40,6 @@ void build_map(char* path, vector<string> &terrain, map<char, string> &tex_list)
     in.open(path);
     terrain = vector<string>();
     tex_list = map<char, string>();
-
     
     while(getline(in, line)){
 	if(is_blank(line)) // si ligne blanche, ne rien faire
@@ -56,10 +52,10 @@ void build_map(char* path, vector<string> &terrain, map<char, string> &tex_list)
 	if(is_in_laby) // Si on est dans le terrain ; ajout de la nouvelle ligne de terrain
 	    terrain.push_back(line);
 	else { 
-	    string line_end = line.substr(3, line.length());
+	    string line_end = line.substr(2, line.length());
 	    
 	    for(int i = 0; i<line_end.length(); i++){
-		if(line_end[i] == ' ' || line_end[i] =='#'){
+		if(line_end[i] == ' ' || line_end[i] == '\t' || line_end[i] =='#'){
 		    tex_list[c] = line_end.substr(0, i);
 		    break;
 		}
@@ -304,8 +300,9 @@ void Labyrinthe::build_walls(list<pair<coord, coord>> wall_list){
 
 void Labyrinthe::build_text(map<char, string> text_map, list<tuple<coord, char, bool>> text_list){
     _npicts = text_list.size();
+    _picts = new Wall[_npicts];
     int n = 0;
-
+    
     while(!text_list.empty()){
 	tuple<coord, char, bool> elt = text_list.front();
 	text_list.pop_front();
@@ -318,12 +315,15 @@ void Labyrinthe::build_text(map<char, string> text_map, list<tuple<coord, char, 
 
 	char* chaine = (char*) path_texture.c_str();
 	printf("%s\tchar=%c\n", chaine, kr);
-	int id_texture = wall_texture(chaine);
+	
+	char tmp[128];
+	sprintf (tmp, "%s/%s", texture_dir, chaine);
 
+	int id_texture = wall_texture(tmp);
+	
 	if(incl == VERTICAL){
 	    _picts[n]._x1 = c.x;
 	    _picts[n]._y1 = c.y-1;
-	    
 
 	    _picts[n]._x2 = c.x;
 	    _picts[n]._y2 = c.y+1;
@@ -339,6 +339,7 @@ void Labyrinthe::build_text(map<char, string> text_map, list<tuple<coord, char, 
 	n++;
     }
 }
+
 void Labyrinthe::build_treasure(coord c){
     _treasor._x = c.x;
     _treasor._y = c.y;

@@ -89,33 +89,66 @@ char first_char(const string &str);
 
 class Labyrinthe : public Environnement {
 private:
-    char	**_data;	// indique si la case est libre ou occupée.
-    int   lab_width;	// dimensions du rectangle.
-    int   lab_height;	// englobant le labyrinthe.
+    char  **_data;	//!< indique si la case est libre ou occupée.
+    int   lab_width;	//!< dimensions du rectangle.
+    int   lab_height;	//!<  englobant le labyrinthe.
 
-    // Initialise _data
+    /**
+     * \brief initialise _data[][], en fonction de lab_with et lab_height
+     **/
     void init_data();
 
-    // Initialise _guards et _nguards
+    /**
+     * \brief Initialise _guards et _nguard dans la classe
+     * \param guards     (in) : une liste des coordonnées des gardes 
+     * \param player_pos (in) : La coordonnée du joueur
+     * TODO : génération de gardes différents
+     **/
     void build_guards(list<coord> guards, const coord &player_pos);
 
-    // Initialise les murs
+    /**
+     * \brief Initialise les murs (_nwall et _walls[]) 
+     * \param wall_list (in) : la liste des murs, un mur étant représenté par
+     * une paire de coordonnées. 
+     * Pour chaque paire de coordonnées (x1 y1) (x2 y2) de la liste, on fait 
+     * l'hypothèse que 
+     * La première coordonnées est "plus petite" que la seconde, id est 
+     * (x1 < x2 || y1 < y2).
+     **/
     void build_walls (list<pair<coord, coord>> wall_list);
 
-    // Init. des boites
+    /**
+     * \brief initialise les boites 
+     * \param box_list (in) : liste des coordonnées des boites
+     **/
     void build_boxes (list<coord> box_list);
 
-    // Init du trésor
+    /**
+     * \brief initialisation du trésor
+     * \param c la coordonnée du trésor
+     **/
     void build_treasure(coord c);
 
-    // Init des textures
+    /**
+     * \brief initialisation des textures
+     * \param text_map (in) : la structure associant un caractère représentant une texture 
+     * dans le .txt du labyrinthe au nom de la texture
+     * \param text_list (in): Une liste des textures, où chaque élément contient la coordonnée 
+     * de la texture, le caractère représentant la texture, ainsi que l'orientation de la texture
+     * (égale à HORIZONTAL ou VERTICAL)
+     * 
+     **/
     void build_text(map<char, string> text_map, list<tuple<coord, char, bool>> text_list);
     
 public:
     Labyrinthe();
     Labyrinthe (char*);
-    int width () { return lab_width;}	// retourne la largeur du labyrinthe.
-    int height () { return lab_height;}	// retourne la longueur du labyrinthe.
+
+    /// \brief  retourne la largeur du labyrinthe.
+    int width () { return lab_width;}
+
+    // \brief retourne la longueur du labyrinthe.
+    int height () { return lab_height;}	
     // retourne l'état (occupation) de la case (i, j).
     char data (int i, int j){
 	return _data [i][j];
