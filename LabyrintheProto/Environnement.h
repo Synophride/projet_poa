@@ -40,14 +40,14 @@ public:
 	static Environnement* init (char* filename);
 
 	Wall*	_walls;		// les murs sous forme de tableau de segments.
-	int		_nwall;		// le nombre de segments.
+	int	_nwall;		// le nombre de segments.
 	Wall*	_picts;		// les affiches.
-	int		_npicts;	// leur nombre.
+	int	_npicts;	// leur nombre.
 	Box*	_boxes;		// les caisses.
-	int		_nboxes;	// leur nombre.
-	Box		_treasor;	// le trésor.
+	int	_nboxes;	// leur nombre.
+	Box     _treasor;	// le trésor.
 	Mover**	_guards;	// les gardes (tableau de pointeurs de gardiens).
-	int		_nguards;	// leur nombre.
+	int	_nguards;	// leur nombre.
 
 	virtual int width () =0;	// retourne la largeur du labyrinthe.
 	virtual int height () =0;	// retourne la longueur du labyrinthe.

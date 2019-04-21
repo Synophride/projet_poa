@@ -146,7 +146,6 @@ public:
 
     /// \brief  retourne la largeur du labyrinthe.
     int width () { return lab_width;}
-
     // \brief retourne la longueur du labyrinthe.
     int height () { return lab_height;}	
     // retourne l'état (occupation) de la case (i, j).
