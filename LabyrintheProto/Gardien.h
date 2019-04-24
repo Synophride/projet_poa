@@ -4,17 +4,17 @@
 
 #include "Mover.h"
 #include <stdlib.h>
+#include <iostream>
 #include <cstdlib>
 #include <cmath>
 #include <map>
 #include <list>
 #include <limits.h>
 #include <set>
-
+#include <iterator>
+#include <stdexcept>
 class Labyrinthe;
 
-
-void remove_searchs();
 
 struct node{
     int x;
@@ -25,7 +25,14 @@ std::list<node> get_shortest_path(node, node, char ** , int, int);
 
 
 class Gardien : public Mover {
+
+
 private:
+    bool inited = false;
+    double speed = 1;
+    std::list<node> path_to_follow = std::list<node>();
+
+    
     /**
     * \brief teste si le mouvement de coordonnées (dx, dy) est acceptable, 
     * id est que ça implique pas de marcher au travers un mur
@@ -38,9 +45,10 @@ private:
      **/
     bool try_move(double dx, double dy);
 
-    
+
+
     // int get_potentiel_defense();
-    
+    bool move_to(node);
 public:
     Gardien (Labyrinthe* l, const char* modele) : Mover (120, 80, l, modele){}
 

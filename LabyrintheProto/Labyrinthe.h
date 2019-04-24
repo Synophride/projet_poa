@@ -11,11 +11,14 @@
 #include <ios>
 #include <map>
 #include <fstream>
+
+
 #include "Environnement.h"
 using namespace std;
 
 const bool HORIZONTAL = false;
 const bool VERTICAL   =  true;
+
 
 struct coord{
     int x;
