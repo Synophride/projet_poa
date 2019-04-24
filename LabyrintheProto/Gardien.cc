@@ -1,7 +1,62 @@
 #include "Gardien.h"
 
-#include <cstdlib>
-#include <cmath>
+
+using namespace std;
+
+bool cmp(const node a, const node &b){
+    return ((a.x < b.x) || (a.x == b.x && a.y < b.y));
+}
+
+
+struct node_comparator {
+    bool operator()(const node & a, const node & b) const {
+        return ((a.x < b.x) || (a.x == b.x && a.y < b.y));
+    }
+};
+
+
+//bool operator<(const node &a, const node &b){
+//    return cmp(a, b);
+//}
+
+int get(map<node, int> &m, node &key, int def){
+    if(m.count(key))
+	return m[key];
+    else
+	return def;
+}
+
+
+list<node> build_solution(){
+
+}
+
+// Implémentation du A* Algorithme
+list<node> get_shortest_path(node start, node goal,
+			     char** data, int height, int width){
+    set<node,node_comparator> finished_nodes;
+    set<node,node_comparator> frontiere;
+    // frontiere.insert(start);
+    /*  map<node, node, node_comparator> pred;
+    
+    pred[start] = start;
+    
+    map<node, int, node_comparator> dist_from_start;
+
+    map<node, int, node_comparator> estimated_dist;
+    
+    while(! frontiere.empty()){
+	// 1. choisir le noeud de la frontière ayant la valeur estimée
+	// la plus basse
+	node current_node;
+	int distance = -100000;
+	//	auto it = frontiere.begin();
+	//for(node n : it){
+	//  int new_d = get(estimated_dist, n, 100000);
+	//}
+		
+	} */
+}
 
 void Gardien::update(void){
     // move((double) (rand()%100) / 100. , ((double) (rand()%100) / 100. ));

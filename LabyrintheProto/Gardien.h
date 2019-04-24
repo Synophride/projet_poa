@@ -1,10 +1,28 @@
 #ifndef GARDIEN_H
 #define GARDIEN_H
 
+
 #include "Mover.h"
 #include <stdlib.h>
+#include <cstdlib>
+#include <cmath>
+#include <map>
+#include <list>
+#include <limits.h>
+#include <set>
 
 class Labyrinthe;
+
+
+void remove_searchs();
+
+struct node{
+    int x;
+    int y;
+};
+
+std::list<node> get_shortest_path(node, node, char ** , int, int);
+
 
 class Gardien : public Mover {
 private:
@@ -21,12 +39,10 @@ private:
     bool try_move(double dx, double dy);
 
     
-//    int get_potentiel_defense();
+    // int get_potentiel_defense();
     
 public:
-    
-    Gardien (Labyrinthe* l, const char* modele) : Mover (120, 80, l, modele)
-    {}
+    Gardien (Labyrinthe* l, const char* modele) : Mover (120, 80, l, modele){}
 
     ~Gardien(){}
     
