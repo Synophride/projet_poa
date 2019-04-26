@@ -55,8 +55,8 @@ list<node> get_shortest_path(node start, node goal, Environnement* evt){
     
     map<node, int, node_comparator> dist_from_start = map<node, int, node_comparator>();
     map<node, int, node_comparator> estimated_dist= map<node, int, node_comparator>();
-    estimated_dist[start] = 0;
-
+    dist_from_start[start] = 0;
+    
     
     while(! frontiere.empty()){
 	// 1. choisir le noeud de la frontière ayant la valeur estimée

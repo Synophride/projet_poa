@@ -95,12 +95,13 @@ private:
     char  **_data;	//!< indique si la case est libre ou occupée.
     int   lab_width;	//!< dimensions du rectangle.
     int   lab_height;	//!<  englobant le labyrinthe.
-
+    vector<vector<int>> _dist_vect;
     /**
      * \brief initialise _data[][], en fonction de lab_with et lab_height
      **/
     void init_data();
-
+    
+    void fill_dist(int, int, int);
     /**
      * \brief Initialise _guards et _nguard dans la classe
      * \param guards     (in) : une liste des coordonnées des gardes 
@@ -142,11 +143,12 @@ private:
      * 
      **/
     void build_text(map<char, string> text_map, list<tuple<coord, char, bool>> text_list);
-    
+
+    void init_vector_dist();
 public:
     Labyrinthe();
     Labyrinthe (char*);
-
+    
     /// \brief  retourne la largeur du labyrinthe.
     int width () { return lab_width;}
     // \brief retourne la longueur du labyrinthe.

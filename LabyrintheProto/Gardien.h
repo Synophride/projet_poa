@@ -1,8 +1,8 @@
 #ifndef GARDIEN_H
 #define GARDIEN_H
 
-
 #include "Mover.h"
+
 #include <stdlib.h>
 #include <iostream>
 #include <cstdlib>
@@ -13,25 +13,22 @@
 #include <set>
 #include <iterator>
 #include <stdexcept>
-class Labyrinthe;
 
+class Labyrinthe;
 
 struct node{
     int x;
     int y;
 };
 
+
 std::list<node> get_shortest_path(node, node, char ** , int, int);
 
-
 class Gardien : public Mover {
-
-
 private:
     bool inited = false;
     double speed = 1;
     std::list<node> path_to_follow = std::list<node>();
-
     
     /**
     * \brief teste si le mouvement de coordonnées (dx, dy) est acceptable, 
@@ -44,8 +41,6 @@ private:
      * 
      **/
     bool try_move(double dx, double dy);
-
-
 
     // int get_potentiel_defense();
     bool move_to(node);

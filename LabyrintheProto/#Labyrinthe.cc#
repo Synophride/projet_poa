@@ -4,8 +4,8 @@
 #include <sstream>
 
 Sound*	Chasseur::_hunter_fire;	// bruit de l'arme du chasseur.
-Sound*	Chasseur::_hunter_hit;	// cri du chasseur touché.
-Sound*	Chasseur::_wall_hit;	// on a tapé un mur.
+Sound*	Chasseur::_hunter_hit;	// cri du chasseur touchÃ©.
+Sound*	Chasseur::_wall_hit;	// on a tapÃ© un mur.
 
 Environnement* Environnement::init (char* filename){
     return new Labyrinthe (filename);
@@ -46,7 +46,7 @@ void build_map(char* path, vector<string> &terrain, map<char, string> &tex_list)
 	    continue;
 	char c = first_char(line);
 	
-	if(c == '+' && !is_in_laby) // Début du labyrinthe
+	if(c == '+' && !is_in_laby) // DÃ©but du labyrinthe
 	    is_in_laby = true;
 	
 	if(is_in_laby) // Si on est dans le terrain ; ajout de la nouvelle ligne de terrain
@@ -154,7 +154,7 @@ void parse_map(const vector<string> &terrain,
 	    coord c; c.x = x; c.y = y;
 	    
 	    switch(kr){
-	    case '+': // extrémité de mur
+	    case '+': // extrÃ©mitÃ© de mur
 	    {
 		list<coord> extr_wall_list;
 		parse_wall_extr(terrain, c, extr_wall_list, text_list);
@@ -277,7 +277,7 @@ void Labyrinthe::build_walls(list<pair<coord, coord>> wall_list){
 	pair<coord, coord> wall_extrs = wall_list.front();
 	wall_list.pop_front();
 	
-	coord c1 = get<0>(wall_extrs); // On a la certitude que cette coord = plus à haut ou plus en gauche
+	coord c1 = get<0>(wall_extrs); // On a la certitude que cette coord = plus Ã  haut ou plus en gauche
 	coord c2 = get<1>(wall_extrs);
 
 
@@ -350,6 +350,7 @@ void Labyrinthe::build_treasure(coord c){
 
 void fill_dist(int x, int y, int current_dist, int value){
     current_dist = _dict_vect[x][y];
+    
 }
 
 
