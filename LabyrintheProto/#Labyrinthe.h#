@@ -11,7 +11,7 @@
 #include <ios>
 #include <map>
 #include <fstream>
-#include <unistd.h>
+
 
 #include "Environnement.h"
 using namespace std;
@@ -26,22 +26,22 @@ struct coord{
 };
 
 /**
- * \brief fonction construisant à la fois le terrain et la liste des textures
- * \param path     (in)  : Le chemin d'accès au fichier du labyrinthe
- * \param terrain  (out) : Le tableau de string représentant le labyrinthe
- * \param tex_list (out) : La hashmap associant un chemin d'accès à un caractère
+ * \brief fonction construisant Ã  la fois le terrain et la liste des textures
+ * \param path     (in)  : Le chemin d'accÃ¨s au fichier du labyrinthe
+ * \param terrain  (out) : Le tableau de string reprÃ©sentant le labyrinthe
+ * \param tex_list (out) : La hashmap associant un chemin d'accÃ¨s Ã  un caractÃ¨re
  */
 void build_map(const char* path, vector<string> &terrain, map<char, string> &tex_list);
 
 /**
  * \brief construit les listes
  * \param terrain     (in) : Le terrain/labyrinthe
- * \param guard_list (out) : La liste des coordonnées des gardes
- * \param wall_list  (out) : La liste des coordonnées des murs
- * \param text_list  (out) : La liste des textures (une texture = coordonnée, char-id de texture et un indicateur sur le sens de la texture)
+ * \param guard_list (out) : La liste des coordonnÃ©es des gardes
+ * \param wall_list  (out) : La liste des coordonnÃ©es des murs
+ * \param text_list  (out) : La liste des textures (une texture = coordonnÃ©e, char-id de texture et un indicateur sur le sens de la texture)
  * \param box_list   (out) : La liste des boites
  * \param player_pos (out) : La position du joueur 
- * \param treasure_pos(out): La position du trésor
+ * \param treasure_pos(out): La position du trÃ©sor
  **/
 void parse_map(const vector<string> &terrain, 
 	       list<coord> &guard_list,
@@ -54,11 +54,11 @@ void parse_map(const vector<string> &terrain,
 	       int &width);
 
 /**
- * \brief fait la liste des extrémités des murs partant de la coordonnée base_coord sur le terrain.
+ * \brief fait la liste des extrÃ©mitÃ©s des murs partant de la coordonnÃ©e base_coord sur le terrain.
  * \param terrain     (in) : Le labyrinthe
- * \param base_coord  (in) : La coordonnée de départ du mur
- * \param extr_list   (out): La liste des extrémités des murs
- * \param text_list (inout): La liste des coordonnées+caractères+"verticalité" des textures
+ * \param base_coord  (in) : La coordonnÃ©e de dÃ©part du mur
+ * \param extr_list   (out): La liste des extrÃ©mitÃ©s des murs
+ * \param text_list (inout): La liste des coordonnÃ©es+caractÃ¨res+"verticalitÃ©" des textures
  **/
 void parse_wall_extr(const vector<string> &terrain,
 		     const coord &base_coord,
@@ -66,8 +66,8 @@ void parse_wall_extr(const vector<string> &terrain,
 		     list<tuple<coord, char, bool>> &text_list);
 
 /**
- * \brief fusionne les extrémités et la coordonnée de base, pour créer un ou deux murs 
- * \param other_extr (in) : La liste des extrémités
+ * \brief fusionne les extrÃ©mitÃ©s et la coordonnÃ©e de base, pour crÃ©er un ou deux murs 
+ * \param other_extr (in) : La liste des extrÃ©mitÃ©s
  * \param wall_lst (inout): La liste des murs
  **/
 void add_to_wall_list(const coord &base_coord,
@@ -75,15 +75,15 @@ void add_to_wall_list(const coord &base_coord,
 		      list<pair<coord, coord>> &wall_lst);
 
 /**
- * \brief Décide si une ligne est considérée comme vide (commentaires inclus), id est ne contenant que des caractères espace (ou un commentaire)
- * \param str la chaîne de caractère testée
- * \return true si la chaîne est vide (uniquement des espaces ou des commentaires), false sinon
+ * \brief DÃ©cide si une ligne est considÃ©rÃ©e comme vide (commentaires inclus), id est ne contenant que des caractÃ¨res espace (ou un commentaire)
+ * \param str la chaÃ®ne de caractÃ¨re testÃ©e
+ * \return true si la chaÃ®ne est vide (uniquement des espaces ou des commentaires), false sinon
  */
 bool is_blank(const string &str);
 
 /**
- * \brief rend le premier caractère non-nul de la chaine, ou 0 si la chaine est vide
- * \param la str à tester
+ * \brief rend le premier caractÃ¨re non-nul de la chaine, ou 0 si la chaine est vide
+ * \param la str Ã  tester
  */
 char first_char(const string &str);
 
@@ -92,7 +92,7 @@ char first_char(const string &str);
 
 class Labyrinthe : public Environnement {
 private:
-    char  **_data;	//!< indique si la case est libre ou occupée.
+    char  **_data;	//!< indique si la case est libre ou occupÃ©e.
     int   lab_width;	//!< dimensions du rectangle.
     int   lab_height;	//!<  englobant le labyrinthe.
 
@@ -106,47 +106,47 @@ private:
     void fill_dist(int, int);
     /**
      * \brief Initialise _guards et _nguard dans la classe
-     * \param guards     (in) : une liste des coordonnées des gardes 
-     * \param player_pos (in) : La coordonnée du joueur
-     * TODO : génération de gardes différents
+     * \param guards     (in) : une liste des coordonnÃ©es des gardes 
+     * \param player_pos (in) : La coordonnÃ©e du joueur
+     * TODO : gÃ©nÃ©ration de gardes diffÃ©rents
      **/
     void build_guards(list<coord> guards, const coord &player_pos);
 
     /**
      * \brief Initialise les murs (_nwall et _walls[]) 
-     * \param wall_list (in) : la liste des murs, un mur étant représenté par
-     * une paire de coordonnées. 
-     * Pour chaque paire de coordonnées (x1 y1) (x2 y2) de la liste, on fait 
-     * l'hypothèse que 
-     * La première coordonnées est "plus petite" que la seconde, id est 
+     * \param wall_list (in) : la liste des murs, un mur Ã©tant reprÃ©sentÃ© par
+     * une paire de coordonnÃ©es. 
+     * Pour chaque paire de coordonnÃ©es (x1 y1) (x2 y2) de la liste, on fait 
+     * l'hypothÃ¨se que 
+     * La premiÃ¨re coordonnÃ©es est "plus petite" que la seconde, id est 
      * (x1 < x2 || y1 < y2).
      **/
     void build_walls (list<pair<coord, coord>> wall_list);
 
     /**
      * \brief initialise les boites 
-     * \param box_list (in) : liste des coordonnées des boites
+     * \param box_list (in) : liste des coordonnÃ©es des boites
      **/
     void build_boxes (list<coord> box_list);
 
     /**
-     * \brief initialisation du trésor
-     * \param c la coordonnée du trésor
+     * \brief initialisation du trÃ©sor
+     * \param c la coordonnÃ©e du trÃ©sor
      **/
     void build_treasure(coord c);
 
     /**
      * \brief initialisation des textures
-     * \param text_map (in) : la structure associant un caractère représentant une texture 
+     * \param text_map (in) : la structure associant un caractÃ¨re reprÃ©sentant une texture 
      * dans le .txt du labyrinthe au nom de la texture
-     * \param text_list (in): Une liste des textures, où chaque élément contient la coordonnée 
-     * de la texture, le caractère représentant la texture, ainsi que l'orientation de la texture
-     * (égale à HORIZONTAL ou VERTICAL)
+     * \param text_list (in): Une liste des textures, oÃ¹ chaque Ã©lÃ©ment contient la coordonnÃ©e 
+     * de la texture, le caractÃ¨re reprÃ©sentant la texture, ainsi que l'orientation de la texture
+     * (Ã©gale Ã  HORIZONTAL ou VERTICAL)
      * 
      **/
     void build_text(map<char, string> text_map, list<tuple<coord, char, bool>> text_list);
 
-    void get_directon(int x, int y);
+
     void init_vector_dist();
 public:
     Labyrinthe();
@@ -156,7 +156,7 @@ public:
     int width () { return lab_width;}
     // \brief retourne la longueur du labyrinthe.
     int height () { return lab_height;}	
-    // retourne l'état (occupation) de la case (i, j).
+    // retourne l'Ã©tat (occupation) de la case (i, j).
     char data (int i, int j){
 	return _data [i][j];
     }

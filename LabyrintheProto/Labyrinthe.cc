@@ -219,6 +219,7 @@ Labyrinthe::Labyrinthe(char* path){
     build_boxes(box_list);
     build_treasure(treasure_pos);
     build_text(text_map, text_list);
+    init_vector_dist();
 }
 
 void Labyrinthe::init_data(){
@@ -241,7 +242,7 @@ void Labyrinthe::build_guards(list<coord> guards, const coord &player_pos){
 	coord c = guards.front();
 	guards.pop_front();
 
-	_data[c.x][c.y] = 1;
+	//_data[c.x][c.y] = 1;
 	_guards[n] = new Gardien(this, "drfreak");
 	_guards[n] -> _x = (float) scale * c.x;
 	_guards[n] -> _y = (float) scale * c.y;
@@ -340,39 +341,61 @@ void Labyrinthe::build_text(map<char, string> text_map, list<tuple<coord, char, 
     }
 }
 
-
 void Labyrinthe::build_treasure(coord c){
     _treasor._x = c.x;
     _treasor._y = c.y;
     _data[c.x][c.y] = 1;	
 }
 
+// Hypothèse : La distance du noeud courant a été remplie avant l'appel
+void Labyrinthe::fill_dist(int x, int y){
+    int current_dist = _dist_vect[x][y];
+    int x_ = x + 1,
+	y_ = y;
+    
+    if(   _dist_vect[x+1][y] != -1
+       && current_dist + 1 < _dist_vect[x+1][y]){
+	_dist_vect[x+1][y] = current_dist + 1;
+	fill_dist(x+1, y);
+    }
+    if(   _dist_vect[x-1][y] != -1
+       && current_dist + 1 < _dist_vect[x-1][y]){
+	_dist_vect[x-1][y] = current_dist + 1;
+	fill_dist(x-1, y);
+    }
+    if(   _dist_vect[x][y+1] != -1
+       && current_dist + 1 < _dist_vect[x][y+1]){
+	_dist_vect[x][y+1] = current_dist + 1;
+	fill_dist(x, y+1);
+    }
 
-void fill_dist(int x, int y, int current_dist, int value){
-    current_dist = _dict_vect[x][y];
+    if(   _dist_vect[x][y-1] != -1
+       && current_dist + 1 < _dist_vect[x][y-1]){
+	
+	_dist_vect[x][y-1] = current_dist + 1;
+	fill_dist(x, y-1);
+    }
 }
 
 
-// 1. Calcul de 
+// 1. Calcul du vecteur de distances
 void Labyrinthe::init_vector_dist(){
     // lab_width, lab_height
     int max_int = 9999999999;
-    _dist_vect = vector<>(lab_width);
+    _dist_vect = vector<vector<int>>(lab_width);
     for(int i = 0; i< lab_width; i++){
-	_dist_vect[i] = vector<>(lab_height);
+	_dist_vect[i] = vector<int>(lab_height);
     }
 
     for(int i = 0; i < lab_width; i++){
 	for(int j = 0; j < lab_height; j++){
 	    char val = _data[i][j];
 	    if(val == EMPTY)
-		_dist_vect[i][j] = -1;
+		_dist_vect[i][j] = max_int;
 	    else
-		_dict_vect[i][j] = max_int;	    
+		_dist_vect[i][j] = -1;	    
 	}
     }
     _dist_vect[_treasor._x][_treasor._y] = 0;
-
-    
-    
+    fill_dist(_treasor._x, _treasor._y);    
 }
