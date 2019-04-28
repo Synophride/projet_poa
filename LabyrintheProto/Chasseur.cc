@@ -43,6 +43,7 @@ bool Chasseur::process_fireball (float dx, float dy)
 		// il y a la place.
 		return true;
 	}
+	
 	// collision...
 	// calculer la distance maximum en ligne droite.
 	float	dmax2 = (_l -> width ())*(_l -> width ()) + (_l -> height ())*(_l -> height ());

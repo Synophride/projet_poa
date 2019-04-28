@@ -107,26 +107,6 @@ list<node> get_shortest_path(node start, node goal, Environnement* evt){
 
 // Sur 8
 int Gardien::get_direction(int x, int y){
-    Labyrinthe * l = (Labyrinthe*) _l;
-    // Passer à huit ? 
-    int dist_courante = l -> dist_of_treasure(x, y);
-    int dist_min = l -> dist_of_treasure(x, y+1);
-    int	direction = 0;
-    
-    if(dist_min == -1 || dist_min > l -> dist_of_treasure(x+1, y)){
-	dist_min = l -> dist_of_treasure(x+1, y);
-	direction = 1;	
-    }
-    if(dist_min == -1 || dist_min > l -> dist_of_treasure(x, y-1)){
-	dist_min = l -> dist_of_treasure(x, y-1);
-	direction = 2;	
-    }
-    if(dist_min == -1 || dist_min > l -> dist_of_treasure(x-1, y)){
-	dist_min = l -> dist_of_treasure(x-1, y);
-	direction = 3;
-    }
-
-    return direction;
 }
 
 
