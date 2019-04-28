@@ -31,7 +31,6 @@ char first_char(const string &str){
     return 0;
 }
 
-
 void build_map(char* path, vector<string> &terrain, map<char, string> &tex_list){
     ifstream in = ifstream();
     string line = "";
@@ -220,6 +219,7 @@ Labyrinthe::Labyrinthe(char* path){
     build_treasure(treasure_pos);
     build_text(text_map, text_list);
     init_vector_dist();
+    
 }
 
 void Labyrinthe::init_data(){
@@ -233,11 +233,14 @@ void Labyrinthe::init_data(){
 
 void Labyrinthe::build_guards(list<coord> guards, const coord &player_pos){
     _nguards = guards.size() + 1;
+    _nb_alive = guards.size();
     _guards = new Mover* [_nguards];
     _guards[0] = new Chasseur(this);
     _guards[0]->_x = (float) scale * player_pos.x;
     _guards[0]->_y = (float) scale * player_pos.y;
+    _data[player_pos.x][player_pos.y] = JOUEUR;
     int n = 1;
+    
     while(!guards.empty()){
 	coord c = guards.front();
 	guards.pop_front();
@@ -246,7 +249,7 @@ void Labyrinthe::build_guards(list<coord> guards, const coord &player_pos){
 	_guards[n] = new Gardien(this, "drfreak");
 	_guards[n] -> _x = (float) scale * c.x;
 	_guards[n] -> _y = (float) scale * c.y;
-
+	_data[c.x][c.y] = GARDE;
 	n++;
     }
 }
@@ -262,7 +265,7 @@ void Labyrinthe::build_boxes(list<coord> box_list){
 	_boxes[n]._x = c.x;
 	_boxes[n]._y = c.y;
 	_boxes[n]._ntex = 0;
-	_data[c.x][c.y] = 1;
+	_data[c.x][c.y] = BOX;
 	
 	n++;
     }
@@ -280,20 +283,16 @@ void Labyrinthe::build_walls(list<pair<coord, coord>> wall_list){
 	
 	coord c1 = get<0>(wall_extrs); // On a la certitude que cette coord = plus à haut ou plus en gauche
 	coord c2 = get<1>(wall_extrs);
-
-
+	
 	_walls[n]._x1 = c1.x;
 	_walls[n]._y1 = c1.y;
-	
 	_walls[n]._x2 = c2.x;
-	_walls[n]._y2 = c2.y;
-	
+	_walls[n]._y2 = c2.y;	
 	_walls[n]._ntex = 0;
-
 	
 	for(int y = c1.y; y<=c2.y; y++)
 	    for(int x = c1.x; x<=c2.x; x++)
-		_data[x][y] = 1;
+		_data[x][y] = WALL;
 	    
 	n++;
     }
@@ -344,17 +343,17 @@ void Labyrinthe::build_text(map<char, string> text_map, list<tuple<coord, char, 
 void Labyrinthe::build_treasure(coord c){
     _treasor._x = c.x;
     _treasor._y = c.y;
-    _data[c.x][c.y] = 1;	
+    _data[c.x][c.y] = TREASURE;	
 }
 
 // Hypothèse : La distance du noeud courant a été remplie avant l'appel
 void Labyrinthe::fill_dist(int x, int y){
+
     int current_dist = _dist_vect[x][y];
-    int x_ = x + 1,
-	y_ = y;
     
     if(   _dist_vect[x+1][y] != -1
        && current_dist + 1 < _dist_vect[x+1][y]){
+	
 	_dist_vect[x+1][y] = current_dist + 1;
 	fill_dist(x+1, y);
     }
@@ -381,21 +380,46 @@ void Labyrinthe::fill_dist(int x, int y){
 // 1. Calcul du vecteur de distances
 void Labyrinthe::init_vector_dist(){
     // lab_width, lab_height
-    int max_int = 9999999999;
+    
+    int max_int = 1000000;
     _dist_vect = vector<vector<int>>(lab_width);
     for(int i = 0; i< lab_width; i++){
 	_dist_vect[i] = vector<int>(lab_height);
     }
-
+    
     for(int i = 0; i < lab_width; i++){
 	for(int j = 0; j < lab_height; j++){
 	    char val = _data[i][j];
-	    if(val == EMPTY)
+	    if(val == EMPTY || val == GARDE || val == JOUEUR)
 		_dist_vect[i][j] = max_int;
 	    else
-		_dist_vect[i][j] = -1;	    
+		_dist_vect[i][j] = -1;
 	}
     }
+    
     _dist_vect[_treasor._x][_treasor._y] = 0;
     fill_dist(_treasor._x, _treasor._y);    
 }
+
+void Labyrinthe::set_data(int x, int y, char value){
+    _data[x][y] = value;
+}
+void Labyrinthe::hurt_joueur(){
+    Chasseur * c = (Chasseur*) _guards[0];
+    c->hurt();
+}
+void Labyrinthe::hurt_gardien_at(int x, int y){
+    for(int i = 1; i < _nguards; i++){
+	int guard_x = _guards[i]->_x / scale,
+	    guard_y = _guards[i]->_y / scale;
+	
+	if(guard_x == x && guard_y == y){
+	    Gardien* g = (Gardien*) _guards[i];
+	    g->hurt();
+	}
+	    
+	 
+	
+    }
+}
+    

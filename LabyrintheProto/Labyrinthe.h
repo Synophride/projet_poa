@@ -16,9 +16,16 @@
 #include "Environnement.h"
 using namespace std;
 
+
+
 const bool HORIZONTAL = false;
 const bool VERTICAL   =  true;
 
+const char WALL = 1;
+const char BOX = 2;
+const char GARDE  = 3;
+const char JOUEUR = 4;
+const char TREASURE = 5;
 
 struct coord{
     int x;
@@ -66,7 +73,7 @@ void parse_wall_extr(const vector<string> &terrain,
 		     list<tuple<coord, char, bool>> &text_list);
 
 /**
- * \brief fusionne les extrémités et la coordonnée de base, pour créer un ou deux murs 
+ * \brief fusionne les extrémités et la coordonnée de base, pour créer un ou deux murs
  * \param other_extr (in) : La liste des extrémités
  * \param wall_lst (inout): La liste des murs
  **/
@@ -87,22 +94,22 @@ bool is_blank(const string &str);
  */
 char first_char(const string &str);
 
-
-
-
 class Labyrinthe : public Environnement {
-private:
+
+    private:
+
     char  **_data;	//!< indique si la case est libre ou occupée.
     int   lab_width;	//!< dimensions du rectangle.
     int   lab_height;	//!<  englobant le labyrinthe.
+    int   _nb_alive;
 
-    
     vector<vector<int>> _dist_vect;
+
     /**
      * \brief initialise _data[][], en fonction de lab_with et lab_height
      **/
     void init_data();
-    
+
     void fill_dist(int, int);
     /**
      * \brief Initialise _guards et _nguard dans la classe
@@ -145,22 +152,37 @@ private:
      * 
      **/
     void build_text(map<char, string> text_map, list<tuple<coord, char, bool>> text_list);
-
     void get_directon(int x, int y);
     void init_vector_dist();
-public:
+
+    public:
     Labyrinthe();
     Labyrinthe (char*);
     
     /// \brief  retourne la largeur du labyrinthe.
     int width () { return lab_width;}
+
     // \brief retourne la longueur du labyrinthe.
-    int height () { return lab_height;}	
+    int height () {return lab_height;}
+
     // retourne l'état (occupation) de la case (i, j).
     char data (int i, int j){
 	return _data [i][j];
     }
-    int dist_of_treasure(int x, int y){ return _dist_vect[x][y]; }
-};
 
+    void iamdying(){_nb_alive--;}
+    
+    int nb_alive(){
+	return _nb_alive;
+    }
+
+    void hurt_gardien_at(int x, int y);
+    void hurt_joueur();
+    void set_data(int x, int y, char value);
+    
+    int dist_of_treasure(int x, int y){
+	return _dist_vect[x][y];
+    }
+    
+};
 #endif

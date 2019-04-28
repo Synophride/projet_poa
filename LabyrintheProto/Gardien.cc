@@ -3,19 +3,20 @@
 using namespace std;
 
 void Gardien::update(){
-    move_to_treasure();
+    if(dead)
+	return;
+    if(rand()%100 == 0)
+	fire(0);
+    // move_to_treasure();
 }
 
 bool Gardien::move_to_treasure(){
-    Labyrinthe * l = (Labyrinthe*) _l;
-    
     int x = (_x) / Environnement::scale,
 	y = (_y) / Environnement::scale;
 
     cout << "Position du gardien : \t" << x << ',' << y << endl;
     
     int estimated_dist = l -> dist_of_treasure(x, y);
-
     
     cout << "Distance estimée : \t" << estimated_dist << endl;
 
@@ -54,17 +55,64 @@ bool Gardien::avancer(){
     return try_move(dx, dy);
 }
 
+// Appelé quand le gardien doit mourir
+void Gardien::die(){
+    message("je suis mort fdp");
+    rester_au_sol();
+    l->iamdying();
+    dead=true;
+    l->set_data(_x/Environnement::scale, _y / Environnement ::scale, EMPTY);    
+}
+
+bool Gardien::process_fireball(float dx, float dy){
+    // calculer la distance entre le chasseur et le lieu de l'explosion.
+    float   x = (_x - _fb -> get_x ()) / Environnement::scale;
+    float   y = (_y - _fb -> get_y ()) / Environnement::scale;
+    float	dist2 = x*x + y*y;
+
+    int new_x = (int)((_fb -> get_x () + dx) / Environnement::scale),
+	new_y = (int)((_fb -> get_y () + dy) / Environnement::scale);	    
+    char contenu_case = _l -> data(new_x, new_y);
+    if(EMPTY ==  contenu_case || GARDE == contenu_case){
+		message ("Woooshh ..... %d", (int) dist2);
+		// il y a la place.
+		return true;
+	}
+	// collision...
+	// calculer la distance maximum en ligne droite.
+	float	dmax2 = (_l -> width ())*(_l -> width ()) + (_l -> height ())*(_l -> height ());
+	// faire exploser la boule de feu avec un bruit fonction de la distance.
+	// teste si on a touché le trésor: juste pour montrer un exemple de la
+	// fonction « partie_terminee ».
+	if (JOUEUR == contenu_case){
+	    Labyrinthe * l = (Labyrinthe*) _l;
+	    l -> hurt_joueur();
+	}
+	
+	return false;
+}
+
+
+void Gardien::hurt(){
+    message("Aie fdp");
+
+    _pv--;
+    if(_pv == 0)
+	die();
+    
+}
+
+
 bool Gardien::move(double dx, double dy){
     _angle = ( (int) (90 +  ((atan2(dy, dx)+M_PI) * 180) / M_PI)) % 360;
     return try_move(dx, dy) || try_move(dx, 0.0) || try_move(0.0, dy);
 }
 
-void Gardien::fire(int angle_vertical){
-    return;
-}
 
-bool Gardien::process_fireball(float dx, float dy){
-    return false;
+void Gardien::fire(int angle_vertical){
+    _fb -> init (/* position initiale de la boule */ _x, _y, 10.,
+		 /* angles de visée */ angle_vertical, _angle);
+    
 }
 
 bool Gardien::is_legit_move(double dx, double dy){
@@ -74,13 +122,24 @@ bool Gardien::is_legit_move(double dx, double dy){
 	       && new_x <  _l->width()
 	       && new_y >= 0
 	       && new_y <  _l->height()
-	       && EMPTY == _l->data(new_x, new_y));
+	       && (EMPTY == _l->data(new_x, new_y) || GARDE == _l->data(new_x, new_y)));
 }
+
 
 bool Gardien::try_move(double dx, double dy ){
     if(! is_legit_move(dx, dy))
 	return false;
+    int old_x = _x / Environnement::scale,
+	old_y = _y / Environnement::scale;
+
     _x += dx;
     _y += dy;
+
+    int new_x = _x / Environnement::scale,
+	new_y = _y / Environnement::scale;
+
+    l -> set_data(old_x, old_y, EMPTY);
+    l -> set_data(new_x, new_y, GARDE);
+    
     return true;
 }

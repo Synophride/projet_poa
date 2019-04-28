@@ -4,13 +4,15 @@
 #include <stdio.h>
 #include "Mover.h"
 #include "Sound.h"
-
-class Labyrinthe;
+#include "Labyrinthe.h"
 
 class Chasseur : public Mover {
 private:
 	// accepte ou non un deplacement.
 	bool move_aux (double dx, double dy);
+	int _pv = 10;
+	Labyrinthe* l;
+	
 public:
 	/*
 	 *	Le son...
@@ -20,10 +22,14 @@ public:
 	static Sound*	_wall_hit;		// on a tapé un mur.
 
 	Chasseur (Labyrinthe* l);
+	void hurt();
+	void die();
+
 	// ne bouger que dans une case vide (on 'glisse' le long des obstacles)
 	bool move (double dx, double dy) {
 	    return move_aux (dx, dy) || move_aux (dx, 0.0) || move_aux (0.0, dy);
 	}
+	
 	// le chasseur ne pense pas!
 	void update (void) {};
 	// fait bouger la boule de feu (ceci est une exemple, à vous de traiter les collisions spécifiques...)

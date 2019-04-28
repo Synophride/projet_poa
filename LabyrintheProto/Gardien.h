@@ -23,12 +23,12 @@ struct node {
 };
 
 
-
-
 class Gardien : public Mover {
-private:
-    bool inited = false;
-    double speed = 1;
+    private:
+    static const int BASE_PV = 10;
+    bool dead = false;
+    Labyrinthe * l;
+    int _pv = BASE_PV;
     
     /**
     * \brief teste si le mouvement de coordonnées (dx, dy) est acceptable, 
@@ -45,15 +45,21 @@ private:
     bool avancer();
 
     bool move_to_treasure();
+
+    void die();
     
     public:
-    Gardien (Labyrinthe* l, const char* modele) : Mover (120, 80, l, modele){}
+    Gardien (Labyrinthe* laby, const char* modele) : Mover (120, 80, laby, modele){
+	l = (Labyrinthe*) _l;
+    }
 
     ~Gardien(){}
     
     // mon gardien pense très mal!
     void update(void);
-
+    
+    void hurt();
+    
     /**
      * \brief Tente d'accomplir le mouvement en paramètre. Meme principe 
      * que try_move, mais va faire en sorte de glisser sur les murs 
@@ -69,6 +75,5 @@ private:
 
     // quand a faire bouger la boule de feu...
     bool process_fireball (float dx, float dy);
-
 };
 #endif
