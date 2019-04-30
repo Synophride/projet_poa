@@ -25,11 +25,17 @@ struct node {
 
 class Gardien : public Mover {
     private:
+    bool fired = false;
+
+    static const int RELOAD_TIME = 50;
+    bool reloading = false;
+    int reload = 0;
+    
     static const int BASE_PV = 10;
     bool dead = false;
     Labyrinthe * l;
     int _pv = BASE_PV;
-    
+    bool can_see_player();
     /**
     * \brief teste si le mouvement de coordonnées (dx, dy) est acceptable, 
     * id est que ça implique pas de marcher au travers d'un mur

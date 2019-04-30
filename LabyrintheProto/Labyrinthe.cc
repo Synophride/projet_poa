@@ -8,7 +8,7 @@ Sound*	Chasseur::_hunter_hit;	// cri du chasseur touché.
 Sound*	Chasseur::_wall_hit;	// on a tapé un mur.
 
 Environnement* Environnement::init (char* filename){
-    return new Labyrinthe (filename);
+    return new Labyrinthe(filename);
 }
 
 bool is_blank(const string &str){

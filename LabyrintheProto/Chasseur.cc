@@ -36,7 +36,8 @@ Chasseur::Chasseur (Labyrinthe* laby) : Mover (100, 80, laby, 0){
 }
 
 /*
- *	Fait bouger la boule de feu (ceci est une exemple, à vous de traiter les collisions spécifiques...)
+ * Fait bouger la boule de feu
+ *    (ceci est une exemple, à vous de traiter les collisions spécifiques...)
  */
 bool Chasseur::process_fireball(float dx, float dy){
 	// calculer la distance entre le chasseur et le lieu de l'explosion.
@@ -48,8 +49,7 @@ bool Chasseur::process_fireball(float dx, float dy){
 	char contenu_case = _l -> data(new_x, new_y);
 
 	// on bouge que dans le vide ou dans le joueur !
-	if(EMPTY ==  contenu_case || JOUEUR == contenu_case)
-	{
+	if(EMPTY ==  contenu_case || JOUEUR == contenu_case){
 		message ("Woooshh ..... %d", (int) dist2);
 		// il y a la place.
 		return true;
@@ -93,10 +93,10 @@ void Chasseur::fire (int angle_vertical)
  *	une utilisation des fonctions « tomber » et « rester_au_sol »
  */
 void Chasseur::right_click (bool shift, bool control) {
-	if (shift)
-	    _l -> _guards [1] -> rester_au_sol ();
-	else
-	    _l -> _guards [1] -> tomber ();
+    if (shift)
+	_l -> _guards [1] -> rester_au_sol ();
+    else
+	_l -> _guards [1] -> tomber ();
 }
 
 

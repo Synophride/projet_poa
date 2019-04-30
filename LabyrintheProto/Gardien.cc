@@ -5,10 +5,39 @@ using namespace std;
 void Gardien::update(){
     if(dead)
 	return;
-    if(rand()%100 == 0)
-	fire(0);
+    reload ++;
+    can_see_player();
     // move_to_treasure();
 }
+
+bool Gardien::can_see_player(){
+    float
+	x_player = _l -> _guards[0]->_x,
+	y_player = _l -> _guards[0]->_y,
+	angle = atan2((x_player - _x), (y_player - _y) );
+
+    _angle = (((int)-(angle * 180./M_PI))) % 360;
+    
+    for(float dist = 0; true; dist += 1.){	
+	float
+	    cur_x = sin(angle) * dist + _x,
+	    cur_y = cos(angle) * dist + _y;
+	
+	int x = (int) (cur_x / Environnement :: scale),
+	    y = (int) (cur_y / Environnement :: scale);
+	
+	if(_l->data(x, y) == JOUEUR){
+	    printf("Joueur vu \n");
+	    return true;
+	} else if (_l -> data(x, y) == WALL){
+	    printf("Joueur pas vu \n");
+	    return false; 
+	}
+	
+    }
+
+}
+
 
 bool Gardien::move_to_treasure(){
     int x = (_x) / Environnement::scale,
@@ -68,7 +97,7 @@ bool Gardien::process_fireball(float dx, float dy){
     // calculer la distance entre le chasseur et le lieu de l'explosion.
     float   x = (_x - _fb -> get_x ()) / Environnement::scale;
     float   y = (_y - _fb -> get_y ()) / Environnement::scale;
-    float	dist2 = x*x + y*y;
+    float   dist2 = x*x + y*y;
 
     int new_x = (int)((_fb -> get_x () + dx) / Environnement::scale),
 	new_y = (int)((_fb -> get_y () + dy) / Environnement::scale);	    
@@ -78,18 +107,16 @@ bool Gardien::process_fireball(float dx, float dy){
 		// il y a la place.
 		return true;
 	}
-	// collision...
-	// calculer la distance maximum en ligne droite.
-	float	dmax2 = (_l -> width ())*(_l -> width ()) + (_l -> height ())*(_l -> height ());
-	// faire exploser la boule de feu avec un bruit fonction de la distance.
-	// teste si on a touché le trésor: juste pour montrer un exemple de la
-	// fonction « partie_terminee ».
-	if (JOUEUR == contenu_case){
-	    Labyrinthe * l = (Labyrinthe*) _l;
-	    l -> hurt_joueur();
-	}
-	
-	return false;
+
+    // collision...
+    fired = false;
+    // calculer la distance maximum en ligne droite.
+    float dmax2 = (_l -> width ())*(_l -> width ()) + (_l -> height ())*(_l -> height ());
+    if (JOUEUR == contenu_case){
+	Labyrinthe * l = (Labyrinthe*) _l;
+	l -> hurt_joueur();
+    }
+    return false;
 }
 
 
@@ -110,8 +137,10 @@ bool Gardien::move(double dx, double dy){
 
 
 void Gardien::fire(int angle_vertical){
+    fired = true;
+    int true_ang = - _angle;
     _fb -> init (/* position initiale de la boule */ _x, _y, 10.,
-		 /* angles de visée */ angle_vertical, _angle);
+		 /* angles de visée */ angle_vertical, - _angle);
     
 }
 
