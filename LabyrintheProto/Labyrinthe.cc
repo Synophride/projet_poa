@@ -219,7 +219,7 @@ Labyrinthe::Labyrinthe(char* path){
     build_treasure(treasure_pos);
     build_text(text_map, text_list);
     init_vector_dist();
-    
+    init_vector_playerdist();
 }
 
 void Labyrinthe::init_data(){
@@ -397,28 +397,29 @@ void Labyrinthe::init_vector_playerdist(){
     for( int i = 0; i < lab_width; i++ ){
 	_estimated_dist_player[i] = vector<int>(lab_height);
 	for(int j = 0; j< lab_height; j++){
-	    if(_data[i][j] == MUR || _data[i][j] == BOX)
+	    if(_data[i][j] == WALL || _data[i][j] == BOX)
 		_estimated_dist_player[i][j] = -1;
 	    else
 		_estimated_dist_player[i][j] = 1000000;
 	}
-   } g
+   }
 }
 
 void Labyrinthe::maj_player_dist(int x, int y){
     for(int i = 0; i< lab_width; i++)
 	for(int j = 0; j < lab_width; j++)
-	    if(_data[i][j] == MUR || _data[i][j] == BOX)
+	    if(_data[i][j] == WALL || _data[i][j] == BOX)
 		_estimated_dist_player[i][j] = -1;
 	    else
 		_estimated_dist_player[i][j] = 1000000;
     
-    int pos_px = (int) _guards[0]._x / scale;
-    int pos_py =_(int) _guards[0]._y / scale
+    int pos_px = (int) _guards[0]->_x / scale;
+    int pos_py = (int) _guards[0]->_y / scale;
     _estimated_dist_player[pos_px][pos_py] = 0;
     
     fill_dist(pos_px, pos_py, _estimated_dist_player);
 }
+
 void Labyrinthe::fill_dist(int x, int y, vector<vector<int>> &v){
 
     int current_dist = v[x][y];

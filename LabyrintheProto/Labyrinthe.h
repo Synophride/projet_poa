@@ -119,7 +119,7 @@ class Labyrinthe : public Environnement {
      * en partant de la case de coordonnées (x, y) qu'on sait déjà remplie
      * 
      */
-    void fill_dist(int x, int y, vector<vector<int>> t);
+    void fill_dist(int x, int y, vector<vector<int>> &t);
     
     /**
      * \brief Initialise _guards et _nguard dans la classe
@@ -271,7 +271,6 @@ class Labyrinthe : public Environnement {
     **/
     void maj_player_dist(int x, int y);
 
-    void is_in_n_closest(Mover* guard, );
 };
 
 #endif

@@ -14,7 +14,7 @@ private:
     bool move_aux (double dx, double dy);
     int _pv = 10; //!< nombre de points de vie du chasseur
     Labyrinthe* l; //!< Labyrinthe correspondant à l'environnement
-    int perte_precision = 0; //!< perte de précision du chasseur
+    int perte_precision = 1; //!< perte de précision du chasseur
 
     /**
      * \brief fonction indiquant au chasseur qu'il est mort

@@ -5,10 +5,81 @@
 
 using namespace std;
 
+char Gardien::basic_decision(){
+    if(! (l->is_spotted()))
+	return EXPLORATION;
+    int alive = l->nb_alive();
+    
+    if(alive < 2){
+	if(rand()%4 == 0)
+	    return ATTAQUE;
+	return DEFENSE;
+    } else if ( (_l->_nguards) > 2 * alive) {
+	if(rand()%2 == 0)
+	    return DEFENSE;
+	return ATTAQUE;
+    } else {
+	if(rand()%4 == 0)
+	    return DEFENSE;
+	else return ATTAQUE;
+    }
+    
+}
+
+char Gardien::decision(){
+    if(! (l -> is_spotted()) )
+	return EXPLORATION;
+    
+    float a = 0;
+    a = (float)rand() / (float)RAND_MAX;
+    
+    if (a > 0.9){
+        float b = 0;
+        b = (float)rand() / (float)RAND_MAX;
+
+        if (b < 0.5)
+            return 0;
+        else 
+            return 1;
+    }
+
+    /* if() //IF gardien dans le groupe près du trésor
+        return 0;
+    else 
+    return 1; */
+}
+
+void Gardien::attaque(){
+    int x = (_x) / Environnement::scale,
+	y = (_y) / Environnement::scale;
+    
+    int estimated_dist = l -> dist_of_player(x, y);
+	
+    int d_xpos = l -> dist_of_player(x+1, y),
+	d_xneg = l -> dist_of_player(x-1, y),
+	d_ypos = l -> dist_of_player(x, y+1),
+	d_yneg = l -> dist_of_player(x, y-1);
+
+    if(d_xpos == estimated_dist -1){
+	move(1, 0);
+    } else if(d_xneg == estimated_dist -1){
+	move(-1,0);
+    } else if(d_ypos == estimated_dist -1){
+	move(0,1);
+    } else if(d_yneg == estimated_dist -1){
+	move(0,-1);
+    }
+    
+}
 
 void Gardien::update(){
     if(dead)
 	return;
+    if(can_see_player())
+	; //fire(0);
+    attaque();
+    return;
+	
     if(reloading){
 	reload ++;
 	printf("Reloading...%d/%d\n", reload, RELOAD_TIME);
@@ -17,12 +88,28 @@ void Gardien::update(){
 	    reload = 0;
 	}
     }
-    if(can_see_player())
-	fire(0);
+
+    _tours_avant_question --;
+    if(_tours_avant_question == 0){
+	_strategie = basic_decision();
+	_tours_avant_question = 2000;
+    }
     
-    // move_to_treasure();
+    switch(_strategie){
+    case EXPLORATION:
+	exploration();
+	break;
+    case ATTAQUE:
+	move_to_player();
+    case DEFENSE:
+	move_to_treasure();
+	break;
+    }
 }
 
+void Gardien::exploration(){
+    printf("J'explore wow \n");
+}
 bool Gardien::can_see_player(){
     float
 	x_player = _l -> _guards[0]->_x,
@@ -43,10 +130,8 @@ bool Gardien::can_see_player(){
 	    return true;
 	} else if (_l -> data(x, y) == WALL){
 	    return false; 
-	}
-	
+	}	
     }
-
 }
 
 
@@ -186,28 +271,6 @@ bool Gardien::try_move(double dx, double dy ){
     l -> set_data(new_x, new_y, GARDE);
     
     return true;
-}
-
-int Gardien::decision_move(){
-    float a = 0;
-    srand(time(NULL));
-    a = (float)rand() / (float)RAND_MAX;
-
-    if (a > 0.9){
-        float b = 0;
-        srand(time(NULL));
-        b = (float)rand() / (float)RAND_MAX;
-
-        if (b < 0.5)
-            return 0;
-        else 
-            return 1;
-    }
-
-    if() //IF gardien dans le groupe près du trésor
-        return 0;
-    else 
-        return 1; 
 }
 
 bool Gardien::move_to_player(){
