@@ -1,36 +1,167 @@
-\hypertarget{classGardien}{}\section{Gardien Class Reference}
+\hypertarget{classGardien}{}\section{Référence de la classe Gardien}
 \label{classGardien}\index{Gardien@{Gardien}}
 
 
-Inheritance diagram for Gardien\+:
+Classe implémentant les gardes.  
+
+
+
+
+{\ttfamily \#include $<$Gardien.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Gardien\+:
 % FIG 0
 
 
-Collaboration diagram for Gardien\+:
+Graphe de collaboration de Gardien\+:
 % FIG 1
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classGardien_afc1e450fa7ad919d801475b34ced6e8d}\label{classGardien_afc1e450fa7ad919d801475b34ced6e8d}} 
-{\bfseries Gardien} (\hyperlink{classLabyrinthe}{Labyrinthe} $\ast$laby, const char $\ast$modele)
+\hyperlink{classGardien_afc1e450fa7ad919d801475b34ced6e8d}{Gardien} (\hyperlink{classLabyrinthe}{Labyrinthe} $\ast$laby, const char $\ast$modele)
 \item 
-\mbox{\Hypertarget{classGardien_aed498f0d6bbb526e0373a914ba6bf9aa}\label{classGardien_aed498f0d6bbb526e0373a914ba6bf9aa}} 
-void {\bfseries update} (void)
+\hyperlink{classGardien_afef6202d924fef9d882bb40dfc4ac9fb}{$\sim$\+Gardien} ()
 \item 
-\mbox{\Hypertarget{classGardien_ac4ba490e309de80c1449fc5baef90390}\label{classGardien_ac4ba490e309de80c1449fc5baef90390}} 
+void \hyperlink{classGardien_aed498f0d6bbb526e0373a914ba6bf9aa}{update} (void)
+\item 
 void \hyperlink{classGardien_ac4ba490e309de80c1449fc5baef90390}{hurt} ()
-\begin{DoxyCompactList}\small\item\em fonction indiquant au gardien qu\textquotesingle{}il a �t� touch� par une boule de feu provenant du joueur. Baissera sa pr�cision et son nombre de points de vie \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em fonction indiquant au gardien qu\textquotesingle{}il a été touché par une boule de feu provenant du joueur. Baissera sa précision et son nombre de points de vie \end{DoxyCompactList}\item 
 bool \hyperlink{classGardien_a1de6511bda736ad456457c51fa9d8d68}{move} (double dx, double dy)
-\begin{DoxyCompactList}\small\item\em Tente d\textquotesingle{}accomplir le mouvement en param�tre. Meme principe que try\+\_\+move, mais va faire en sorte de glisser sur les murs. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classGardien_aa0e2e0fbdca75ddc5e0501b5498d5f55}\label{classGardien_aa0e2e0fbdca75ddc5e0501b5498d5f55}} 
+\begin{DoxyCompactList}\small\item\em Tente d\textquotesingle{}accomplir le mouvement en paramčtre. Meme principe que try\+\_\+move, mais va faire en sorte de glisser sur les murs. \end{DoxyCompactList}\item 
 void \hyperlink{classGardien_aa0e2e0fbdca75ddc5e0501b5498d5f55}{fire} (int angle\+\_\+vertical)
-\begin{DoxyCompactList}\small\item\em initialisera une boule de feu, qui sera envoy�e \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em initialisera une boule de feu, qui sera envoyée \end{DoxyCompactList}\item 
 bool \hyperlink{classGardien_ad1d0f6aca8be28477e16dae7a30301b8}{process\+\_\+fireball} (float dx, float dy)
-\begin{DoxyCompactList}\small\item\em G�re le d�placement de la boule de feu venant du garde. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
+\begin{DoxyCompactList}\small\item\em Gčre le déplacement de la boule de feu venant du garde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classGardien_ab4cae0375789f78258d37ccb16004a4d}{can\+\_\+see\+\_\+player} ()
+\begin{DoxyCompactList}\small\item\em indique si le gardien peut voir le joueur (ie s\textquotesingle{}il n\textquotesingle{}y a ni mur ni obstacle entre les deux). \end{DoxyCompactList}\item 
+bool \hyperlink{classGardien_aab71ebf5fb9fc0053459bac6bdd0f466}{is\+\_\+legit\+\_\+move} (double dx, double dy)
+\begin{DoxyCompactList}\small\item\em teste si le mouvement de coordonnées (dx, dy) est acceptable, id est que ēa implique pas de marcher au travers d\textquotesingle{}un mur \end{DoxyCompactList}\item 
+bool \hyperlink{classGardien_a851adaf99e906da7469567829893b8f4}{try\+\_\+move} (double dx, double dy)
+\begin{DoxyCompactList}\small\item\em tente d\textquotesingle{}accomplir le mouvement en paramčtre \end{DoxyCompactList}\item 
+bool \hyperlink{classGardien_a1ba8ec13ead6e60ab60b9944a89212fc}{avancer} ()
+\begin{DoxyCompactList}\small\item\em fait marcher le gardien vers l\textquotesingle{}avant \end{DoxyCompactList}\item 
+bool \hyperlink{classGardien_a1661d21c1b1f3155fd626c1af22db4fc}{move\+\_\+to\+\_\+treasure} ()
+\begin{DoxyCompactList}\small\item\em fait en sorte que le gardien aille vers le trésor \end{DoxyCompactList}\item 
+void \hyperlink{classGardien_a17d57e80bce205161c98c557bb6e7a9c}{die} ()
+\begin{DoxyCompactList}\small\item\em fonction appellée lors de la mort du gardien \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classGardien_a8ca3f9b553e9248f36735dde604fd756}{fired} = false
+\begin{DoxyCompactList}\small\item\em Indique si une boule de feu a déją été tirée. Si c\textquotesingle{}est le cas, il est impossible pour le gardien d\textquotesingle{}en tirer une autre. \end{DoxyCompactList}\item 
+bool \hyperlink{classGardien_aabac0fd95b26fdafba349c911542311a}{reloading} = false
+\begin{DoxyCompactList}\small\item\em indique si le gardien est en train de recharger (si c\textquotesingle{}est le cas, il ne peut pas tirer) \end{DoxyCompactList}\item 
+int \hyperlink{classGardien_a58cdd1f05ebd54e3f638b69e4978837d}{reload} = 0
+\begin{DoxyCompactList}\small\item\em indique le statut du rechargement \end{DoxyCompactList}\item 
+int \hyperlink{classGardien_a5d7e6815e221a4c2038efaf6e8ba9d2e}{perte\+\_\+precision} = 5
+\begin{DoxyCompactList}\small\item\em indique la perte de précision, en degrés, du gardien \end{DoxyCompactList}\item 
+bool \hyperlink{classGardien_ad418641d97373fb9304fc76f78c817ac}{dead} = false
+\begin{DoxyCompactList}\small\item\em indique si le gardien est mort \end{DoxyCompactList}\item 
+\hyperlink{classLabyrinthe}{Labyrinthe} $\ast$ \hyperlink{classGardien_a6a2c6e6cba4cf4e760ee8509d72f0f98}{l}
+\begin{DoxyCompactList}\small\item\em pointeur vers le labyrinthe \end{DoxyCompactList}\item 
+int \hyperlink{classGardien_a252683c50522c13f9604bea387d1af34}{\+\_\+pv} = \hyperlink{classGardien_a1832c02b32c6e47b240536fd6ba47812}{B\+A\+S\+E\+\_\+\+PV}
+\begin{DoxyCompactList}\small\item\em Nombre de PV restants au gardien. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classGardien_a9848c409574b185b566caa7b9c900ae7}{R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME} = 100
+\begin{DoxyCompactList}\small\item\em Temps de rechargement pour les gardiens (en nombre d\textquotesingle{}appels de \hyperlink{classGardien_aed498f0d6bbb526e0373a914ba6bf9aa}{update()}) \end{DoxyCompactList}\item 
+static const int \hyperlink{classGardien_a1832c02b32c6e47b240536fd6ba47812}{B\+A\+S\+E\+\_\+\+PV} = 10
+\begin{DoxyCompactList}\small\item\em Nombre de PV de base du gardien. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
 
 
-\subsection{Member Function Documentation}
+\subsection{Description détaillée}
+Classe implémentant les gardes. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classGardien_afc1e450fa7ad919d801475b34ced6e8d}\label{classGardien_afc1e450fa7ad919d801475b34ced6e8d}} 
+\index{Gardien@{Gardien}!Gardien@{Gardien}}
+\index{Gardien@{Gardien}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{Gardien()}{Gardien()}}
+{\footnotesize\ttfamily Gardien\+::\+Gardien (\begin{DoxyParamCaption}\item[{\hyperlink{classLabyrinthe}{Labyrinthe} $\ast$}]{laby,  }\item[{const char $\ast$}]{modele }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classGardien_afef6202d924fef9d882bb40dfc4ac9fb}\label{classGardien_afef6202d924fef9d882bb40dfc4ac9fb}} 
+\index{Gardien@{Gardien}!````~Gardien@{$\sim$\+Gardien}}
+\index{````~Gardien@{$\sim$\+Gardien}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{$\sim$\+Gardien()}{~Gardien()}}
+{\footnotesize\ttfamily Gardien\+::$\sim$\+Gardien (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classGardien_a1ba8ec13ead6e60ab60b9944a89212fc}\label{classGardien_a1ba8ec13ead6e60ab60b9944a89212fc}} 
+\index{Gardien@{Gardien}!avancer@{avancer}}
+\index{avancer@{avancer}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{avancer()}{avancer()}}
+{\footnotesize\ttfamily bool Gardien\+::avancer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+fait marcher le gardien vers l\textquotesingle{}avant 
+
+\mbox{\Hypertarget{classGardien_ab4cae0375789f78258d37ccb16004a4d}\label{classGardien_ab4cae0375789f78258d37ccb16004a4d}} 
+\index{Gardien@{Gardien}!can\+\_\+see\+\_\+player@{can\+\_\+see\+\_\+player}}
+\index{can\+\_\+see\+\_\+player@{can\+\_\+see\+\_\+player}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{can\+\_\+see\+\_\+player()}{can\_see\_player()}}
+{\footnotesize\ttfamily bool Gardien\+::can\+\_\+see\+\_\+player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+indique si le gardien peut voir le joueur (ie s\textquotesingle{}il n\textquotesingle{}y a ni mur ni obstacle entre les deux). 
+
+\begin{DoxyReturn}{Renvoie}
+true si pas d\textquotesingle{}obstacle entre le garde et le joueur, false inon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGardien_a17d57e80bce205161c98c557bb6e7a9c}\label{classGardien_a17d57e80bce205161c98c557bb6e7a9c}} 
+\index{Gardien@{Gardien}!die@{die}}
+\index{die@{die}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void Gardien\+::die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+fonction appellée lors de la mort du gardien 
+
+\mbox{\Hypertarget{classGardien_aa0e2e0fbdca75ddc5e0501b5498d5f55}\label{classGardien_aa0e2e0fbdca75ddc5e0501b5498d5f55}} 
+\index{Gardien@{Gardien}!fire@{fire}}
+\index{fire@{fire}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{fire()}{fire()}}
+{\footnotesize\ttfamily void Gardien\+::fire (\begin{DoxyParamCaption}\item[{int}]{angle\+\_\+vertical }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+initialisera une boule de feu, qui sera envoyée 
+
+
+
+Implémente \hyperlink{classMover_a670fb72f8e496de3420b89c84def7418}{Mover}.
+
+\mbox{\Hypertarget{classGardien_ac4ba490e309de80c1449fc5baef90390}\label{classGardien_ac4ba490e309de80c1449fc5baef90390}} 
+\index{Gardien@{Gardien}!hurt@{hurt}}
+\index{hurt@{hurt}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{hurt()}{hurt()}}
+{\footnotesize\ttfamily void Gardien\+::hurt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+fonction indiquant au gardien qu\textquotesingle{}il a été touché par une boule de feu provenant du joueur. Baissera sa précision et son nombre de points de vie 
+
+\mbox{\Hypertarget{classGardien_aab71ebf5fb9fc0053459bac6bdd0f466}\label{classGardien_aab71ebf5fb9fc0053459bac6bdd0f466}} 
+\index{Gardien@{Gardien}!is\+\_\+legit\+\_\+move@{is\+\_\+legit\+\_\+move}}
+\index{is\+\_\+legit\+\_\+move@{is\+\_\+legit\+\_\+move}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{is\+\_\+legit\+\_\+move()}{is\_legit\_move()}}
+{\footnotesize\ttfamily bool Gardien\+::is\+\_\+legit\+\_\+move (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+teste si le mouvement de coordonnées (dx, dy) est acceptable, id est que ēa implique pas de marcher au travers d\textquotesingle{}un mur 
+
 \mbox{\Hypertarget{classGardien_a1de6511bda736ad456457c51fa9d8d68}\label{classGardien_a1de6511bda736ad456457c51fa9d8d68}} 
 \index{Gardien@{Gardien}!move@{move}}
 \index{move@{move}!Gardien@{Gardien}}
@@ -39,21 +170,31 @@ bool \hyperlink{classGardien_ad1d0f6aca8be28477e16dae7a30301b8}{process\+\_\+fir
 
 
 
-Tente d\textquotesingle{}accomplir le mouvement en param�tre. Meme principe que try\+\_\+move, mais va faire en sorte de glisser sur les murs. 
+Tente d\textquotesingle{}accomplir le mouvement en paramčtre. Meme principe que try\+\_\+move, mais va faire en sorte de glisser sur les murs. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em dx} & mouvement en x tent� par le gardien \\
+\begin{DoxyParams}{Paramètres}
+{\em dx} & mouvement en x tenté par le gardien \\
 \hline
-{\em dy} & mouvement en y tent� par le gardien \\
+{\em dy} & mouvement en y tenté par le gardien \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true si le mouvement a �t� accompli, false sinon 
+\begin{DoxyReturn}{Renvoie}
+true si le mouvement a été accompli, false sinon 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{classMover}{Mover}.
+Implémente \hyperlink{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}{Mover}.
+
+\mbox{\Hypertarget{classGardien_a1661d21c1b1f3155fd626c1af22db4fc}\label{classGardien_a1661d21c1b1f3155fd626c1af22db4fc}} 
+\index{Gardien@{Gardien}!move\+\_\+to\+\_\+treasure@{move\+\_\+to\+\_\+treasure}}
+\index{move\+\_\+to\+\_\+treasure@{move\+\_\+to\+\_\+treasure}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{move\+\_\+to\+\_\+treasure()}{move\_to\_treasure()}}
+{\footnotesize\ttfamily bool Gardien\+::move\+\_\+to\+\_\+treasure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+fait en sorte que le gardien aille vers le trésor 
 
 \mbox{\Hypertarget{classGardien_ad1d0f6aca8be28477e16dae7a30301b8}\label{classGardien_ad1d0f6aca8be28477e16dae7a30301b8}} 
 \index{Gardien@{Gardien}!process\+\_\+fireball@{process\+\_\+fireball}}
@@ -63,23 +204,136 @@ Implements \hyperlink{classMover}{Mover}.
 
 
 
-G�re le d�placement de la boule de feu venant du garde. 
+Gčre le déplacement de la boule de feu venant du garde. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em dx} & le d�placement sur la coordonn�e x \\
+\begin{DoxyParams}{Paramètres}
+{\em dx} & le déplacement sur la coordonnée x \\
 \hline
-{\em dy} & le d�placement sur la coordonn�e y \\
+{\em dy} & le déplacement sur la coordonnée y \\
 \hline
 \end{DoxyParams}
 
 
-Implements \hyperlink{classMover}{Mover}.
+Implémente \hyperlink{classMover_a6d794056f34e2348d32ae4ff49326070}{Mover}.
+
+\mbox{\Hypertarget{classGardien_a851adaf99e906da7469567829893b8f4}\label{classGardien_a851adaf99e906da7469567829893b8f4}} 
+\index{Gardien@{Gardien}!try\+\_\+move@{try\+\_\+move}}
+\index{try\+\_\+move@{try\+\_\+move}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{try\+\_\+move()}{try\_move()}}
+{\footnotesize\ttfamily bool Gardien\+::try\+\_\+move (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+tente d\textquotesingle{}accomplir le mouvement en paramčtre 
+
+\mbox{\Hypertarget{classGardien_aed498f0d6bbb526e0373a914ba6bf9aa}\label{classGardien_aed498f0d6bbb526e0373a914ba6bf9aa}} 
+\index{Gardien@{Gardien}!update@{update}}
+\index{update@{update}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Gardien\+::update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implémente \hyperlink{classMover_a77684ae3483af98c82c9488ef3e80f05}{Mover}.
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classGardien_a252683c50522c13f9604bea387d1af34}\label{classGardien_a252683c50522c13f9604bea387d1af34}} 
+\index{Gardien@{Gardien}!\+\_\+pv@{\+\_\+pv}}
+\index{\+\_\+pv@{\+\_\+pv}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{\+\_\+pv}{\_pv}}
+{\footnotesize\ttfamily int Gardien\+::\+\_\+pv = \hyperlink{classGardien_a1832c02b32c6e47b240536fd6ba47812}{B\+A\+S\+E\+\_\+\+PV}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Nombre de PV restants au gardien. 
+
+\mbox{\Hypertarget{classGardien_a1832c02b32c6e47b240536fd6ba47812}\label{classGardien_a1832c02b32c6e47b240536fd6ba47812}} 
+\index{Gardien@{Gardien}!B\+A\+S\+E\+\_\+\+PV@{B\+A\+S\+E\+\_\+\+PV}}
+\index{B\+A\+S\+E\+\_\+\+PV@{B\+A\+S\+E\+\_\+\+PV}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{B\+A\+S\+E\+\_\+\+PV}{BASE\_PV}}
+{\footnotesize\ttfamily const int Gardien\+::\+B\+A\+S\+E\+\_\+\+PV = 10\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Nombre de PV de base du gardien. 
+
+\mbox{\Hypertarget{classGardien_ad418641d97373fb9304fc76f78c817ac}\label{classGardien_ad418641d97373fb9304fc76f78c817ac}} 
+\index{Gardien@{Gardien}!dead@{dead}}
+\index{dead@{dead}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{dead}{dead}}
+{\footnotesize\ttfamily bool Gardien\+::dead = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+indique si le gardien est mort 
+
+\mbox{\Hypertarget{classGardien_a8ca3f9b553e9248f36735dde604fd756}\label{classGardien_a8ca3f9b553e9248f36735dde604fd756}} 
+\index{Gardien@{Gardien}!fired@{fired}}
+\index{fired@{fired}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{fired}{fired}}
+{\footnotesize\ttfamily bool Gardien\+::fired = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indique si une boule de feu a déją été tirée. Si c\textquotesingle{}est le cas, il est impossible pour le gardien d\textquotesingle{}en tirer une autre. 
+
+\mbox{\Hypertarget{classGardien_a6a2c6e6cba4cf4e760ee8509d72f0f98}\label{classGardien_a6a2c6e6cba4cf4e760ee8509d72f0f98}} 
+\index{Gardien@{Gardien}!l@{l}}
+\index{l@{l}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{l}{l}}
+{\footnotesize\ttfamily \hyperlink{classLabyrinthe}{Labyrinthe}$\ast$ Gardien\+::l\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+pointeur vers le labyrinthe 
+
+\mbox{\Hypertarget{classGardien_a5d7e6815e221a4c2038efaf6e8ba9d2e}\label{classGardien_a5d7e6815e221a4c2038efaf6e8ba9d2e}} 
+\index{Gardien@{Gardien}!perte\+\_\+precision@{perte\+\_\+precision}}
+\index{perte\+\_\+precision@{perte\+\_\+precision}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{perte\+\_\+precision}{perte\_precision}}
+{\footnotesize\ttfamily int Gardien\+::perte\+\_\+precision = 5\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+indique la perte de précision, en degrés, du gardien 
+
+\mbox{\Hypertarget{classGardien_a58cdd1f05ebd54e3f638b69e4978837d}\label{classGardien_a58cdd1f05ebd54e3f638b69e4978837d}} 
+\index{Gardien@{Gardien}!reload@{reload}}
+\index{reload@{reload}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{reload}{reload}}
+{\footnotesize\ttfamily int Gardien\+::reload = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+indique le statut du rechargement 
+
+\mbox{\Hypertarget{classGardien_a9848c409574b185b566caa7b9c900ae7}\label{classGardien_a9848c409574b185b566caa7b9c900ae7}} 
+\index{Gardien@{Gardien}!R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME@{R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME}}
+\index{R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME@{R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME}{RELOAD\_TIME}}
+{\footnotesize\ttfamily const int Gardien\+::\+R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME = 100\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Temps de rechargement pour les gardiens (en nombre d\textquotesingle{}appels de \hyperlink{classGardien_aed498f0d6bbb526e0373a914ba6bf9aa}{update()}) 
+
+\mbox{\Hypertarget{classGardien_aabac0fd95b26fdafba349c911542311a}\label{classGardien_aabac0fd95b26fdafba349c911542311a}} 
+\index{Gardien@{Gardien}!reloading@{reloading}}
+\index{reloading@{reloading}!Gardien@{Gardien}}
+\subsubsection{\texorpdfstring{reloading}{reloading}}
+{\footnotesize\ttfamily bool Gardien\+::reloading = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+indique si le gardien est en train de recharger (si c\textquotesingle{}est le cas, il ne peut pas tirer) 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
 \item 
-Gardien.\+h\item 
-Gardien.\+cc\item 
-old\+\_\+gardien.\+cc\end{DoxyCompactItemize}
+\hyperlink{Gardien_8h}{Gardien.\+h}\item 
+\hyperlink{Gardien_8cc}{Gardien.\+cc}\item 
+\hyperlink{old__gardien_8cc}{old\+\_\+gardien.\+cc}\end{DoxyCompactItemize}

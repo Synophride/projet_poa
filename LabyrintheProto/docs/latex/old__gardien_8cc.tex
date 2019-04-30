@@ -1,0 +1,78 @@
+\hypertarget{old__gardien_8cc}{}\section{Référence du fichier old\+\_\+gardien.\+cc}
+\label{old__gardien_8cc}\index{old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}}
+{\ttfamily \#include \char`\"{}Gardien.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de old\+\_\+gardien.\+cc\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnode__comparator}{node\+\_\+comparator}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{old__gardien_8cc_af8045cd4cba454edd0261c44878b4619}{operator==} (const \hyperlink{structnode}{node} \&a, const \hyperlink{structnode}{node} \&b)
+\item 
+int \hyperlink{old__gardien_8cc_aa5c560f7afd17ce3beb8a16243c3dd50}{get} (map$<$ \hyperlink{structnode}{node}, int, \hyperlink{structnode__comparator}{node\+\_\+comparator} $>$ \&m, \hyperlink{structnode}{node} \&key, int def)
+\item 
+list$<$ \hyperlink{structnode}{node} $>$ \hyperlink{old__gardien_8cc_a7a1bfd25d5efd53a5c03fb9619514c12}{build\+\_\+solution} (const \hyperlink{structnode}{node} \&goal, map$<$ \hyperlink{structnode}{node}, \hyperlink{structnode}{node}, \hyperlink{structnode__comparator}{node\+\_\+comparator} $>$ \&predecesseurs)
+\item 
+int \hyperlink{old__gardien_8cc_ab8e057a9a0f8ea6200005c4c8ffc72ba}{estimation\+\_\+dist} (const \hyperlink{structnode}{node} \&a, const \hyperlink{structnode}{node} \&b)
+\item 
+list$<$ \hyperlink{structnode}{node} $>$ \hyperlink{old__gardien_8cc_ae81f08560bddf0eb415da84705946738}{get\+\_\+shortest\+\_\+path} (\hyperlink{structnode}{node} start, \hyperlink{structnode}{node} goal, \hyperlink{classEnvironnement}{Environnement} $\ast$evt)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{old__gardien_8cc_abe06b005f80504a2d914bb16593bb8b1}{M\+IN} = -\/1000000
+\item 
+int \hyperlink{old__gardien_8cc_a36ecf0006f5fe9d8bf1f2c1f2f2b4554}{M\+AX} = 1000000
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{old__gardien_8cc_a7a1bfd25d5efd53a5c03fb9619514c12}\label{old__gardien_8cc_a7a1bfd25d5efd53a5c03fb9619514c12}} 
+\index{old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}!build\+\_\+solution@{build\+\_\+solution}}
+\index{build\+\_\+solution@{build\+\_\+solution}!old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}}
+\subsubsection{\texorpdfstring{build\+\_\+solution()}{build\_solution()}}
+{\footnotesize\ttfamily list$<$\hyperlink{structnode}{node}$>$ build\+\_\+solution (\begin{DoxyParamCaption}\item[{const \hyperlink{structnode}{node} \&}]{goal,  }\item[{map$<$ \hyperlink{structnode}{node}, \hyperlink{structnode}{node}, \hyperlink{structnode__comparator}{node\+\_\+comparator} $>$ \&}]{predecesseurs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{old__gardien_8cc_ab8e057a9a0f8ea6200005c4c8ffc72ba}\label{old__gardien_8cc_ab8e057a9a0f8ea6200005c4c8ffc72ba}} 
+\index{old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}!estimation\+\_\+dist@{estimation\+\_\+dist}}
+\index{estimation\+\_\+dist@{estimation\+\_\+dist}!old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}}
+\subsubsection{\texorpdfstring{estimation\+\_\+dist()}{estimation\_dist()}}
+{\footnotesize\ttfamily int estimation\+\_\+dist (\begin{DoxyParamCaption}\item[{const \hyperlink{structnode}{node} \&}]{a,  }\item[{const \hyperlink{structnode}{node} \&}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{old__gardien_8cc_aa5c560f7afd17ce3beb8a16243c3dd50}\label{old__gardien_8cc_aa5c560f7afd17ce3beb8a16243c3dd50}} 
+\index{old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}!get@{get}}
+\index{get@{get}!old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}}
+\subsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily int get (\begin{DoxyParamCaption}\item[{map$<$ \hyperlink{structnode}{node}, int, \hyperlink{structnode__comparator}{node\+\_\+comparator} $>$ \&}]{m,  }\item[{\hyperlink{structnode}{node} \&}]{key,  }\item[{int}]{def }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{old__gardien_8cc_ae81f08560bddf0eb415da84705946738}\label{old__gardien_8cc_ae81f08560bddf0eb415da84705946738}} 
+\index{old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}!get\+\_\+shortest\+\_\+path@{get\+\_\+shortest\+\_\+path}}
+\index{get\+\_\+shortest\+\_\+path@{get\+\_\+shortest\+\_\+path}!old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}}
+\subsubsection{\texorpdfstring{get\+\_\+shortest\+\_\+path()}{get\_shortest\_path()}}
+{\footnotesize\ttfamily list$<$\hyperlink{structnode}{node}$>$ get\+\_\+shortest\+\_\+path (\begin{DoxyParamCaption}\item[{\hyperlink{structnode}{node}}]{start,  }\item[{\hyperlink{structnode}{node}}]{goal,  }\item[{\hyperlink{classEnvironnement}{Environnement} $\ast$}]{evt }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{old__gardien_8cc_af8045cd4cba454edd0261c44878b4619}\label{old__gardien_8cc_af8045cd4cba454edd0261c44878b4619}} 
+\index{old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}!operator==@{operator==}}
+\index{operator==@{operator==}!old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{structnode}{node} \&}]{a,  }\item[{const \hyperlink{structnode}{node} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{old__gardien_8cc_a36ecf0006f5fe9d8bf1f2c1f2f2b4554}\label{old__gardien_8cc_a36ecf0006f5fe9d8bf1f2c1f2f2b4554}} 
+\index{old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}!M\+AX@{M\+AX}}
+\index{M\+AX@{M\+AX}!old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}}
+\subsubsection{\texorpdfstring{M\+AX}{MAX}}
+{\footnotesize\ttfamily int M\+AX = 1000000}
+
+\mbox{\Hypertarget{old__gardien_8cc_abe06b005f80504a2d914bb16593bb8b1}\label{old__gardien_8cc_abe06b005f80504a2d914bb16593bb8b1}} 
+\index{old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}!M\+IN@{M\+IN}}
+\index{M\+IN@{M\+IN}!old\+\_\+gardien.\+cc@{old\+\_\+gardien.\+cc}}
+\subsubsection{\texorpdfstring{M\+IN}{MIN}}
+{\footnotesize\ttfamily int M\+IN = -\/1000000}
+

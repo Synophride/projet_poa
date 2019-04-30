@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['height',['height',['../classLabyrinthe.html#a71d545c9606ad5e8bf840293f22e552b',1,'Labyrinthe']]],
-  ['hurt',['hurt',['../classChasseur.html#ac75a09254dea5b1d25c7dbf49809a273',1,'Chasseur::hurt()'],['../classGardien.html#ac4ba490e309de80c1449fc5baef90390',1,'Gardien::hurt()']]],
-  ['hurt_5fgardien_5fat',['hurt_gardien_at',['../classLabyrinthe.html#a9c7c46b8c376f8b9ab0310ae1d0a369c',1,'Labyrinthe']]],
-  ['hurt_5fjoueur',['hurt_joueur',['../classLabyrinthe.html#a28666f6cd5a5f32d41d664204a717593',1,'Labyrinthe']]]
+  ['data',['data',['../classEnvironnement.html#a0fae4716da729dbf13f52f09f2d293cd',1,'Environnement::data()'],['../classLabyrinthe.html#a433936ae60ddf3f0b85a407f414b8d38',1,'Labyrinthe::data()']]],
+  ['die',['die',['../classChasseur.html#ad618f782898a99810dae7ad8ee2c2f74',1,'Chasseur::die()'],['../classGardien.html#a17d57e80bce205161c98c557bb6e7a9c',1,'Gardien::die()']]],
+  ['display',['display',['../classFireBall.html#af9bcb6c7a1ed6a8df73091de2be6e222',1,'FireBall']]],
+  ['dist_5fof_5ftreasure',['dist_of_treasure',['../classLabyrinthe.html#afed17fdb2dce31cb4671da03c05b88d7',1,'Labyrinthe']]]
 ];

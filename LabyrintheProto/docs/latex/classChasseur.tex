@@ -1,5 +1,250 @@
-\hypertarget{classChasseur}{}\section{Chasseur Class Reference}
+\hypertarget{classChasseur}{}\section{Référence de la classe Chasseur}
 \label{classChasseur}\index{Chasseur@{Chasseur}}
 
 
-Inheritance diagram for Chasseur\+:
+{\ttfamily \#include $<$Chasseur.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Chasseur\+:
+% FIG 0
+
+
+Graphe de collaboration de Chasseur\+:
+% FIG 1
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classChasseur_a1901991ecabfb707b82334f56b277560}{Chasseur} (\hyperlink{classLabyrinthe}{Labyrinthe} $\ast$\hyperlink{classChasseur_a96372f6800e28733746f01393aa47ff6}{l})
+\begin{DoxyCompactList}\small\item\em constructeur de chasseur, en prenant en param un pointeur de \hyperlink{classLabyrinthe}{Labyrinthe} \end{DoxyCompactList}\item 
+void \hyperlink{classChasseur_ac75a09254dea5b1d25c7dbf49809a273}{hurt} ()
+\begin{DoxyCompactList}\small\item\em fonction indiquant au chasseur qu\textquotesingle{}il a été touché \end{DoxyCompactList}\item 
+bool \hyperlink{classChasseur_ac5275e34388084bc3ca2114b45a0b725}{move} (double dx, double dy)
+\begin{DoxyCompactList}\small\item\em fonction de mouvement du chasseur \end{DoxyCompactList}\item 
+void \hyperlink{classChasseur_a6ea64de0a2708b21326dcb980f0e06ac}{update} (void)
+\item 
+bool \hyperlink{classChasseur_a00710f53a84dfcf6ae60deed589cea1e}{process\+\_\+fireball} (float dx, float dy)
+\begin{DoxyCompactList}\small\item\em fonction permettant le déplacement des boules de feu \end{DoxyCompactList}\item 
+void \hyperlink{classChasseur_ae4610a58bb02ee492e8bdfbee917db8a}{fire} (int angle\+\_\+vertical)
+\begin{DoxyCompactList}\small\item\em fonction de tir. Crée une boule de feu et initie son mouvement \end{DoxyCompactList}\item 
+void \hyperlink{classChasseur_ac33c7c026b2bb1c05d074fa196bd1fae}{right\+\_\+click} (bool shift, bool control)
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classSound}{Sound} $\ast$ \hyperlink{classChasseur_aec2e8b81e3f949dc7840bfcab9c3799a}{\+\_\+hunter\+\_\+fire}
+\begin{DoxyCompactList}\small\item\em bruit de l\textquotesingle{}arme du chasseur. \end{DoxyCompactList}\item 
+static \hyperlink{classSound}{Sound} $\ast$ \hyperlink{classChasseur_ab468d04c50ea338d604e87d5f6db3801}{\+\_\+hunter\+\_\+hit}
+\begin{DoxyCompactList}\small\item\em cri du chasseur touché. \end{DoxyCompactList}\item 
+static \hyperlink{classSound}{Sound} $\ast$ \hyperlink{classChasseur_a936a0739b4a010ee72191b65b908822a}{\+\_\+wall\+\_\+hit}
+\begin{DoxyCompactList}\small\item\em on a tapé un mur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classChasseur_aa6379811f429b4a20c60081493f1ee01}{move\+\_\+aux} (double dx, double dy)
+\begin{DoxyCompactList}\small\item\em accepte ou non un déplacement \end{DoxyCompactList}\item 
+void \hyperlink{classChasseur_ad618f782898a99810dae7ad8ee2c2f74}{die} ()
+\begin{DoxyCompactList}\small\item\em fonction indiquant au chasseur qu\textquotesingle{}il est mort \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classChasseur_a3c8f5b959145976c4d110a5a583791ab}{\+\_\+pv} = 10
+\begin{DoxyCompactList}\small\item\em nombre de points de vie du chasseur \end{DoxyCompactList}\item 
+\hyperlink{classLabyrinthe}{Labyrinthe} $\ast$ \hyperlink{classChasseur_a96372f6800e28733746f01393aa47ff6}{l}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classLabyrinthe}{Labyrinthe} correspondant ą l\textquotesingle{}environnement. \end{DoxyCompactList}\item 
+int \hyperlink{classChasseur_af49bab4221ac24439c87bbda4cc9293d}{perte\+\_\+precision} = 0
+\begin{DoxyCompactList}\small\item\em perte de précision du chasseur \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classChasseur_a1901991ecabfb707b82334f56b277560}\label{classChasseur_a1901991ecabfb707b82334f56b277560}} 
+\index{Chasseur@{Chasseur}!Chasseur@{Chasseur}}
+\index{Chasseur@{Chasseur}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{Chasseur()}{Chasseur()}}
+{\footnotesize\ttfamily Chasseur\+::\+Chasseur (\begin{DoxyParamCaption}\item[{\hyperlink{classLabyrinthe}{Labyrinthe} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+constructeur de chasseur, en prenant en param un pointeur de \hyperlink{classLabyrinthe}{Labyrinthe} 
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classChasseur_ad618f782898a99810dae7ad8ee2c2f74}\label{classChasseur_ad618f782898a99810dae7ad8ee2c2f74}} 
+\index{Chasseur@{Chasseur}!die@{die}}
+\index{die@{die}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{die()}{die()}}
+{\footnotesize\ttfamily void Chasseur\+::die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+fonction indiquant au chasseur qu\textquotesingle{}il est mort 
+
+Va simplement entraīner la fin de la partie \mbox{\Hypertarget{classChasseur_ae4610a58bb02ee492e8bdfbee917db8a}\label{classChasseur_ae4610a58bb02ee492e8bdfbee917db8a}} 
+\index{Chasseur@{Chasseur}!fire@{fire}}
+\index{fire@{fire}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{fire()}{fire()}}
+{\footnotesize\ttfamily void Chasseur\+::fire (\begin{DoxyParamCaption}\item[{int}]{angle\+\_\+vertical }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+fonction de tir. Crée une boule de feu et initie son mouvement 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em angle\+\_\+vertical} & l\textquotesingle{}angle vertical \\
+\hline
+\end{DoxyParams}
+
+
+Implémente \hyperlink{classMover_a670fb72f8e496de3420b89c84def7418}{Mover}.
+
+\mbox{\Hypertarget{classChasseur_ac75a09254dea5b1d25c7dbf49809a273}\label{classChasseur_ac75a09254dea5b1d25c7dbf49809a273}} 
+\index{Chasseur@{Chasseur}!hurt@{hurt}}
+\index{hurt@{hurt}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{hurt()}{hurt()}}
+{\footnotesize\ttfamily void Chasseur\+::hurt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+fonction indiquant au chasseur qu\textquotesingle{}il a été touché 
+
+Va baisser son nombre de points de vie et sa précision \mbox{\Hypertarget{classChasseur_ac5275e34388084bc3ca2114b45a0b725}\label{classChasseur_ac5275e34388084bc3ca2114b45a0b725}} 
+\index{Chasseur@{Chasseur}!move@{move}}
+\index{move@{move}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily bool Chasseur\+::move (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+fonction de mouvement du chasseur 
+
+
+
+Implémente \hyperlink{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}{Mover}.
+
+\mbox{\Hypertarget{classChasseur_aa6379811f429b4a20c60081493f1ee01}\label{classChasseur_aa6379811f429b4a20c60081493f1ee01}} 
+\index{Chasseur@{Chasseur}!move\+\_\+aux@{move\+\_\+aux}}
+\index{move\+\_\+aux@{move\+\_\+aux}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{move\+\_\+aux()}{move\_aux()}}
+{\footnotesize\ttfamily bool Chasseur\+::move\+\_\+aux (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+accepte ou non un déplacement 
+
+\mbox{\Hypertarget{classChasseur_a00710f53a84dfcf6ae60deed589cea1e}\label{classChasseur_a00710f53a84dfcf6ae60deed589cea1e}} 
+\index{Chasseur@{Chasseur}!process\+\_\+fireball@{process\+\_\+fireball}}
+\index{process\+\_\+fireball@{process\+\_\+fireball}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{process\+\_\+fireball()}{process\_fireball()}}
+{\footnotesize\ttfamily bool Chasseur\+::process\+\_\+fireball (\begin{DoxyParamCaption}\item[{float}]{dx,  }\item[{float}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+fonction permettant le déplacement des boules de feu 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dx} & le déplacement de la boule de feu sur l\textquotesingle{}axe x \\
+\hline
+{\em dy} & le déplacement de la boule de feu sur l\textquotesingle{}axe y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si la boule de feu n\textquotesingle{}a pas explosé, false si la boule de feu a explosé (par exemple ą la rencontre d\textquotesingle{}un mur) 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{classMover_a6d794056f34e2348d32ae4ff49326070}{Mover}.
+
+\mbox{\Hypertarget{classChasseur_ac33c7c026b2bb1c05d074fa196bd1fae}\label{classChasseur_ac33c7c026b2bb1c05d074fa196bd1fae}} 
+\index{Chasseur@{Chasseur}!right\+\_\+click@{right\+\_\+click}}
+\index{right\+\_\+click@{right\+\_\+click}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{right\+\_\+click()}{right\_click()}}
+{\footnotesize\ttfamily void Chasseur\+::right\+\_\+click (\begin{DoxyParamCaption}\item[{bool}]{shift,  }\item[{bool}]{control }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Réimplémentée à partir de \hyperlink{classMover_ac32ed126c01d60c6df0090dd590b70b2}{Mover}.
+
+\mbox{\Hypertarget{classChasseur_a6ea64de0a2708b21326dcb980f0e06ac}\label{classChasseur_a6ea64de0a2708b21326dcb980f0e06ac}} 
+\index{Chasseur@{Chasseur}!update@{update}}
+\index{update@{update}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Chasseur\+::update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implémente \hyperlink{classMover_a77684ae3483af98c82c9488ef3e80f05}{Mover}.
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classChasseur_aec2e8b81e3f949dc7840bfcab9c3799a}\label{classChasseur_aec2e8b81e3f949dc7840bfcab9c3799a}} 
+\index{Chasseur@{Chasseur}!\+\_\+hunter\+\_\+fire@{\+\_\+hunter\+\_\+fire}}
+\index{\+\_\+hunter\+\_\+fire@{\+\_\+hunter\+\_\+fire}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{\+\_\+hunter\+\_\+fire}{\_hunter\_fire}}
+{\footnotesize\ttfamily \hyperlink{classSound}{Sound} $\ast$ Chasseur\+::\+\_\+hunter\+\_\+fire\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+bruit de l\textquotesingle{}arme du chasseur. 
+
+\mbox{\Hypertarget{classChasseur_ab468d04c50ea338d604e87d5f6db3801}\label{classChasseur_ab468d04c50ea338d604e87d5f6db3801}} 
+\index{Chasseur@{Chasseur}!\+\_\+hunter\+\_\+hit@{\+\_\+hunter\+\_\+hit}}
+\index{\+\_\+hunter\+\_\+hit@{\+\_\+hunter\+\_\+hit}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{\+\_\+hunter\+\_\+hit}{\_hunter\_hit}}
+{\footnotesize\ttfamily \hyperlink{classSound}{Sound} $\ast$ Chasseur\+::\+\_\+hunter\+\_\+hit\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+cri du chasseur touché. 
+
+\mbox{\Hypertarget{classChasseur_a3c8f5b959145976c4d110a5a583791ab}\label{classChasseur_a3c8f5b959145976c4d110a5a583791ab}} 
+\index{Chasseur@{Chasseur}!\+\_\+pv@{\+\_\+pv}}
+\index{\+\_\+pv@{\+\_\+pv}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{\+\_\+pv}{\_pv}}
+{\footnotesize\ttfamily int Chasseur\+::\+\_\+pv = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+nombre de points de vie du chasseur 
+
+\mbox{\Hypertarget{classChasseur_a936a0739b4a010ee72191b65b908822a}\label{classChasseur_a936a0739b4a010ee72191b65b908822a}} 
+\index{Chasseur@{Chasseur}!\+\_\+wall\+\_\+hit@{\+\_\+wall\+\_\+hit}}
+\index{\+\_\+wall\+\_\+hit@{\+\_\+wall\+\_\+hit}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{\+\_\+wall\+\_\+hit}{\_wall\_hit}}
+{\footnotesize\ttfamily \hyperlink{classSound}{Sound} $\ast$ Chasseur\+::\+\_\+wall\+\_\+hit\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+on a tapé un mur. 
+
+\mbox{\Hypertarget{classChasseur_a96372f6800e28733746f01393aa47ff6}\label{classChasseur_a96372f6800e28733746f01393aa47ff6}} 
+\index{Chasseur@{Chasseur}!l@{l}}
+\index{l@{l}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{l}{l}}
+{\footnotesize\ttfamily \hyperlink{classLabyrinthe}{Labyrinthe}$\ast$ Chasseur\+::l\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\hyperlink{classLabyrinthe}{Labyrinthe} correspondant ą l\textquotesingle{}environnement. 
+
+\mbox{\Hypertarget{classChasseur_af49bab4221ac24439c87bbda4cc9293d}\label{classChasseur_af49bab4221ac24439c87bbda4cc9293d}} 
+\index{Chasseur@{Chasseur}!perte\+\_\+precision@{perte\+\_\+precision}}
+\index{perte\+\_\+precision@{perte\+\_\+precision}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{perte\+\_\+precision}{perte\_precision}}
+{\footnotesize\ttfamily int Chasseur\+::perte\+\_\+precision = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+perte de précision du chasseur 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Chasseur_8h}{Chasseur.\+h}\item 
+\hyperlink{Chasseur_8cc}{Chasseur.\+cc}\item 
+\hyperlink{Labyrinthe_8cc}{Labyrinthe.\+cc}\end{DoxyCompactItemize}

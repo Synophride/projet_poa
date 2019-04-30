@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['fire',['fire',['../classChasseur.html#ae4610a58bb02ee492e8bdfbee917db8a',1,'Chasseur::fire()'],['../classGardien.html#aa0e2e0fbdca75ddc5e0501b5498d5f55',1,'Gardien::fire()']]]
+  ['can_5fsee_5fplayer',['can_see_player',['../classGardien.html#ab4cae0375789f78258d37ccb16004a4d',1,'Gardien']]],
+  ['chasseur',['Chasseur',['../classChasseur.html#a1901991ecabfb707b82334f56b277560',1,'Chasseur']]]
 ];

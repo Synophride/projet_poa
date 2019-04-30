@@ -1,85 +1,213 @@
-\hypertarget{classEnvironnement}{}\section{Environnement Class Reference}
+\hypertarget{classEnvironnement}{}\section{Référence de la classe Environnement}
 \label{classEnvironnement}\index{Environnement@{Environnement}}
 
 
-Inheritance diagram for Environnement\+:
+{\ttfamily \#include $<$Environnement.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Environnement\+:
 % FIG 0
 
 
-Collaboration diagram for Environnement\+:
+Graphe de collaboration de Environnement\+:
 % FIG 1
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}\label{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}} 
-virtual int {\bfseries width} ()=0
+virtual int \hyperlink{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}{width} ()=0
 \item 
-\mbox{\Hypertarget{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}\label{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}} 
-virtual int {\bfseries height} ()=0
+virtual int \hyperlink{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}{height} ()=0
 \item 
+virtual char \hyperlink{classEnvironnement_a0fae4716da729dbf13f52f09f2d293cd}{data} (int i, int j)=0
+\item 
+virtual \hyperlink{classEnvironnement_a6754a865157f3f38e8243ed3cbe63993}{$\sim$\+Environnement} ()
+\item 
+void \hyperlink{classEnvironnement_ae0d41172775150add2e20ff9a5d94943}{reconfigure} ()
+\item 
+int \hyperlink{classEnvironnement_a3e4f0241c8241d00161697b9ff167970}{wall\+\_\+texture} (char $\ast$)
+\item 
+void \hyperlink{classEnvironnement_a4d16b604c6ab4cdcc3d20a6045f18c45}{make\+\_\+fireballs} (void)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classEnvironnement}{Environnement} $\ast$ \hyperlink{classEnvironnement_a10f6862db4b62690c262a4aea0837cf7}{init} (char $\ast$filename)
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structWall}{Wall} $\ast$ \hyperlink{classEnvironnement_ad7db3beb18b180b5c132f36228f914bf}{\+\_\+walls}
+\item 
+int \hyperlink{classEnvironnement_a0acbc48c7cf4b59bf973ce741fc6af61}{\+\_\+nwall}
+\item 
+\hyperlink{structWall}{Wall} $\ast$ \hyperlink{classEnvironnement_adbe17c962f07d4def3e2edf579462fc0}{\+\_\+picts}
+\item 
+int \hyperlink{classEnvironnement_a0470d88c2e3e55eee41cb119deb412b9}{\+\_\+npicts}
+\item 
+\hyperlink{structBox}{Box} $\ast$ \hyperlink{classEnvironnement_ab32874eb0b8a28d5bde0b2d46bae6115}{\+\_\+boxes}
+\item 
+int \hyperlink{classEnvironnement_a8451eb91d83b9f2368bf739afb56187e}{\+\_\+nboxes}
+\item 
+\hyperlink{structBox}{Box} \hyperlink{classEnvironnement_a1d774f2021c1db814bfea3accdaf534a}{\+\_\+treasor}
+\item 
+\hyperlink{classMover}{Mover} $\ast$$\ast$ \hyperlink{classEnvironnement_a9dca8e24e5dde03341cb9a2156232906}{\+\_\+guards}
+\item 
+int \hyperlink{classEnvironnement_a2af64d36a567edf8b6f359ce94ef181b}{\+\_\+nguards}
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classEnvironnement_ab4246782b933af447e3cb2692180dafe}{scale}
+\item 
+static const char $\ast$ \hyperlink{classEnvironnement_a70c437280e85144533da98532bd8e910}{texture\+\_\+dir}
+\item 
+static const char $\ast$ \hyperlink{classEnvironnement_a8296fdb8c70e56b61adbefac0630cc97}{modele\+\_\+dir}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classEnvironnement_a6754a865157f3f38e8243ed3cbe63993}\label{classEnvironnement_a6754a865157f3f38e8243ed3cbe63993}} 
+\index{Environnement@{Environnement}!````~Environnement@{$\sim$\+Environnement}}
+\index{````~Environnement@{$\sim$\+Environnement}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{$\sim$\+Environnement()}{~Environnement()}}
+{\footnotesize\ttfamily virtual Environnement\+::$\sim$\+Environnement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\subsection{Documentation des fonctions membres}
 \mbox{\Hypertarget{classEnvironnement_a0fae4716da729dbf13f52f09f2d293cd}\label{classEnvironnement_a0fae4716da729dbf13f52f09f2d293cd}} 
-virtual char {\bfseries data} (int i, int j)=0
-\item 
-\mbox{\Hypertarget{classEnvironnement_ae0d41172775150add2e20ff9a5d94943}\label{classEnvironnement_ae0d41172775150add2e20ff9a5d94943}} 
-void {\bfseries reconfigure} ()
-\item 
-\mbox{\Hypertarget{classEnvironnement_a3e4f0241c8241d00161697b9ff167970}\label{classEnvironnement_a3e4f0241c8241d00161697b9ff167970}} 
-int {\bfseries wall\+\_\+texture} (char $\ast$)
-\item 
-\mbox{\Hypertarget{classEnvironnement_a4d16b604c6ab4cdcc3d20a6045f18c45}\label{classEnvironnement_a4d16b604c6ab4cdcc3d20a6045f18c45}} 
-void {\bfseries make\+\_\+fireballs} (void)
-\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
+\index{Environnement@{Environnement}!data@{data}}
+\index{data@{data}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily virtual char Environnement\+::data (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \hyperlink{classLabyrinthe_a433936ae60ddf3f0b85a407f414b8d38}{Labyrinthe}.
+
+\mbox{\Hypertarget{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}\label{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}} 
+\index{Environnement@{Environnement}!height@{height}}
+\index{height@{height}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily virtual int Environnement\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \hyperlink{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}{Labyrinthe}.
+
 \mbox{\Hypertarget{classEnvironnement_a10f6862db4b62690c262a4aea0837cf7}\label{classEnvironnement_a10f6862db4b62690c262a4aea0837cf7}} 
-static \hyperlink{classEnvironnement}{Environnement} $\ast$ {\bfseries init} (char $\ast$filename)
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classEnvironnement_ad7db3beb18b180b5c132f36228f914bf}\label{classEnvironnement_ad7db3beb18b180b5c132f36228f914bf}} 
-\hyperlink{structWall}{Wall} $\ast$ {\bfseries \+\_\+walls}
-\item 
-\mbox{\Hypertarget{classEnvironnement_a0acbc48c7cf4b59bf973ce741fc6af61}\label{classEnvironnement_a0acbc48c7cf4b59bf973ce741fc6af61}} 
-int {\bfseries \+\_\+nwall}
-\item 
-\mbox{\Hypertarget{classEnvironnement_adbe17c962f07d4def3e2edf579462fc0}\label{classEnvironnement_adbe17c962f07d4def3e2edf579462fc0}} 
-\hyperlink{structWall}{Wall} $\ast$ {\bfseries \+\_\+picts}
-\item 
-\mbox{\Hypertarget{classEnvironnement_a0470d88c2e3e55eee41cb119deb412b9}\label{classEnvironnement_a0470d88c2e3e55eee41cb119deb412b9}} 
-int {\bfseries \+\_\+npicts}
-\item 
+\index{Environnement@{Environnement}!init@{init}}
+\index{init@{init}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \hyperlink{classEnvironnement}{Environnement} $\ast$ Environnement\+::init (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classEnvironnement_a4d16b604c6ab4cdcc3d20a6045f18c45}\label{classEnvironnement_a4d16b604c6ab4cdcc3d20a6045f18c45}} 
+\index{Environnement@{Environnement}!make\+\_\+fireballs@{make\+\_\+fireballs}}
+\index{make\+\_\+fireballs@{make\+\_\+fireballs}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{make\+\_\+fireballs()}{make\_fireballs()}}
+{\footnotesize\ttfamily void Environnement\+::make\+\_\+fireballs (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classEnvironnement_ae0d41172775150add2e20ff9a5d94943}\label{classEnvironnement_ae0d41172775150add2e20ff9a5d94943}} 
+\index{Environnement@{Environnement}!reconfigure@{reconfigure}}
+\index{reconfigure@{reconfigure}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{reconfigure()}{reconfigure()}}
+{\footnotesize\ttfamily void Environnement\+::reconfigure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classEnvironnement_a3e4f0241c8241d00161697b9ff167970}\label{classEnvironnement_a3e4f0241c8241d00161697b9ff167970}} 
+\index{Environnement@{Environnement}!wall\+\_\+texture@{wall\+\_\+texture}}
+\index{wall\+\_\+texture@{wall\+\_\+texture}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{wall\+\_\+texture()}{wall\_texture()}}
+{\footnotesize\ttfamily int Environnement\+::wall\+\_\+texture (\begin{DoxyParamCaption}\item[{char $\ast$}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}\label{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}} 
+\index{Environnement@{Environnement}!width@{width}}
+\index{width@{width}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily virtual int Environnement\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \hyperlink{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}{Labyrinthe}.
+
+
+
+\subsection{Documentation des données membres}
 \mbox{\Hypertarget{classEnvironnement_ab32874eb0b8a28d5bde0b2d46bae6115}\label{classEnvironnement_ab32874eb0b8a28d5bde0b2d46bae6115}} 
-\hyperlink{structBox}{Box} $\ast$ {\bfseries \+\_\+boxes}
-\item 
-\mbox{\Hypertarget{classEnvironnement_a8451eb91d83b9f2368bf739afb56187e}\label{classEnvironnement_a8451eb91d83b9f2368bf739afb56187e}} 
-int {\bfseries \+\_\+nboxes}
-\item 
-\mbox{\Hypertarget{classEnvironnement_a1d774f2021c1db814bfea3accdaf534a}\label{classEnvironnement_a1d774f2021c1db814bfea3accdaf534a}} 
-\hyperlink{structBox}{Box} {\bfseries \+\_\+treasor}
-\item 
+\index{Environnement@{Environnement}!\+\_\+boxes@{\+\_\+boxes}}
+\index{\+\_\+boxes@{\+\_\+boxes}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+boxes}{\_boxes}}
+{\footnotesize\ttfamily \hyperlink{structBox}{Box}$\ast$ Environnement\+::\+\_\+boxes}
+
 \mbox{\Hypertarget{classEnvironnement_a9dca8e24e5dde03341cb9a2156232906}\label{classEnvironnement_a9dca8e24e5dde03341cb9a2156232906}} 
-\hyperlink{classMover}{Mover} $\ast$$\ast$ {\bfseries \+\_\+guards}
-\item 
+\index{Environnement@{Environnement}!\+\_\+guards@{\+\_\+guards}}
+\index{\+\_\+guards@{\+\_\+guards}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+guards}{\_guards}}
+{\footnotesize\ttfamily \hyperlink{classMover}{Mover}$\ast$$\ast$ Environnement\+::\+\_\+guards}
+
+\mbox{\Hypertarget{classEnvironnement_a8451eb91d83b9f2368bf739afb56187e}\label{classEnvironnement_a8451eb91d83b9f2368bf739afb56187e}} 
+\index{Environnement@{Environnement}!\+\_\+nboxes@{\+\_\+nboxes}}
+\index{\+\_\+nboxes@{\+\_\+nboxes}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+nboxes}{\_nboxes}}
+{\footnotesize\ttfamily int Environnement\+::\+\_\+nboxes}
+
 \mbox{\Hypertarget{classEnvironnement_a2af64d36a567edf8b6f359ce94ef181b}\label{classEnvironnement_a2af64d36a567edf8b6f359ce94ef181b}} 
-int {\bfseries \+\_\+nguards}
-\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classEnvironnement_ab4246782b933af447e3cb2692180dafe}\label{classEnvironnement_ab4246782b933af447e3cb2692180dafe}} 
-static const int {\bfseries scale}
-\item 
-\mbox{\Hypertarget{classEnvironnement_a70c437280e85144533da98532bd8e910}\label{classEnvironnement_a70c437280e85144533da98532bd8e910}} 
-static const char $\ast$ {\bfseries texture\+\_\+dir}
-\item 
+\index{Environnement@{Environnement}!\+\_\+nguards@{\+\_\+nguards}}
+\index{\+\_\+nguards@{\+\_\+nguards}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+nguards}{\_nguards}}
+{\footnotesize\ttfamily int Environnement\+::\+\_\+nguards}
+
+\mbox{\Hypertarget{classEnvironnement_a0470d88c2e3e55eee41cb119deb412b9}\label{classEnvironnement_a0470d88c2e3e55eee41cb119deb412b9}} 
+\index{Environnement@{Environnement}!\+\_\+npicts@{\+\_\+npicts}}
+\index{\+\_\+npicts@{\+\_\+npicts}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+npicts}{\_npicts}}
+{\footnotesize\ttfamily int Environnement\+::\+\_\+npicts}
+
+\mbox{\Hypertarget{classEnvironnement_a0acbc48c7cf4b59bf973ce741fc6af61}\label{classEnvironnement_a0acbc48c7cf4b59bf973ce741fc6af61}} 
+\index{Environnement@{Environnement}!\+\_\+nwall@{\+\_\+nwall}}
+\index{\+\_\+nwall@{\+\_\+nwall}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+nwall}{\_nwall}}
+{\footnotesize\ttfamily int Environnement\+::\+\_\+nwall}
+
+\mbox{\Hypertarget{classEnvironnement_adbe17c962f07d4def3e2edf579462fc0}\label{classEnvironnement_adbe17c962f07d4def3e2edf579462fc0}} 
+\index{Environnement@{Environnement}!\+\_\+picts@{\+\_\+picts}}
+\index{\+\_\+picts@{\+\_\+picts}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+picts}{\_picts}}
+{\footnotesize\ttfamily \hyperlink{structWall}{Wall}$\ast$ Environnement\+::\+\_\+picts}
+
+\mbox{\Hypertarget{classEnvironnement_a1d774f2021c1db814bfea3accdaf534a}\label{classEnvironnement_a1d774f2021c1db814bfea3accdaf534a}} 
+\index{Environnement@{Environnement}!\+\_\+treasor@{\+\_\+treasor}}
+\index{\+\_\+treasor@{\+\_\+treasor}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+treasor}{\_treasor}}
+{\footnotesize\ttfamily \hyperlink{structBox}{Box} Environnement\+::\+\_\+treasor}
+
+\mbox{\Hypertarget{classEnvironnement_ad7db3beb18b180b5c132f36228f914bf}\label{classEnvironnement_ad7db3beb18b180b5c132f36228f914bf}} 
+\index{Environnement@{Environnement}!\+\_\+walls@{\+\_\+walls}}
+\index{\+\_\+walls@{\+\_\+walls}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{\+\_\+walls}{\_walls}}
+{\footnotesize\ttfamily \hyperlink{structWall}{Wall}$\ast$ Environnement\+::\+\_\+walls}
+
 \mbox{\Hypertarget{classEnvironnement_a8296fdb8c70e56b61adbefac0630cc97}\label{classEnvironnement_a8296fdb8c70e56b61adbefac0630cc97}} 
-static const char $\ast$ {\bfseries modele\+\_\+dir}
-\end{DoxyCompactItemize}
+\index{Environnement@{Environnement}!modele\+\_\+dir@{modele\+\_\+dir}}
+\index{modele\+\_\+dir@{modele\+\_\+dir}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{modele\+\_\+dir}{modele\_dir}}
+{\footnotesize\ttfamily const char$\ast$ Environnement\+::modele\+\_\+dir\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classEnvironnement_ab4246782b933af447e3cb2692180dafe}\label{classEnvironnement_ab4246782b933af447e3cb2692180dafe}} 
+\index{Environnement@{Environnement}!scale@{scale}}
+\index{scale@{scale}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily const int Environnement\+::scale\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classEnvironnement_a70c437280e85144533da98532bd8e910}\label{classEnvironnement_a70c437280e85144533da98532bd8e910}} 
+\index{Environnement@{Environnement}!texture\+\_\+dir@{texture\+\_\+dir}}
+\index{texture\+\_\+dir@{texture\+\_\+dir}!Environnement@{Environnement}}
+\subsubsection{\texorpdfstring{texture\+\_\+dir}{texture\_dir}}
+{\footnotesize\ttfamily const char$\ast$ Environnement\+::texture\+\_\+dir\hspace{0.3cm}{\ttfamily [static]}}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
 \item 
-Environnement.\+h\item 
-Labyrinthe.\+cc\end{DoxyCompactItemize}
+\hyperlink{Environnement_8h}{Environnement.\+h}\item 
+\hyperlink{Labyrinthe_8cc}{Labyrinthe.\+cc}\end{DoxyCompactItemize}

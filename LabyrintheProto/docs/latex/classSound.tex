@@ -1,16 +1,96 @@
-\hypertarget{classSound}{}\section{Sound Class Reference}
+\hypertarget{classSound}{}\section{Référence de la classe Sound}
 \label{classSound}\index{Sound@{Sound}}
-\subsection*{Public Member Functions}
+
+
+{\ttfamily \#include $<$Sound.\+h$>$}
+
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSound_ac85830f0d7c950d28141164edc7fe990}\label{classSound_ac85830f0d7c950d28141164edc7fe990}} 
-{\bfseries Sound} (const char $\ast$)
+\hyperlink{classSound_ac85830f0d7c950d28141164edc7fe990}{Sound} (const char $\ast$)
 \item 
-\mbox{\Hypertarget{classSound_aeaa88e449a4e8f3503628452238d833c}\label{classSound_aeaa88e449a4e8f3503628452238d833c}} 
-void {\bfseries play} (float volume=1., float pan=0.)
+\hyperlink{classSound_a0907389078bf740be2a5763366ad3376}{$\sim$\+Sound} ()
+\item 
+void \hyperlink{classSound_aeaa88e449a4e8f3503628452238d833c}{play} (float volume=1., float pan=0.)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSound_a8f0f9eeae854569f7a7f110e3efec73a}{init} (void)
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+F\+M\+O\+D\+::\+Sound $\ast$ \hyperlink{classSound_a4ebe6d9fd4b5d06957125f515190ac27}{\+\_\+sound}
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static F\+M\+O\+D\+::\+System $\ast$ \hyperlink{classSound_aeeddfa10d6a7d247e566328a11903e06}{\+\_\+system}
+\item 
+static F\+M\+O\+D\+::\+Channel $\ast$ \hyperlink{classSound_abec2496805fd3f24b0b88f5d3c00128b}{\+\_\+channel}
+\item 
+static int \hyperlink{classSound_ae6fb5417aee48d6f9a46a930b967accb}{\+\_\+nsounds}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classSound_ac85830f0d7c950d28141164edc7fe990}\label{classSound_ac85830f0d7c950d28141164edc7fe990}} 
+\index{Sound@{Sound}!Sound@{Sound}}
+\index{Sound@{Sound}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{Sound()}{Sound()}}
+{\footnotesize\ttfamily Sound\+::\+Sound (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classSound_a0907389078bf740be2a5763366ad3376}\label{classSound_a0907389078bf740be2a5763366ad3376}} 
+\index{Sound@{Sound}!````~Sound@{$\sim$\+Sound}}
+\index{````~Sound@{$\sim$\+Sound}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{$\sim$\+Sound()}{~Sound()}}
+{\footnotesize\ttfamily Sound\+::$\sim$\+Sound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classSound_a8f0f9eeae854569f7a7f110e3efec73a}\label{classSound_a8f0f9eeae854569f7a7f110e3efec73a}} 
+\index{Sound@{Sound}!init@{init}}
+\index{init@{init}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Sound\+::init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSound_aeaa88e449a4e8f3503628452238d833c}\label{classSound_aeaa88e449a4e8f3503628452238d833c}} 
+\index{Sound@{Sound}!play@{play}}
+\index{play@{play}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily void Sound\+::play (\begin{DoxyParamCaption}\item[{float}]{volume = {\ttfamily 1.},  }\item[{float}]{pan = {\ttfamily 0.} }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classSound_abec2496805fd3f24b0b88f5d3c00128b}\label{classSound_abec2496805fd3f24b0b88f5d3c00128b}} 
+\index{Sound@{Sound}!\+\_\+channel@{\+\_\+channel}}
+\index{\+\_\+channel@{\+\_\+channel}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{\+\_\+channel}{\_channel}}
+{\footnotesize\ttfamily F\+M\+O\+D\+::\+Channel$\ast$ Sound\+::\+\_\+channel\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSound_ae6fb5417aee48d6f9a46a930b967accb}\label{classSound_ae6fb5417aee48d6f9a46a930b967accb}} 
+\index{Sound@{Sound}!\+\_\+nsounds@{\+\_\+nsounds}}
+\index{\+\_\+nsounds@{\+\_\+nsounds}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{\+\_\+nsounds}{\_nsounds}}
+{\footnotesize\ttfamily int Sound\+::\+\_\+nsounds\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSound_a4ebe6d9fd4b5d06957125f515190ac27}\label{classSound_a4ebe6d9fd4b5d06957125f515190ac27}} 
+\index{Sound@{Sound}!\+\_\+sound@{\+\_\+sound}}
+\index{\+\_\+sound@{\+\_\+sound}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{\+\_\+sound}{\_sound}}
+{\footnotesize\ttfamily F\+M\+O\+D\+::\+Sound$\ast$ Sound\+::\+\_\+sound\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classSound_aeeddfa10d6a7d247e566328a11903e06}\label{classSound_aeeddfa10d6a7d247e566328a11903e06}} 
+\index{Sound@{Sound}!\+\_\+system@{\+\_\+system}}
+\index{\+\_\+system@{\+\_\+system}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{\+\_\+system}{\_system}}
+{\footnotesize\ttfamily F\+M\+O\+D\+::\+System$\ast$ Sound\+::\+\_\+system\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-Sound.\+h\end{DoxyCompactItemize}
+\hyperlink{Sound_8h}{Sound.\+h}\end{DoxyCompactItemize}

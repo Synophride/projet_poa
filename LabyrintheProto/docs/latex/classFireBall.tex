@@ -1,31 +1,204 @@
-\hypertarget{classFireBall}{}\section{Fire\+Ball Class Reference}
+\hypertarget{classFireBall}{}\section{Référence de la classe Fire\+Ball}
 \label{classFireBall}\index{Fire\+Ball@{Fire\+Ball}}
-\subsection*{Public Member Functions}
+
+
+{\ttfamily \#include $<$Fire\+Ball.\+h$>$}
+
+
+
+Graphe de collaboration de Fire\+Ball\+:
+% FIG 0
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFireBall_a3b38dd5ab1ab31c60b2f50366c1b9f74}\label{classFireBall_a3b38dd5ab1ab31c60b2f50366c1b9f74}} 
-{\bfseries Fire\+Ball} (float size, unsigned int tex, \hyperlink{classMover}{Mover} $\ast$)
+\hyperlink{classFireBall_a3b38dd5ab1ab31c60b2f50366c1b9f74}{Fire\+Ball} (float size, unsigned int tex, \hyperlink{classMover}{Mover} $\ast$)
 \item 
-\mbox{\Hypertarget{classFireBall_af9bcb6c7a1ed6a8df73091de2be6e222}\label{classFireBall_af9bcb6c7a1ed6a8df73091de2be6e222}} 
-void {\bfseries display} ()
+void \hyperlink{classFireBall_af9bcb6c7a1ed6a8df73091de2be6e222}{display} ()
 \item 
-\mbox{\Hypertarget{classFireBall_a7e064007c68fd6106189b0f69b1a850e}\label{classFireBall_a7e064007c68fd6106189b0f69b1a850e}} 
-void {\bfseries move\+\_\+step} ()
+void \hyperlink{classFireBall_a7e064007c68fd6106189b0f69b1a850e}{move\+\_\+step} ()
 \item 
-\mbox{\Hypertarget{classFireBall_acd649b7fc58547b2ac8cd09e22ca2b20}\label{classFireBall_acd649b7fc58547b2ac8cd09e22ca2b20}} 
-void {\bfseries init} (float x, float y, float z, int angle\+\_\+vertical, int angle\+\_\+horizontal)
+void \hyperlink{classFireBall_acd649b7fc58547b2ac8cd09e22ca2b20}{init} (float x, float y, float z, int angle\+\_\+vertical, int angle\+\_\+horizontal)
 \item 
-\mbox{\Hypertarget{classFireBall_a069586d69311159f80a1c8d3d848502e}\label{classFireBall_a069586d69311159f80a1c8d3d848502e}} 
-void {\bfseries set\+\_\+orig\+\_\+size} (float size)
+void \hyperlink{classFireBall_a069586d69311159f80a1c8d3d848502e}{set\+\_\+orig\+\_\+size} (float size)
 \item 
-\mbox{\Hypertarget{classFireBall_a4c71d3cf7209ef9e03ea38ea90c0d508}\label{classFireBall_a4c71d3cf7209ef9e03ea38ea90c0d508}} 
-float {\bfseries get\+\_\+x} ()
+float \hyperlink{classFireBall_a4c71d3cf7209ef9e03ea38ea90c0d508}{get\+\_\+x} ()
 \item 
-\mbox{\Hypertarget{classFireBall_a1b262f0d003fa19f87ce1d944fae56ab}\label{classFireBall_a1b262f0d003fa19f87ce1d944fae56ab}} 
-float {\bfseries get\+\_\+y} ()
+float \hyperlink{classFireBall_a1b262f0d003fa19f87ce1d944fae56ab}{get\+\_\+y} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classFireBall_ab7e8e46f8cd978b77b16ee383581e1ff}{explode} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classFireBall_a9a46f5228bf2355bf96fea4da3a128a4}{\+\_\+x}
+\item 
+float \hyperlink{classFireBall_a3fed1ac38e9869a78a8decc3cb926120}{\+\_\+y}
+\item 
+float \hyperlink{classFireBall_abed9b335d2b3b4973de5bdc959acf936}{\+\_\+z}
+\item 
+float \hyperlink{classFireBall_a253cdbc7239a040eb3f572755e39f6bb}{\+\_\+size}
+\item 
+float \hyperlink{classFireBall_a4b2963b8591d733b64cfeab4d9d3c93c}{\+\_\+orig\+\_\+size}
+\item 
+int \hyperlink{classFireBall_a1cdea956c46b320ca763cc7a64cce8c0}{\+\_\+angle}
+\item 
+int \hyperlink{classFireBall_aa63dd4d75e485c53d9680864425936e8}{\+\_\+angle2}
+\item 
+unsigned int \hyperlink{classFireBall_a1e499397046bd22deb00a2d22778050b}{\+\_\+fire\+\_\+texture}
+\item 
+int \hyperlink{classFireBall_a8fc20dd0a5c2644934b9fa06d4477058}{\+\_\+move\+\_\+angle}
+\item 
+int \hyperlink{classFireBall_a96acfc046f1b383f513555876006ba60}{\+\_\+azimuth}
+\item 
+\hyperlink{classMover}{Mover} $\ast$ \hyperlink{classFireBall_a60bc9440298c39634a008d29f14e275e}{\+\_\+owner}
+\item 
+\hyperlink{FireBall_8h_a2e35d0e49f81f5c176ab1cf919b28cfc}{F\+Bstat} \hyperlink{classFireBall_a92dcb86f4fd59baedd22d782612f55a1}{\+\_\+state}
+\end{DoxyCompactItemize}
+\subsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned int \hyperlink{classFireBall_ae0ec8e0bbb72db07447ba849e247077d}{\+\_\+fire\+\_\+list}
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classFireBall_a3b38dd5ab1ab31c60b2f50366c1b9f74}\label{classFireBall_a3b38dd5ab1ab31c60b2f50366c1b9f74}} 
+\index{Fire\+Ball@{Fire\+Ball}!Fire\+Ball@{Fire\+Ball}}
+\index{Fire\+Ball@{Fire\+Ball}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{Fire\+Ball()}{FireBall()}}
+{\footnotesize\ttfamily Fire\+Ball\+::\+Fire\+Ball (\begin{DoxyParamCaption}\item[{float}]{size,  }\item[{unsigned int}]{tex,  }\item[{\hyperlink{classMover}{Mover} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classFireBall_af9bcb6c7a1ed6a8df73091de2be6e222}\label{classFireBall_af9bcb6c7a1ed6a8df73091de2be6e222}} 
+\index{Fire\+Ball@{Fire\+Ball}!display@{display}}
+\index{display@{display}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Fire\+Ball\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classFireBall_ab7e8e46f8cd978b77b16ee383581e1ff}\label{classFireBall_ab7e8e46f8cd978b77b16ee383581e1ff}} 
+\index{Fire\+Ball@{Fire\+Ball}!explode@{explode}}
+\index{explode@{explode}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{explode()}{explode()}}
+{\footnotesize\ttfamily void Fire\+Ball\+::explode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a4c71d3cf7209ef9e03ea38ea90c0d508}\label{classFireBall_a4c71d3cf7209ef9e03ea38ea90c0d508}} 
+\index{Fire\+Ball@{Fire\+Ball}!get\+\_\+x@{get\+\_\+x}}
+\index{get\+\_\+x@{get\+\_\+x}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{get\+\_\+x()}{get\_x()}}
+{\footnotesize\ttfamily float Fire\+Ball\+::get\+\_\+x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classFireBall_a1b262f0d003fa19f87ce1d944fae56ab}\label{classFireBall_a1b262f0d003fa19f87ce1d944fae56ab}} 
+\index{Fire\+Ball@{Fire\+Ball}!get\+\_\+y@{get\+\_\+y}}
+\index{get\+\_\+y@{get\+\_\+y}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{get\+\_\+y()}{get\_y()}}
+{\footnotesize\ttfamily float Fire\+Ball\+::get\+\_\+y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classFireBall_acd649b7fc58547b2ac8cd09e22ca2b20}\label{classFireBall_acd649b7fc58547b2ac8cd09e22ca2b20}} 
+\index{Fire\+Ball@{Fire\+Ball}!init@{init}}
+\index{init@{init}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Fire\+Ball\+::init (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z,  }\item[{int}]{angle\+\_\+vertical,  }\item[{int}]{angle\+\_\+horizontal }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classFireBall_a7e064007c68fd6106189b0f69b1a850e}\label{classFireBall_a7e064007c68fd6106189b0f69b1a850e}} 
+\index{Fire\+Ball@{Fire\+Ball}!move\+\_\+step@{move\+\_\+step}}
+\index{move\+\_\+step@{move\+\_\+step}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{move\+\_\+step()}{move\_step()}}
+{\footnotesize\ttfamily void Fire\+Ball\+::move\+\_\+step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classFireBall_a069586d69311159f80a1c8d3d848502e}\label{classFireBall_a069586d69311159f80a1c8d3d848502e}} 
+\index{Fire\+Ball@{Fire\+Ball}!set\+\_\+orig\+\_\+size@{set\+\_\+orig\+\_\+size}}
+\index{set\+\_\+orig\+\_\+size@{set\+\_\+orig\+\_\+size}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{set\+\_\+orig\+\_\+size()}{set\_orig\_size()}}
+{\footnotesize\ttfamily void Fire\+Ball\+::set\+\_\+orig\+\_\+size (\begin{DoxyParamCaption}\item[{float}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classFireBall_a1cdea956c46b320ca763cc7a64cce8c0}\label{classFireBall_a1cdea956c46b320ca763cc7a64cce8c0}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+angle@{\+\_\+angle}}
+\index{\+\_\+angle@{\+\_\+angle}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+angle}{\_angle}}
+{\footnotesize\ttfamily int Fire\+Ball\+::\+\_\+angle\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_aa63dd4d75e485c53d9680864425936e8}\label{classFireBall_aa63dd4d75e485c53d9680864425936e8}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+angle2@{\+\_\+angle2}}
+\index{\+\_\+angle2@{\+\_\+angle2}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+angle2}{\_angle2}}
+{\footnotesize\ttfamily int Fire\+Ball\+::\+\_\+angle2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a96acfc046f1b383f513555876006ba60}\label{classFireBall_a96acfc046f1b383f513555876006ba60}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+azimuth@{\+\_\+azimuth}}
+\index{\+\_\+azimuth@{\+\_\+azimuth}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+azimuth}{\_azimuth}}
+{\footnotesize\ttfamily int Fire\+Ball\+::\+\_\+azimuth\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_ae0ec8e0bbb72db07447ba849e247077d}\label{classFireBall_ae0ec8e0bbb72db07447ba849e247077d}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+fire\+\_\+list@{\+\_\+fire\+\_\+list}}
+\index{\+\_\+fire\+\_\+list@{\+\_\+fire\+\_\+list}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+fire\+\_\+list}{\_fire\_list}}
+{\footnotesize\ttfamily unsigned int Fire\+Ball\+::\+\_\+fire\+\_\+list\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a1e499397046bd22deb00a2d22778050b}\label{classFireBall_a1e499397046bd22deb00a2d22778050b}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+fire\+\_\+texture@{\+\_\+fire\+\_\+texture}}
+\index{\+\_\+fire\+\_\+texture@{\+\_\+fire\+\_\+texture}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+fire\+\_\+texture}{\_fire\_texture}}
+{\footnotesize\ttfamily unsigned int Fire\+Ball\+::\+\_\+fire\+\_\+texture\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a8fc20dd0a5c2644934b9fa06d4477058}\label{classFireBall_a8fc20dd0a5c2644934b9fa06d4477058}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+move\+\_\+angle@{\+\_\+move\+\_\+angle}}
+\index{\+\_\+move\+\_\+angle@{\+\_\+move\+\_\+angle}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+move\+\_\+angle}{\_move\_angle}}
+{\footnotesize\ttfamily int Fire\+Ball\+::\+\_\+move\+\_\+angle\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a4b2963b8591d733b64cfeab4d9d3c93c}\label{classFireBall_a4b2963b8591d733b64cfeab4d9d3c93c}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+orig\+\_\+size@{\+\_\+orig\+\_\+size}}
+\index{\+\_\+orig\+\_\+size@{\+\_\+orig\+\_\+size}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+orig\+\_\+size}{\_orig\_size}}
+{\footnotesize\ttfamily float Fire\+Ball\+::\+\_\+orig\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a60bc9440298c39634a008d29f14e275e}\label{classFireBall_a60bc9440298c39634a008d29f14e275e}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+owner@{\+\_\+owner}}
+\index{\+\_\+owner@{\+\_\+owner}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+owner}{\_owner}}
+{\footnotesize\ttfamily \hyperlink{classMover}{Mover}$\ast$ Fire\+Ball\+::\+\_\+owner\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a253cdbc7239a040eb3f572755e39f6bb}\label{classFireBall_a253cdbc7239a040eb3f572755e39f6bb}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+size@{\+\_\+size}}
+\index{\+\_\+size@{\+\_\+size}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+size}{\_size}}
+{\footnotesize\ttfamily float Fire\+Ball\+::\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a92dcb86f4fd59baedd22d782612f55a1}\label{classFireBall_a92dcb86f4fd59baedd22d782612f55a1}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+state@{\+\_\+state}}
+\index{\+\_\+state@{\+\_\+state}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+state}{\_state}}
+{\footnotesize\ttfamily \hyperlink{FireBall_8h_a2e35d0e49f81f5c176ab1cf919b28cfc}{F\+Bstat} Fire\+Ball\+::\+\_\+state\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a9a46f5228bf2355bf96fea4da3a128a4}\label{classFireBall_a9a46f5228bf2355bf96fea4da3a128a4}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+x@{\+\_\+x}}
+\index{\+\_\+x@{\+\_\+x}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+x}{\_x}}
+{\footnotesize\ttfamily float Fire\+Ball\+::\+\_\+x\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_a3fed1ac38e9869a78a8decc3cb926120}\label{classFireBall_a3fed1ac38e9869a78a8decc3cb926120}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+y@{\+\_\+y}}
+\index{\+\_\+y@{\+\_\+y}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+y}{\_y}}
+{\footnotesize\ttfamily float Fire\+Ball\+::\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classFireBall_abed9b335d2b3b4973de5bdc959acf936}\label{classFireBall_abed9b335d2b3b4973de5bdc959acf936}} 
+\index{Fire\+Ball@{Fire\+Ball}!\+\_\+z@{\+\_\+z}}
+\index{\+\_\+z@{\+\_\+z}!Fire\+Ball@{Fire\+Ball}}
+\subsubsection{\texorpdfstring{\+\_\+z}{\_z}}
+{\footnotesize\ttfamily float Fire\+Ball\+::\+\_\+z\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-Fire\+Ball.\+h\end{DoxyCompactItemize}
+\hyperlink{FireBall_8h}{Fire\+Ball.\+h}\end{DoxyCompactItemize}
