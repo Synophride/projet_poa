@@ -1,4 +1,7 @@
 #include "Gardien.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h> 
 
 using namespace std;
 
@@ -184,3 +187,64 @@ bool Gardien::try_move(double dx, double dy ){
     
     return true;
 }
+
+int Gardien::decision_move(){
+    float a = 0;
+    srand(time(NULL));
+    a = (float)rand() / (float)RAND_MAX;
+
+    if (a > 0.9){
+        float b = 0;
+        srand(time(NULL));
+        b = (float)rand() / (float)RAND_MAX;
+
+        if (b < 0.5)
+            return 0;
+        else 
+            return 1;
+    }
+
+    if() //IF gardien dans le groupe près du trésor
+        return 0;
+    else 
+        return 1; 
+}
+
+bool Gardien::move_to_player(){
+    int x = (_x) / Environnement::scale,
+	y = (_y) / Environnement::scale;
+
+    cout << "Position du gardien : \t" << x << ',' << y << endl;
+    
+    int estimated_dist = l -> dist_of_player(x, y);
+    
+    cout << "Distance estimée : \t" << estimated_dist << endl;
+
+    int d_xpos = l -> dist_of_player(x+1, y),
+	d_xneg = l -> dist_of_player(x-1, y),
+	d_ypos = l -> dist_of_player(x, y+1),
+	d_yneg = l -> dist_of_player(x, y-1);
+    
+    cout << "Valeur du tableau vers x+ \t" << d_xpos << endl
+	 << "Valeur du tableau vers x- \t" << d_xneg << endl
+	 << "Valeur du tableau vers y+ \t" << d_ypos << endl
+	 << "Valeur du tableau vers y- \t" << d_yneg << endl;
+
+    if(d_xpos == estimated_dist -1){
+	move(1, 0);
+	cout << "Choix : x+" <<endl;
+    } else if(d_xneg == estimated_dist -1){
+	move(-1,0);
+	cout << "Choix : x-" <<endl;
+    } else if(d_ypos == estimated_dist -1){
+	move(0,1);
+	cout << "Choix : y+" <<endl;
+    } else if(d_yneg == estimated_dist -1){
+	move(0,-1);
+	cout << "Choix : y-" <<endl;
+    }
+    
+    return false;
+}
+
+
