@@ -30,7 +30,8 @@ class Gardien : public Mover {
     static const int RELOAD_TIME = 50;
     bool reloading = false;
     int reload = 0;
-    
+
+    int perte_precision = 0;
     static const int BASE_PV = 10;
     bool dead = false;
     Labyrinthe * l;

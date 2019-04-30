@@ -2,11 +2,19 @@
 
 using namespace std;
 
+
 void Gardien::update(){
     if(dead)
 	return;
-    reload ++;
+    if(reloading){
+	reload ++;
+	if(reload == RELOAD_TIME){
+	    reloading = false;
+	    reload = 0;
+	}
+    }
     can_see_player();
+    
     // move_to_treasure();
 }
 
@@ -16,7 +24,7 @@ bool Gardien::can_see_player(){
 	y_player = _l -> _guards[0]->_y,
 	angle = atan2((x_player - _x), (y_player - _y) );
 
-    _angle = (((int)-(angle * 180./M_PI))) % 360;
+    _angle = ((int)-(angle * 180./M_PI)) % 360;
     
     for(float dist = 0; true; dist += 1.){	
 	float
@@ -137,10 +145,16 @@ bool Gardien::move(double dx, double dy){
 
 
 void Gardien::fire(int angle_vertical){
+    
+    
+    if(fired || reloading)
+	return;
+    
     fired = true;
     int true_ang = - _angle;
+    true_ang = (true_ang +  (rand() % (2 * perte_de_precision) - perte_de_precision)) % 360;
     _fb -> init (/* position initiale de la boule */ _x, _y, 10.,
-		 /* angles de visée */ angle_vertical, - _angle);
+		 /* angles de visée */ angle_vertical, true_ang);
     
 }
 
