@@ -98,7 +98,7 @@ char first_char(const string &str);
 
 class Labyrinthe : public Environnement {
 
-    private:
+ private:
 
     char  **_data;	//!< indique si la case est libre ou occupée.
     int   lab_width;	//!< Dimension de l'axe 'x' du labyrinthe. 
@@ -107,7 +107,8 @@ class Labyrinthe : public Environnement {
 
     
     vector<vector<int>> _dist_vect; //!< Vecteur contenant les distances entre chaque case et le trésor
-
+    vector<vector<int>> _estimated_dist_player; //!< Vecteur contenant les distances estimées par les gardiens au joueur
+    
     /**
      * \brief initialise _data[][], en fonction de lab_with et lab_height
      **/
@@ -116,8 +117,9 @@ class Labyrinthe : public Environnement {
     /**
      * \brief remplit la matrice de distance au trésor, récursivement, 
      * en partant de la case de coordonnées (x, y) qu'on sait déjà remplie
+     * 
      */
-    void fill_dist(int x, int y);
+    void fill_dist(int x, int y, vector<vector<int>> t);
     
     /**
      * \brief Initialise _guards et _nguard dans la classe
@@ -160,29 +162,42 @@ class Labyrinthe : public Environnement {
      **/
     void build_text(map<char, string> text_map, list<tuple<coord, char, bool>> text_list);
 
-
     /**
      * \brief initialise le vecteur des distances. Doit être appellé à la fin du constructeur
      **/
     void init_vector_dist();
 
-    public:
+    /**
+     * \brief initialise le vecteur des distances estimées vers le joueur
+     **/
+    void init_vector_playerdist();
+    
+    bool spotted = false;
+ public:
     Labyrinthe();
     Labyrinthe (char*);
     
+    void spot(int x, int y){
+	spotted = true;
+	maj_player_dist(x, y);
+    }
+
+    bool is_spotted(){return spotted;}
+
     /// \brief  retourne la largeur du labyrinthe.
     int width () { return lab_width;}
 
     /// \brief retourne la longueur du labyrinthe.
     int height () {return lab_height;}
 
-    /** \brief Informe sur l'état d'occupation de la case (i, j).
-    * \returns WALL si la case est un mur,
-    * BOX si la case est occupée par une boîte, 
-    * GARDE si la case est occupée par un garde, 
-    * JOUEUR si la case est occupée par le joueur, 
-    * TREASURE si la case est occupée par le trésor
-    **/
+    /**
+     * \brief Informe sur l'état d'occupation de la case (i, j).
+     * \returns WALL si la case est un mur,
+     * BOX si la case est occupée par une boîte, 
+     * GARDE si la case est occupée par un garde, 
+     * JOUEUR si la case est occupée par le joueur, 
+     * TREASURE si la case est occupée par le trésor
+     **/
     char data (int i, int j){
 	return _data [i][j];
     }
@@ -192,14 +207,14 @@ class Labyrinthe : public Environnement {
      **/
     void iamdying(){_nb_alive--;}
 
-    /** 
+    /**
      * \brief Indique le nombre de gardiens encore en vie dans le labyrinthe 
      * \returns le nombre de gardes encore en vie.
      **/
     int nb_alive(){
 	return _nb_alive;
     }
-
+    
     /**
      * ·\brief indique que une instance de Fireball du joueur a explosé à l'endroit où était placé un (ou plusieurs) des gardiens. 
      * Va donc "Blesser" le gardien via la méthode Gardien::hurt()
@@ -236,6 +251,27 @@ class Labyrinthe : public Environnement {
     int dist_of_treasure(int x, int y){
 	return _dist_vect[x][y];
     }
-    
+
+    /**
+     * \brief rend la distance estimée par les gardiens
+     * entre la case de coord (x, y)
+     * et le chasseur.
+     * \param x
+     * \param y
+     * \returns La distance estimée par les gardiens entre le point donné en paramètre et 
+     * la valeur réelle.
+     **/
+    int dist_of_player(int x, int y){
+	return _estimated_dist_player[x][y];
+    }
+
+    /**
+    * \brief met à jour les estimations de distances au joueur, en partant du principe que le 
+    * joueur est aux coordonnéees (x, y)
+    **/
+    void maj_player_dist(int x, int y);
+
+    void is_in_n_closest(Mover* guard, );
 };
+
 #endif

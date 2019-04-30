@@ -347,36 +347,6 @@ void Labyrinthe::build_treasure(coord c){
     _data[c.x][c.y] = TREASURE;	
 }
 
-// Hypothèse : La distance du noeud courant a été remplie avant l'appel
-void Labyrinthe::fill_dist(int x, int y){
-
-    int current_dist = _dist_vect[x][y];
-    
-    if(   _dist_vect[x+1][y] != -1
-       && current_dist + 1 < _dist_vect[x+1][y]){
-	
-	_dist_vect[x+1][y] = current_dist + 1;
-	fill_dist(x+1, y);
-    }
-    if(   _dist_vect[x-1][y] != -1
-       && current_dist + 1 < _dist_vect[x-1][y]){
-	_dist_vect[x-1][y] = current_dist + 1;
-	fill_dist(x-1, y);
-    }
-    if(   _dist_vect[x][y+1] != -1
-       && current_dist + 1 < _dist_vect[x][y+1]){
-	_dist_vect[x][y+1] = current_dist + 1;
-	fill_dist(x, y+1);
-    }
-
-    if(   _dist_vect[x][y-1] != -1
-       && current_dist + 1 < _dist_vect[x][y-1]){
-	
-	_dist_vect[x][y-1] = current_dist + 1;
-	fill_dist(x, y-1);
-    }
-}
-
 
 // 1. Calcul du vecteur de distances
 void Labyrinthe::init_vector_dist(){
@@ -399,7 +369,7 @@ void Labyrinthe::init_vector_dist(){
     }
     
     _dist_vect[_treasor._x][_treasor._y] = 0;
-    fill_dist(_treasor._x, _treasor._y);    
+    fill_dist(_treasor._x, _treasor._y, _dist_vect);    
 }
 
 void Labyrinthe::set_data(int x, int y, char value){
@@ -422,3 +392,59 @@ void Labyrinthe::hurt_gardien_at(int x, int y){
     }
 }
     
+void Labyrinthe::init_vector_playerdist(){
+    _estimated_dist_player = vector<vector<int>>(lab_width);
+    for( int i = 0; i < lab_width; i++ ){
+	_estimated_dist_player[i] = vector<int>(lab_height);
+	for(int j = 0; j< lab_height; j++){
+	    if(_data[i][j] == MUR || _data[i][j] == BOX)
+		_estimated_dist_player[i][j] = -1;
+	    else
+		_estimated_dist_player[i][j] = 1000000;
+	}
+   } g
+}
+
+void Labyrinthe::maj_player_dist(int x, int y){
+    for(int i = 0; i< lab_width; i++)
+	for(int j = 0; j < lab_width; j++)
+	    if(_data[i][j] == MUR || _data[i][j] == BOX)
+		_estimated_dist_player[i][j] = -1;
+	    else
+		_estimated_dist_player[i][j] = 1000000;
+    
+    int pos_px = (int) _guards[0]._x / scale;
+    int pos_py =_(int) _guards[0]._y / scale
+    _estimated_dist_player[pos_px][pos_py] = 0;
+    
+    fill_dist(pos_px, pos_py, _estimated_dist_player);
+}
+void Labyrinthe::fill_dist(int x, int y, vector<vector<int>> &v){
+
+    int current_dist = v[x][y];
+    
+    if(   v[x+1][y] != -1
+       && current_dist + 1 < v[x+1][y]){
+	
+	v[x+1][y] = current_dist + 1;
+	fill_dist(x+1, y, v);
+    }
+    if(   v[x-1][y] != -1
+       && current_dist + 1 < v[x-1][y]){
+	v[x-1][y] = current_dist + 1;
+	fill_dist(x-1, y, v);
+    }
+    if(   v[x][y+1] != -1
+       && current_dist + 1 < v[x][y+1]){
+	v[x][y+1] = current_dist + 1;
+	fill_dist(x, y+1, v);
+    }
+
+    if(   v[x][y-1] != -1
+       && current_dist + 1 < v[x][y-1]){
+	
+	v[x][y-1] = current_dist + 1;
+	fill_dist(x, y-1, v);
+    }
+}
+

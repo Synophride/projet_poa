@@ -81,7 +81,7 @@ void Chasseur::fire (int angle_vertical)
 {
     int true_ang = (_angle +  (rand() % (2 * perte_precision) - perte_precision)) % 360;
     angle_vertical = (angle_vertical + (rand() % (perte_precision) - (perte_precision/2))) % 360;
-    
+    l -> spot(x, y);
     _hunter_fire -> play ();
     _fb -> init (/* position initiale de la boule */ _x, _y, 10.,
 		 /* angles de visée */ angle_vertical, true_ang);

@@ -72,6 +72,7 @@ class Gardien : public Mover {
      * \brief fonction appellée lors de la mort du gardien
      **/
     void die();
+    list<int> last_pos_chasseur;
     
     public:
     Gardien (Labyrinthe* laby, const char* modele) : Mover (120, 80, laby, modele){
@@ -83,7 +84,7 @@ class Gardien : public Mover {
     // mon gardien pense très mal!
     void update(void);
 
-
+    list<int>
     /**
      * \brief fonction indiquant au gardien qu'il a été touché par une 
      * boule de feu provenant du joueur. Baissera sa précision et son nombre
