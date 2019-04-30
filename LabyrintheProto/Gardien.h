@@ -75,7 +75,6 @@ class Gardien : public Mover {
      */
     bool move_to_treasure();
 
-    
     void exploration();
 
     char basic_decision();
