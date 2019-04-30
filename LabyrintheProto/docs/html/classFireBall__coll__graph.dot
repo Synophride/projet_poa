@@ -1,0 +1,16 @@
+digraph "FireBall"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="FireBall",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _owner" ,fontname="Helvetica"];
+  Node2 [label="Mover",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMover.html"];
+  Node1 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _fb" ,fontname="Helvetica"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _l" ,fontname="Helvetica"];
+  Node3 [label="Environnement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEnvironnement.html"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _treasor\n_boxes" ,fontname="Helvetica"];
+  Node4 [label="Box",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structBox.html"];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _walls\n_picts" ,fontname="Helvetica"];
+  Node5 [label="Wall",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structWall.html"];
+  Node2 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _guards" ,fontname="Helvetica"];
+}

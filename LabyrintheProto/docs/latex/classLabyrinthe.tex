@@ -1,44 +1,172 @@
-\hypertarget{classLabyrinthe}{}\section{Labyrinthe Class Reference}
+\hypertarget{classLabyrinthe}{}\section{Référence de la classe Labyrinthe}
 \label{classLabyrinthe}\index{Labyrinthe@{Labyrinthe}}
 
 
-Inheritance diagram for Labyrinthe\+:
+{\ttfamily \#include $<$Labyrinthe.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Labyrinthe\+:
 % FIG 0
 
 
-Collaboration diagram for Labyrinthe\+:
+Graphe de collaboration de Labyrinthe\+:
 % FIG 1
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLabyrinthe_a16aa4865644d59a8ed9fde15cd5e7275}\label{classLabyrinthe_a16aa4865644d59a8ed9fde15cd5e7275}} 
-{\bfseries Labyrinthe} (char $\ast$)
+\hyperlink{classLabyrinthe_a46d8e42b8f59bf7e24ac7a967ac30e6e}{Labyrinthe} ()
 \item 
-\mbox{\Hypertarget{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}\label{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}} 
+\hyperlink{classLabyrinthe_a16aa4865644d59a8ed9fde15cd5e7275}{Labyrinthe} (char $\ast$)
+\item 
 int \hyperlink{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}{width} ()
 \begin{DoxyCompactList}\small\item\em retourne la largeur du labyrinthe. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}\label{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}} 
 int \hyperlink{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}{height} ()
 \begin{DoxyCompactList}\small\item\em retourne la longueur du labyrinthe. \end{DoxyCompactList}\item 
 char \hyperlink{classLabyrinthe_a433936ae60ddf3f0b85a407f414b8d38}{data} (int i, int j)
-\begin{DoxyCompactList}\small\item\em Informe sur l\textquotesingle{}�tat d\textquotesingle{}occupation de la case (i, j). \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classLabyrinthe_a987dc5663797cae6f75853e24a9f3ffb}\label{classLabyrinthe_a987dc5663797cae6f75853e24a9f3ffb}} 
+\begin{DoxyCompactList}\small\item\em Informe sur l\textquotesingle{}état d\textquotesingle{}occupation de la case (i, j). \end{DoxyCompactList}\item 
 void \hyperlink{classLabyrinthe_a987dc5663797cae6f75853e24a9f3ffb}{iamdying} ()
 \begin{DoxyCompactList}\small\item\em indique au labyrinthe qu\textquotesingle{}un des gardes est mort \end{DoxyCompactList}\item 
 int \hyperlink{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}{nb\+\_\+alive} ()
 \begin{DoxyCompactList}\small\item\em Indique le nombre de gardiens encore en vie dans le labyrinthe. \end{DoxyCompactList}\item 
 void \hyperlink{classLabyrinthe_a9c7c46b8c376f8b9ab0310ae1d0a369c}{hurt\+\_\+gardien\+\_\+at} (int x, int y)
-\begin{DoxyCompactList}\small\item\em indique que une instance de Fireball du joueur a explos� � l\textquotesingle{}endroit o� �tait plac� un (ou plusieurs) des gardiens. Va donc \char`\"{}\+Blesser\char`\"{} le gardien via la m�thode \hyperlink{classGardien_ac4ba490e309de80c1449fc5baef90390}{Gardien\+::hurt()} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em indique que une instance de Fireball du joueur a explosé ą l\textquotesingle{}endroit oł était placé un (ou plusieurs) des gardiens. Va donc \char`\"{}\+Blesser\char`\"{} le gardien via la méthode \hyperlink{classGardien_ac4ba490e309de80c1449fc5baef90390}{Gardien\+::hurt()} \end{DoxyCompactList}\item 
 void \hyperlink{classLabyrinthe_a28666f6cd5a5f32d41d664204a717593}{hurt\+\_\+joueur} ()
-\begin{DoxyCompactList}\small\item\em indique au labyrinthe que le joueur a �t� touch� par une boule de feu provenant d\textquotesingle{}un des gardiens \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em indique au labyrinthe que le joueur a été touché par une boule de feu provenant d\textquotesingle{}un des gardiens \end{DoxyCompactList}\item 
 void \hyperlink{classLabyrinthe_acc7682cd69ca12f27cb65457c9c8e89b}{set\+\_\+data} (int x, int y, char value)
-\begin{DoxyCompactList}\small\item\em change la valeur d\textquotesingle{}une case de la matrice \+\_\+data, par exemple lors du d�placement d\textquotesingle{}un gardien \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em change la valeur d\textquotesingle{}une case de la matrice \+\_\+data, par exemple lors du déplacement d\textquotesingle{}un gardien \end{DoxyCompactList}\item 
 int \hyperlink{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}{dist\+\_\+of\+\_\+treasure} (int x, int y)
 \begin{DoxyCompactList}\small\item\em rend la distance de la case courante \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Additional Inherited Members}
+\subsection*{Fonctions membres privées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classLabyrinthe_afc3f86c4ce00a37bd2b033d1e343c7c5}{init\+\_\+data} ()
+\begin{DoxyCompactList}\small\item\em initialise \+\_\+data\mbox{[}\mbox{]}\mbox{[}\mbox{]}, en fonction de lab\+\_\+with et lab\+\_\+height \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_ac465d56c311759a7f55a54da90329e17}{fill\+\_\+dist} (int x, int y)
+\begin{DoxyCompactList}\small\item\em remplit la matrice de distance au trésor, récursivement, en partant de la case de coordonnées (x, y) qu\textquotesingle{}on sait déją remplie \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a3fc2a0b2bbf0d1101fd7a3804bda9584}{build\+\_\+guards} (list$<$ \hyperlink{structcoord}{coord} $>$ guards, const \hyperlink{structcoord}{coord} \&player\+\_\+pos)
+\begin{DoxyCompactList}\small\item\em Initialise \+\_\+guards et \+\_\+nguard dans la classe. \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a2694b6ca24a8bba34f590d645245ff7e}{build\+\_\+walls} (list$<$ pair$<$ \hyperlink{structcoord}{coord}, \hyperlink{structcoord}{coord} $>$$>$ wall\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Initialise les murs (\+\_\+nwall et \+\_\+walls\mbox{[}\mbox{]}) \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a69718b426a9402cd578b2174d3b9389b}{build\+\_\+boxes} (list$<$ \hyperlink{structcoord}{coord} $>$ box\+\_\+list)
+\begin{DoxyCompactList}\small\item\em initialise les boites \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a2e30105a06c0512ea2078f825fae17bd}{build\+\_\+treasure} (\hyperlink{structcoord}{coord} c)
+\begin{DoxyCompactList}\small\item\em initialisation du trésor \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a719b7fe3a3e8f6be8299aab9cc1cf338}{build\+\_\+text} (map$<$ char, string $>$ text\+\_\+map, list$<$ tuple$<$ \hyperlink{structcoord}{coord}, char, bool $>$$>$ text\+\_\+list)
+\begin{DoxyCompactList}\small\item\em initialisation des textures \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_aabe4e77af2b2e156608741a0b08aabdc}{init\+\_\+vector\+\_\+dist} ()
+\begin{DoxyCompactList}\small\item\em initialise le vecteur des distances. Doit źtre appellé ą la fin du constructeur \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$ \hyperlink{classLabyrinthe_a93ccbd26c14359bec6a9898575f69237}{\+\_\+data}
+\begin{DoxyCompactList}\small\item\em indique si la case est libre ou occupée. \end{DoxyCompactList}\item 
+int \hyperlink{classLabyrinthe_a6ae1d76761645024106ad6374305dd02}{lab\+\_\+width}
+\begin{DoxyCompactList}\small\item\em Dimension de l\textquotesingle{}axe \textquotesingle{}x\textquotesingle{} du labyrinthe. \end{DoxyCompactList}\item 
+int \hyperlink{classLabyrinthe_af48dc244a25af5aac1a9fca668dee82d}{lab\+\_\+height}
+\begin{DoxyCompactList}\small\item\em Dimension de l\textquotesingle{}axe \textquotesingle{}y\textquotesingle{} du labyrinthe. \end{DoxyCompactList}\item 
+int \hyperlink{classLabyrinthe_ad97a56882b720fa0f94acffde1d2c275}{\+\_\+nb\+\_\+alive}
+\begin{DoxyCompactList}\small\item\em Indique le nombre. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classLabyrinthe_a63f1ac088c5b93cd8c099e7cce3ef4dc}{\+\_\+dist\+\_\+vect}
+\begin{DoxyCompactList}\small\item\em Vecteur contenant les distances entre chaque case et le trésor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membres hérités additionnels}
 
 
-\subsection{Member Function Documentation}
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classLabyrinthe_a46d8e42b8f59bf7e24ac7a967ac30e6e}\label{classLabyrinthe_a46d8e42b8f59bf7e24ac7a967ac30e6e}} 
+\index{Labyrinthe@{Labyrinthe}!Labyrinthe@{Labyrinthe}}
+\index{Labyrinthe@{Labyrinthe}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{Labyrinthe()}{Labyrinthe()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Labyrinthe\+::\+Labyrinthe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classLabyrinthe_a16aa4865644d59a8ed9fde15cd5e7275}\label{classLabyrinthe_a16aa4865644d59a8ed9fde15cd5e7275}} 
+\index{Labyrinthe@{Labyrinthe}!Labyrinthe@{Labyrinthe}}
+\index{Labyrinthe@{Labyrinthe}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{Labyrinthe()}{Labyrinthe()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Labyrinthe\+::\+Labyrinthe (\begin{DoxyParamCaption}\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classLabyrinthe_a69718b426a9402cd578b2174d3b9389b}\label{classLabyrinthe_a69718b426a9402cd578b2174d3b9389b}} 
+\index{Labyrinthe@{Labyrinthe}!build\+\_\+boxes@{build\+\_\+boxes}}
+\index{build\+\_\+boxes@{build\+\_\+boxes}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{build\+\_\+boxes()}{build\_boxes()}}
+{\footnotesize\ttfamily void Labyrinthe\+::build\+\_\+boxes (\begin{DoxyParamCaption}\item[{list$<$ \hyperlink{structcoord}{coord} $>$}]{box\+\_\+list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialise les boites 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em box\+\_\+list} & (in) \+: liste des coordonnées des boites \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLabyrinthe_a3fc2a0b2bbf0d1101fd7a3804bda9584}\label{classLabyrinthe_a3fc2a0b2bbf0d1101fd7a3804bda9584}} 
+\index{Labyrinthe@{Labyrinthe}!build\+\_\+guards@{build\+\_\+guards}}
+\index{build\+\_\+guards@{build\+\_\+guards}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{build\+\_\+guards()}{build\_guards()}}
+{\footnotesize\ttfamily void Labyrinthe\+::build\+\_\+guards (\begin{DoxyParamCaption}\item[{list$<$ \hyperlink{structcoord}{coord} $>$}]{guards,  }\item[{const \hyperlink{structcoord}{coord} \&}]{player\+\_\+pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialise \+\_\+guards et \+\_\+nguard dans la classe. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em guards} & (in) \+: une liste des coordonnées des gardes \\
+\hline
+{\em player\+\_\+pos} & (in) \+: La coordonnée du joueur T\+O\+DO \+: génération de gardes différents \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLabyrinthe_a719b7fe3a3e8f6be8299aab9cc1cf338}\label{classLabyrinthe_a719b7fe3a3e8f6be8299aab9cc1cf338}} 
+\index{Labyrinthe@{Labyrinthe}!build\+\_\+text@{build\+\_\+text}}
+\index{build\+\_\+text@{build\+\_\+text}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{build\+\_\+text()}{build\_text()}}
+{\footnotesize\ttfamily void Labyrinthe\+::build\+\_\+text (\begin{DoxyParamCaption}\item[{map$<$ char, string $>$}]{text\+\_\+map,  }\item[{list$<$ tuple$<$ \hyperlink{structcoord}{coord}, char, bool $>$$>$}]{text\+\_\+list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialisation des textures 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em text\+\_\+map} & (in) \+: la structure associant un caractčre représentant une texture dans le .txt du labyrinthe au nom de la texture \\
+\hline
+{\em text\+\_\+list} & (in)\+: Une liste des textures, oł chaque élément contient la coordonnée de la texture, le caractčre représentant la texture, ainsi que l\textquotesingle{}orientation de la texture (égale ą H\+O\+R\+I\+Z\+O\+N\+T\+AL ou V\+E\+R\+T\+I\+C\+AL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLabyrinthe_a2e30105a06c0512ea2078f825fae17bd}\label{classLabyrinthe_a2e30105a06c0512ea2078f825fae17bd}} 
+\index{Labyrinthe@{Labyrinthe}!build\+\_\+treasure@{build\+\_\+treasure}}
+\index{build\+\_\+treasure@{build\+\_\+treasure}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{build\+\_\+treasure()}{build\_treasure()}}
+{\footnotesize\ttfamily void Labyrinthe\+::build\+\_\+treasure (\begin{DoxyParamCaption}\item[{\hyperlink{structcoord}{coord}}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialisation du trésor 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em c} & la coordonnée du trésor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLabyrinthe_a2694b6ca24a8bba34f590d645245ff7e}\label{classLabyrinthe_a2694b6ca24a8bba34f590d645245ff7e}} 
+\index{Labyrinthe@{Labyrinthe}!build\+\_\+walls@{build\+\_\+walls}}
+\index{build\+\_\+walls@{build\+\_\+walls}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{build\+\_\+walls()}{build\_walls()}}
+{\footnotesize\ttfamily void Labyrinthe\+::build\+\_\+walls (\begin{DoxyParamCaption}\item[{list$<$ pair$<$ \hyperlink{structcoord}{coord}, \hyperlink{structcoord}{coord} $>$$>$}]{wall\+\_\+list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialise les murs (\+\_\+nwall et \+\_\+walls\mbox{[}\mbox{]}) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em wall\+\_\+list} & (in) \+: la liste des murs, un mur étant représenté par une paire de coordonnées. Pour chaque paire de coordonnées (x1 y1) (x2 y2) de la liste, on fait l\textquotesingle{}hypothčse que La premičre coordonnées est \char`\"{}plus petite\char`\"{} que la seconde, id est (x1 $<$ x2 $\vert$$\vert$ y1 $<$ y2). \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classLabyrinthe_a433936ae60ddf3f0b85a407f414b8d38}\label{classLabyrinthe_a433936ae60ddf3f0b85a407f414b8d38}} 
 \index{Labyrinthe@{Labyrinthe}!data@{data}}
 \index{data@{data}!Labyrinthe@{Labyrinthe}}
@@ -47,14 +175,14 @@ int \hyperlink{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}{dist\+\_\+of\+
 
 
 
-Informe sur l\textquotesingle{}�tat d\textquotesingle{}occupation de la case (i, j). 
+Informe sur l\textquotesingle{}état d\textquotesingle{}occupation de la case (i, j). 
 
-\begin{DoxyReturn}{Returns}
-W\+A\+LL si la case est un mur, B\+OX si la case est occup�e par une bo�te, G\+A\+R\+DE si la case est occup�e par un garde, J\+O\+U\+E\+UR si la case est occup�e par le joueur, T\+R\+E\+A\+S\+U\+RE si la case est occup�e par le tr�sor 
+\begin{DoxyReturn}{Renvoie}
+W\+A\+LL si la case est un mur, B\+OX si la case est occupée par une boīte, G\+A\+R\+DE si la case est occupée par un garde, J\+O\+U\+E\+UR si la case est occupée par le joueur, T\+R\+E\+A\+S\+U\+RE si la case est occupée par le trésor 
 \end{DoxyReturn}
 
 
-Implements \hyperlink{classEnvironnement}{Environnement}.
+Implémente \hyperlink{classEnvironnement_a0fae4716da729dbf13f52f09f2d293cd}{Environnement}.
 
 \mbox{\Hypertarget{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}\label{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}} 
 \index{Labyrinthe@{Labyrinthe}!dist\+\_\+of\+\_\+treasure@{dist\+\_\+of\+\_\+treasure}}
@@ -67,15 +195,39 @@ Implements \hyperlink{classEnvironnement}{Environnement}.
 rend la distance de la case courante 
 
 
-\begin{DoxyParams}{Parameters}
-{\em x} & la coordonn�e dans l\textquotesingle{}axe des abcisses \\
+\begin{DoxyParams}{Paramètres}
+{\em x} & la coordonnée dans l\textquotesingle{}axe des abcisses \\
 \hline
-{\em y} & la coordonn�e dans l\textquotesingle{}axe des ordonn�es \\
+{\em y} & la coordonnée dans l\textquotesingle{}axe des ordonnées \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
--\/1 si la case est un mur, 1 000 000 s\textquotesingle{}il n\textquotesingle{}existe pas de chemin entre le point de coordonn�es (x,y), La distance en nombre de cases entre le point (x,y) et le tr�sor dans les autres cas 
+\begin{DoxyReturn}{Renvoie}
+-\/1 si la case est un mur, 1 000 000 s\textquotesingle{}il n\textquotesingle{}existe pas de chemin entre le point de coordonnées (x,y), La distance en nombre de cases entre le point (x,y) et le trésor dans les autres cas 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classLabyrinthe_ac465d56c311759a7f55a54da90329e17}\label{classLabyrinthe_ac465d56c311759a7f55a54da90329e17}} 
+\index{Labyrinthe@{Labyrinthe}!fill\+\_\+dist@{fill\+\_\+dist}}
+\index{fill\+\_\+dist@{fill\+\_\+dist}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{fill\+\_\+dist()}{fill\_dist()}}
+{\footnotesize\ttfamily void Labyrinthe\+::fill\+\_\+dist (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+remplit la matrice de distance au trésor, récursivement, en partant de la case de coordonnées (x, y) qu\textquotesingle{}on sait déją remplie 
+
+\mbox{\Hypertarget{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}\label{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}} 
+\index{Labyrinthe@{Labyrinthe}!height@{height}}
+\index{height@{height}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily int Labyrinthe\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+retourne la longueur du labyrinthe. 
+
+
+
+Implémente \hyperlink{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}{Environnement}.
+
 \mbox{\Hypertarget{classLabyrinthe_a9c7c46b8c376f8b9ab0310ae1d0a369c}\label{classLabyrinthe_a9c7c46b8c376f8b9ab0310ae1d0a369c}} 
 \index{Labyrinthe@{Labyrinthe}!hurt\+\_\+gardien\+\_\+at@{hurt\+\_\+gardien\+\_\+at}}
 \index{hurt\+\_\+gardien\+\_\+at@{hurt\+\_\+gardien\+\_\+at}!Labyrinthe@{Labyrinthe}}
@@ -84,11 +236,11 @@ rend la distance de la case courante
 
 
 
-indique que une instance de Fireball du joueur a explos� � l\textquotesingle{}endroit o� �tait plac� un (ou plusieurs) des gardiens. Va donc \char`\"{}\+Blesser\char`\"{} le gardien via la m�thode \hyperlink{classGardien_ac4ba490e309de80c1449fc5baef90390}{Gardien\+::hurt()} 
+indique que une instance de Fireball du joueur a explosé ą l\textquotesingle{}endroit oł était placé un (ou plusieurs) des gardiens. Va donc \char`\"{}\+Blesser\char`\"{} le gardien via la méthode \hyperlink{classGardien_ac4ba490e309de80c1449fc5baef90390}{Gardien\+::hurt()} 
 
-�
-\begin{DoxyParams}{Parameters}
-{\em x} & la composante dans l\textquotesingle{}axe des abcisses de la case dans laquelle la boule de feu explose  y la composante dans l\textquotesingle{}axe des ordonn�es de la case dans laquelle la boule de feu explose \\
+·
+\begin{DoxyParams}{Paramètres}
+{\em x} & la composante dans l\textquotesingle{}axe des abcisses de la case dans laquelle la boule de feu explose  y la composante dans l\textquotesingle{}axe des ordonnées de la case dans laquelle la boule de feu explose \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classLabyrinthe_a28666f6cd5a5f32d41d664204a717593}\label{classLabyrinthe_a28666f6cd5a5f32d41d664204a717593}} 
@@ -99,9 +251,39 @@ indique que une instance de Fireball du joueur a explos� � l\textquotesingle{}en
 
 
 
-indique au labyrinthe que le joueur a �t� touch� par une boule de feu provenant d\textquotesingle{}un des gardiens 
+indique au labyrinthe que le joueur a été touché par une boule de feu provenant d\textquotesingle{}un des gardiens 
 
-Va donc appeller la m�thode \hyperlink{classChasseur_ac75a09254dea5b1d25c7dbf49809a273}{Chasseur\+::hurt()} \mbox{\Hypertarget{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}\label{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}} 
+Va donc appeller la méthode \hyperlink{classChasseur_ac75a09254dea5b1d25c7dbf49809a273}{Chasseur\+::hurt()} \mbox{\Hypertarget{classLabyrinthe_a987dc5663797cae6f75853e24a9f3ffb}\label{classLabyrinthe_a987dc5663797cae6f75853e24a9f3ffb}} 
+\index{Labyrinthe@{Labyrinthe}!iamdying@{iamdying}}
+\index{iamdying@{iamdying}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{iamdying()}{iamdying()}}
+{\footnotesize\ttfamily void Labyrinthe\+::iamdying (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+indique au labyrinthe qu\textquotesingle{}un des gardes est mort 
+
+\mbox{\Hypertarget{classLabyrinthe_afc3f86c4ce00a37bd2b033d1e343c7c5}\label{classLabyrinthe_afc3f86c4ce00a37bd2b033d1e343c7c5}} 
+\index{Labyrinthe@{Labyrinthe}!init\+\_\+data@{init\+\_\+data}}
+\index{init\+\_\+data@{init\+\_\+data}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{init\+\_\+data()}{init\_data()}}
+{\footnotesize\ttfamily void Labyrinthe\+::init\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialise \+\_\+data\mbox{[}\mbox{]}\mbox{[}\mbox{]}, en fonction de lab\+\_\+with et lab\+\_\+height 
+
+\mbox{\Hypertarget{classLabyrinthe_aabe4e77af2b2e156608741a0b08aabdc}\label{classLabyrinthe_aabe4e77af2b2e156608741a0b08aabdc}} 
+\index{Labyrinthe@{Labyrinthe}!init\+\_\+vector\+\_\+dist@{init\+\_\+vector\+\_\+dist}}
+\index{init\+\_\+vector\+\_\+dist@{init\+\_\+vector\+\_\+dist}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{init\+\_\+vector\+\_\+dist()}{init\_vector\_dist()}}
+{\footnotesize\ttfamily void Labyrinthe\+::init\+\_\+vector\+\_\+dist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialise le vecteur des distances. Doit źtre appellé ą la fin du constructeur 
+
+\mbox{\Hypertarget{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}\label{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}} 
 \index{Labyrinthe@{Labyrinthe}!nb\+\_\+alive@{nb\+\_\+alive}}
 \index{nb\+\_\+alive@{nb\+\_\+alive}!Labyrinthe@{Labyrinthe}}
 \subsubsection{\texorpdfstring{nb\+\_\+alive()}{nb\_alive()}}
@@ -111,7 +293,7 @@ Va donc appeller la m�thode \hyperlink{classChasseur_ac75a09254dea5b1d25c7dbf498
 
 Indique le nombre de gardiens encore en vie dans le labyrinthe. 
 
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Renvoie}
 le nombre de gardes encore en vie. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classLabyrinthe_acc7682cd69ca12f27cb65457c9c8e89b}\label{classLabyrinthe_acc7682cd69ca12f27cb65457c9c8e89b}} 
@@ -122,20 +304,87 @@ le nombre de gardes encore en vie.
 
 
 
-change la valeur d\textquotesingle{}une case de la matrice \+\_\+data, par exemple lors du d�placement d\textquotesingle{}un gardien 
+change la valeur d\textquotesingle{}une case de la matrice \+\_\+data, par exemple lors du déplacement d\textquotesingle{}un gardien 
 
 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Paramètres}
 {\em x} & \\
 \hline
 {\em y} & \\
 \hline
-{\em value} & La nouvelle valeur de la case \+\_\+data\mbox{[}x\mbox{]}\mbox{[}y\mbox{]}. En th�orie, compris entre E\+M\+P\+TY et T\+R\+E\+A\+S\+U\+RE, mais dans les faits ce sera E\+M\+P\+TY, J\+O\+U\+E\+UR, ou G\+A\+R\+DE, �tant donn� que seules ces entit�s se d�placent) \\
+{\em value} & La nouvelle valeur de la case \+\_\+data\mbox{[}x\mbox{]}\mbox{[}y\mbox{]}. En théorie, compris entre E\+M\+P\+TY et T\+R\+E\+A\+S\+U\+RE, mais dans les faits ce sera E\+M\+P\+TY, J\+O\+U\+E\+UR, ou G\+A\+R\+DE, étant donné que seules ces entités se déplacent) \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}\label{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}} 
+\index{Labyrinthe@{Labyrinthe}!width@{width}}
+\index{width@{width}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily int Labyrinthe\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+
+retourne la largeur du labyrinthe. 
+
+
+
+Implémente \hyperlink{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}{Environnement}.
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classLabyrinthe_a93ccbd26c14359bec6a9898575f69237}\label{classLabyrinthe_a93ccbd26c14359bec6a9898575f69237}} 
+\index{Labyrinthe@{Labyrinthe}!\+\_\+data@{\+\_\+data}}
+\index{\+\_\+data@{\+\_\+data}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{\+\_\+data}{\_data}}
+{\footnotesize\ttfamily char$\ast$$\ast$ Labyrinthe\+::\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+indique si la case est libre ou occupée. 
+
+\mbox{\Hypertarget{classLabyrinthe_a63f1ac088c5b93cd8c099e7cce3ef4dc}\label{classLabyrinthe_a63f1ac088c5b93cd8c099e7cce3ef4dc}} 
+\index{Labyrinthe@{Labyrinthe}!\+\_\+dist\+\_\+vect@{\+\_\+dist\+\_\+vect}}
+\index{\+\_\+dist\+\_\+vect@{\+\_\+dist\+\_\+vect}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{\+\_\+dist\+\_\+vect}{\_dist\_vect}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ Labyrinthe\+::\+\_\+dist\+\_\+vect\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vecteur contenant les distances entre chaque case et le trésor. 
+
+\mbox{\Hypertarget{classLabyrinthe_ad97a56882b720fa0f94acffde1d2c275}\label{classLabyrinthe_ad97a56882b720fa0f94acffde1d2c275}} 
+\index{Labyrinthe@{Labyrinthe}!\+\_\+nb\+\_\+alive@{\+\_\+nb\+\_\+alive}}
+\index{\+\_\+nb\+\_\+alive@{\+\_\+nb\+\_\+alive}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{\+\_\+nb\+\_\+alive}{\_nb\_alive}}
+{\footnotesize\ttfamily int Labyrinthe\+::\+\_\+nb\+\_\+alive\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indique le nombre. 
+
+\mbox{\Hypertarget{classLabyrinthe_af48dc244a25af5aac1a9fca668dee82d}\label{classLabyrinthe_af48dc244a25af5aac1a9fca668dee82d}} 
+\index{Labyrinthe@{Labyrinthe}!lab\+\_\+height@{lab\+\_\+height}}
+\index{lab\+\_\+height@{lab\+\_\+height}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{lab\+\_\+height}{lab\_height}}
+{\footnotesize\ttfamily int Labyrinthe\+::lab\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dimension de l\textquotesingle{}axe \textquotesingle{}y\textquotesingle{} du labyrinthe. 
+
+\mbox{\Hypertarget{classLabyrinthe_a6ae1d76761645024106ad6374305dd02}\label{classLabyrinthe_a6ae1d76761645024106ad6374305dd02}} 
+\index{Labyrinthe@{Labyrinthe}!lab\+\_\+width@{lab\+\_\+width}}
+\index{lab\+\_\+width@{lab\+\_\+width}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{lab\+\_\+width}{lab\_width}}
+{\footnotesize\ttfamily int Labyrinthe\+::lab\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dimension de l\textquotesingle{}axe \textquotesingle{}x\textquotesingle{} du labyrinthe. 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
 \item 
-Labyrinthe.\+h\item 
-Labyrinthe.\+cc\end{DoxyCompactItemize}
+\hyperlink{Labyrinthe_8h}{Labyrinthe.\+h}\item 
+\hyperlink{Labyrinthe_8cc}{Labyrinthe.\+cc}\end{DoxyCompactItemize}

@@ -1,0 +1,230 @@
+\hypertarget{Labyrinthe_8h}{}\section{Référence du fichier Labyrinthe.\+h}
+\label{Labyrinthe_8h}\index{Labyrinthe.\+h@{Labyrinthe.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$ios$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Environnement.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de Labyrinthe.\+h\+:
+% FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcoord}{coord}
+\begin{DoxyCompactList}\small\item\em Structure représentant une coordonnée du labyrinthe. \end{DoxyCompactList}\item 
+class \hyperlink{classLabyrinthe}{Labyrinthe}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Labyrinthe_8h_a72682f9875a35c771433ed1f208ea1ee}{build\+\_\+map} (const char $\ast$path, vector$<$ string $>$ \&terrain, map$<$ char, string $>$ \&tex\+\_\+list)
+\begin{DoxyCompactList}\small\item\em fonction construisant ą la fois le terrain et la liste des textures \end{DoxyCompactList}\item 
+void \hyperlink{Labyrinthe_8h_aa7cf7288b435b59b489280760501a031}{parse\+\_\+map} (const vector$<$ string $>$ \&terrain, list$<$ \hyperlink{structcoord}{coord} $>$ \&guard\+\_\+list, list$<$ pair$<$ \hyperlink{structcoord}{coord}, \hyperlink{structcoord}{coord} $>$$>$ \&wall\+\_\+list, list$<$ tuple$<$ \hyperlink{structcoord}{coord}, char, bool $>$$>$ \&text\+\_\+list, list$<$ \hyperlink{structcoord}{coord} $>$ \&box\+\_\+list, \hyperlink{structcoord}{coord} \&player\+\_\+pos, \hyperlink{structcoord}{coord} \&treasure\+\_\+pos, int \&height, int \&width)
+\begin{DoxyCompactList}\small\item\em construit les listes \end{DoxyCompactList}\item 
+void \hyperlink{Labyrinthe_8h_a61a90ee7ded8c3586624a36e3f58be08}{parse\+\_\+wall\+\_\+extr} (const vector$<$ string $>$ \&terrain, const \hyperlink{structcoord}{coord} \&base\+\_\+coord, list$<$ \hyperlink{structcoord}{coord} $>$ \&extr\+\_\+list, list$<$ tuple$<$ \hyperlink{structcoord}{coord}, char, bool $>$$>$ \&text\+\_\+list)
+\begin{DoxyCompactList}\small\item\em fait la liste des extrémités des murs partant de la coordonnée base\+\_\+coord sur le terrain. \end{DoxyCompactList}\item 
+void \hyperlink{Labyrinthe_8h_ad7db5b65a09260702c4d644fc495de26}{add\+\_\+to\+\_\+wall\+\_\+list} (const \hyperlink{structcoord}{coord} \&base\+\_\+coord, list$<$ \hyperlink{structcoord}{coord} $>$ other\+\_\+extr, list$<$ pair$<$ \hyperlink{structcoord}{coord}, \hyperlink{structcoord}{coord} $>$$>$ \&wall\+\_\+lst)
+\begin{DoxyCompactList}\small\item\em fusionne les extrémités et la coordonnée de base, pour créer un ou deux murs \end{DoxyCompactList}\item 
+bool \hyperlink{Labyrinthe_8h_a66db10adab61460298973f7dd12f93f2}{is\+\_\+blank} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Décide si une ligne est considérée comme vide (commentaires inclus), id est ne contenant que des caractčres espace (ou un commentaire) \end{DoxyCompactList}\item 
+char \hyperlink{Labyrinthe_8h_a8242ad51b5da31f669fdf112e49af1a8}{first\+\_\+char} (const string \&str)
+\begin{DoxyCompactList}\small\item\em rend le premier caractčre non-\/nul de la chaine, ou 0 si la chaine est vide \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const bool \hyperlink{Labyrinthe_8h_ad8da2cfd491b9c1befec63d07e8bdc20}{H\+O\+R\+I\+Z\+O\+N\+T\+AL} = false
+\begin{DoxyCompactList}\small\item\em booléen permettant d\textquotesingle{}indiquer le sens des affiches \end{DoxyCompactList}\item 
+const bool \hyperlink{Labyrinthe_8h_ac25c1fcb5a5d51c06684fddb413cab00}{V\+E\+R\+T\+I\+C\+AL} = true
+\begin{DoxyCompactList}\small\item\em booléen permettant d\textquotesingle{}indiquer le sens des affiches \end{DoxyCompactList}\item 
+const char \hyperlink{Labyrinthe_8h_ab505eeadab90642a1fb363028bdd34bc}{W\+A\+LL} = 1
+\item 
+const char \hyperlink{Labyrinthe_8h_ac14e2c021da59c694d6643dba21a9b7e}{B\+OX} = 2
+\item 
+const char \hyperlink{Labyrinthe_8h_a8f83164c16577696f81094ea3e6f9377}{G\+A\+R\+DE} = 3
+\item 
+const char \hyperlink{Labyrinthe_8h_ae83a3fc2cd978eb9d524a816e6d7dea1}{J\+O\+U\+E\+UR} = 4
+\item 
+const char \hyperlink{Labyrinthe_8h_a383770f8ef481c9212b1347e195a4c1c}{T\+R\+E\+A\+S\+U\+RE} = 5
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{Labyrinthe_8h_ad7db5b65a09260702c4d644fc495de26}\label{Labyrinthe_8h_ad7db5b65a09260702c4d644fc495de26}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!add\+\_\+to\+\_\+wall\+\_\+list@{add\+\_\+to\+\_\+wall\+\_\+list}}
+\index{add\+\_\+to\+\_\+wall\+\_\+list@{add\+\_\+to\+\_\+wall\+\_\+list}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{add\+\_\+to\+\_\+wall\+\_\+list()}{add\_to\_wall\_list()}}
+{\footnotesize\ttfamily void add\+\_\+to\+\_\+wall\+\_\+list (\begin{DoxyParamCaption}\item[{const \hyperlink{structcoord}{coord} \&}]{base\+\_\+coord,  }\item[{list$<$ \hyperlink{structcoord}{coord} $>$}]{other\+\_\+extr,  }\item[{list$<$ pair$<$ \hyperlink{structcoord}{coord}, \hyperlink{structcoord}{coord} $>$$>$ \&}]{wall\+\_\+lst }\end{DoxyParamCaption})}
+
+
+
+fusionne les extrémités et la coordonnée de base, pour créer un ou deux murs 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em other\+\_\+extr} & (in) \+: La liste des extrémités \\
+\hline
+{\em wall\+\_\+lst} & (inout)\+: La liste des murs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Labyrinthe_8h_a72682f9875a35c771433ed1f208ea1ee}\label{Labyrinthe_8h_a72682f9875a35c771433ed1f208ea1ee}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!build\+\_\+map@{build\+\_\+map}}
+\index{build\+\_\+map@{build\+\_\+map}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{build\+\_\+map()}{build\_map()}}
+{\footnotesize\ttfamily void build\+\_\+map (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{vector$<$ string $>$ \&}]{terrain,  }\item[{map$<$ char, string $>$ \&}]{tex\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+fonction construisant ą la fois le terrain et la liste des textures 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path} & (in) \+: Le chemin d\textquotesingle{}accčs au fichier du labyrinthe \\
+\hline
+{\em terrain} & (out) \+: Le tableau de string représentant le labyrinthe \\
+\hline
+{\em tex\+\_\+list} & (out) \+: La hashmap associant un chemin d\textquotesingle{}accčs ą un caractčre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Labyrinthe_8h_a8242ad51b5da31f669fdf112e49af1a8}\label{Labyrinthe_8h_a8242ad51b5da31f669fdf112e49af1a8}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!first\+\_\+char@{first\+\_\+char}}
+\index{first\+\_\+char@{first\+\_\+char}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{first\+\_\+char()}{first\_char()}}
+{\footnotesize\ttfamily char first\+\_\+char (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+rend le premier caractčre non-\/nul de la chaine, ou 0 si la chaine est vide 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em la} & str ą tester \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Labyrinthe_8h_a66db10adab61460298973f7dd12f93f2}\label{Labyrinthe_8h_a66db10adab61460298973f7dd12f93f2}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!is\+\_\+blank@{is\+\_\+blank}}
+\index{is\+\_\+blank@{is\+\_\+blank}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{is\+\_\+blank()}{is\_blank()}}
+{\footnotesize\ttfamily bool is\+\_\+blank (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Décide si une ligne est considérée comme vide (commentaires inclus), id est ne contenant que des caractčres espace (ou un commentaire) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em str} & la chaīne de caractčre testée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si la chaīne est vide (uniquement des espaces ou des commentaires), false sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Labyrinthe_8h_aa7cf7288b435b59b489280760501a031}\label{Labyrinthe_8h_aa7cf7288b435b59b489280760501a031}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!parse\+\_\+map@{parse\+\_\+map}}
+\index{parse\+\_\+map@{parse\+\_\+map}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{parse\+\_\+map()}{parse\_map()}}
+{\footnotesize\ttfamily void parse\+\_\+map (\begin{DoxyParamCaption}\item[{const vector$<$ string $>$ \&}]{terrain,  }\item[{list$<$ \hyperlink{structcoord}{coord} $>$ \&}]{guard\+\_\+list,  }\item[{list$<$ pair$<$ \hyperlink{structcoord}{coord}, \hyperlink{structcoord}{coord} $>$$>$ \&}]{wall\+\_\+list,  }\item[{list$<$ tuple$<$ \hyperlink{structcoord}{coord}, char, bool $>$$>$ \&}]{text\+\_\+list,  }\item[{list$<$ \hyperlink{structcoord}{coord} $>$ \&}]{box\+\_\+list,  }\item[{\hyperlink{structcoord}{coord} \&}]{player\+\_\+pos,  }\item[{\hyperlink{structcoord}{coord} \&}]{treasure\+\_\+pos,  }\item[{int \&}]{height,  }\item[{int \&}]{width }\end{DoxyParamCaption})}
+
+
+
+construit les listes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & (in) \+: Le terrain/labyrinthe \\
+\hline
+{\em guard\+\_\+list} & (out) \+: La liste des coordonnées des gardes \\
+\hline
+{\em wall\+\_\+list} & (out) \+: La liste des coordonnées des murs \\
+\hline
+{\em text\+\_\+list} & (out) \+: La liste des textures (une texture = coordonnée, char-\/id de texture et un indicateur sur le sens de la texture) \\
+\hline
+{\em box\+\_\+list} & (out) \+: La liste des boites \\
+\hline
+{\em player\+\_\+pos} & (out) \+: La position du joueur \\
+\hline
+{\em treasure\+\_\+pos(out)} & La position du trésor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Labyrinthe_8h_a61a90ee7ded8c3586624a36e3f58be08}\label{Labyrinthe_8h_a61a90ee7ded8c3586624a36e3f58be08}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!parse\+\_\+wall\+\_\+extr@{parse\+\_\+wall\+\_\+extr}}
+\index{parse\+\_\+wall\+\_\+extr@{parse\+\_\+wall\+\_\+extr}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{parse\+\_\+wall\+\_\+extr()}{parse\_wall\_extr()}}
+{\footnotesize\ttfamily void parse\+\_\+wall\+\_\+extr (\begin{DoxyParamCaption}\item[{const vector$<$ string $>$ \&}]{terrain,  }\item[{const \hyperlink{structcoord}{coord} \&}]{base\+\_\+coord,  }\item[{list$<$ \hyperlink{structcoord}{coord} $>$ \&}]{extr\+\_\+list,  }\item[{list$<$ tuple$<$ \hyperlink{structcoord}{coord}, char, bool $>$$>$ \&}]{text\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+fait la liste des extrémités des murs partant de la coordonnée base\+\_\+coord sur le terrain. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em terrain} & (in) \+: Le labyrinthe \\
+\hline
+{\em base\+\_\+coord} & (in) \+: La coordonnée de départ du mur \\
+\hline
+{\em extr\+\_\+list} & (out)\+: La liste des extrémités des murs \\
+\hline
+{\em text\+\_\+list} & (inout)\+: La liste des coordonnées+caractčres+\char`\"{}verticalité\char`\"{} des textures \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des variables}
+\mbox{\Hypertarget{Labyrinthe_8h_ac14e2c021da59c694d6643dba21a9b7e}\label{Labyrinthe_8h_ac14e2c021da59c694d6643dba21a9b7e}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!B\+OX@{B\+OX}}
+\index{B\+OX@{B\+OX}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{B\+OX}{BOX}}
+{\footnotesize\ttfamily const char B\+OX = 2}
+
+\mbox{\Hypertarget{Labyrinthe_8h_a8f83164c16577696f81094ea3e6f9377}\label{Labyrinthe_8h_a8f83164c16577696f81094ea3e6f9377}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!G\+A\+R\+DE@{G\+A\+R\+DE}}
+\index{G\+A\+R\+DE@{G\+A\+R\+DE}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{G\+A\+R\+DE}{GARDE}}
+{\footnotesize\ttfamily const char G\+A\+R\+DE = 3}
+
+\mbox{\Hypertarget{Labyrinthe_8h_ad8da2cfd491b9c1befec63d07e8bdc20}\label{Labyrinthe_8h_ad8da2cfd491b9c1befec63d07e8bdc20}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!H\+O\+R\+I\+Z\+O\+N\+T\+AL@{H\+O\+R\+I\+Z\+O\+N\+T\+AL}}
+\index{H\+O\+R\+I\+Z\+O\+N\+T\+AL@{H\+O\+R\+I\+Z\+O\+N\+T\+AL}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{H\+O\+R\+I\+Z\+O\+N\+T\+AL}{HORIZONTAL}}
+{\footnotesize\ttfamily const bool H\+O\+R\+I\+Z\+O\+N\+T\+AL = false}
+
+
+
+booléen permettant d\textquotesingle{}indiquer le sens des affiches 
+
+\mbox{\Hypertarget{Labyrinthe_8h_ae83a3fc2cd978eb9d524a816e6d7dea1}\label{Labyrinthe_8h_ae83a3fc2cd978eb9d524a816e6d7dea1}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!J\+O\+U\+E\+UR@{J\+O\+U\+E\+UR}}
+\index{J\+O\+U\+E\+UR@{J\+O\+U\+E\+UR}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{J\+O\+U\+E\+UR}{JOUEUR}}
+{\footnotesize\ttfamily const char J\+O\+U\+E\+UR = 4}
+
+\mbox{\Hypertarget{Labyrinthe_8h_a383770f8ef481c9212b1347e195a4c1c}\label{Labyrinthe_8h_a383770f8ef481c9212b1347e195a4c1c}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!T\+R\+E\+A\+S\+U\+RE@{T\+R\+E\+A\+S\+U\+RE}}
+\index{T\+R\+E\+A\+S\+U\+RE@{T\+R\+E\+A\+S\+U\+RE}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{T\+R\+E\+A\+S\+U\+RE}{TREASURE}}
+{\footnotesize\ttfamily const char T\+R\+E\+A\+S\+U\+RE = 5}
+
+\mbox{\Hypertarget{Labyrinthe_8h_ac25c1fcb5a5d51c06684fddb413cab00}\label{Labyrinthe_8h_ac25c1fcb5a5d51c06684fddb413cab00}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!V\+E\+R\+T\+I\+C\+AL@{V\+E\+R\+T\+I\+C\+AL}}
+\index{V\+E\+R\+T\+I\+C\+AL@{V\+E\+R\+T\+I\+C\+AL}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{V\+E\+R\+T\+I\+C\+AL}{VERTICAL}}
+{\footnotesize\ttfamily const bool V\+E\+R\+T\+I\+C\+AL = true}
+
+
+
+booléen permettant d\textquotesingle{}indiquer le sens des affiches 
+
+\mbox{\Hypertarget{Labyrinthe_8h_ab505eeadab90642a1fb363028bdd34bc}\label{Labyrinthe_8h_ab505eeadab90642a1fb363028bdd34bc}} 
+\index{Labyrinthe.\+h@{Labyrinthe.\+h}!W\+A\+LL@{W\+A\+LL}}
+\index{W\+A\+LL@{W\+A\+LL}!Labyrinthe.\+h@{Labyrinthe.\+h}}
+\subsubsection{\texorpdfstring{W\+A\+LL}{WALL}}
+{\footnotesize\ttfamily const char W\+A\+LL = 1}
+

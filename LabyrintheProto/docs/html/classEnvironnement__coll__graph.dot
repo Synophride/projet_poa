@@ -11,5 +11,6 @@ digraph "Environnement"
   Node5 [label="Mover",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMover.html"];
   Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _fb" ,fontname="Helvetica"];
   Node6 [label="FireBall",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFireBall.html"];
+  Node5 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _owner" ,fontname="Helvetica"];
   Node2 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" _l" ,fontname="Helvetica"];
 }

@@ -1,63 +1,185 @@
-\hypertarget{classMover}{}\section{Mover Class Reference}
+\hypertarget{classMover}{}\section{Référence de la classe Mover}
 \label{classMover}\index{Mover@{Mover}}
 
 
-Inheritance diagram for Mover\+:
+{\ttfamily \#include $<$Mover.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Mover\+:
 % FIG 0
 
 
-Collaboration diagram for Mover\+:
+Graphe de collaboration de Mover\+:
 % FIG 1
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classMover_a19c916be0b9f7d6beda92bb04aa338bb}{Mover} (int x, int y, \hyperlink{classLabyrinthe}{Labyrinthe} $\ast$l, const char $\ast$modele)
+\item 
+virtual \hyperlink{classMover_a906ab777eb5f6e49a85e3758aca9e913}{$\sim$\+Mover} ()
+\item 
+void \hyperlink{classMover_afc87cc38041a7ccc2a0129d33b0b2a6a}{tomber} ()
+\item 
+void \hyperlink{classMover_a05ac684f0ace96b717bb9aa016671e8e}{rester\+\_\+au\+\_\+sol} ()
+\item 
+virtual void \hyperlink{classMover_a77684ae3483af98c82c9488ef3e80f05}{update} (void)=0
+\item 
+virtual bool \hyperlink{classMover_a6d794056f34e2348d32ae4ff49326070}{process\+\_\+fireball} (float dx, float dy)=0
+\item 
+virtual bool \hyperlink{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}{move} (double dx, double dy)=0
+\item 
+virtual void \hyperlink{classMover_a670fb72f8e496de3420b89c84def7418}{fire} (int angle\+\_\+vertical)=0
+\item 
+virtual void \hyperlink{classMover_ac32ed126c01d60c6df0090dd590b70b2}{right\+\_\+click} (bool shift, bool control)
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEnvironnement}{Environnement} $\ast$ \hyperlink{classMover_abb7d4bee1bba787f98e9c0b23624d914}{\+\_\+l}
+\item 
+\hyperlink{classFireBall}{Fire\+Ball} $\ast$ \hyperlink{classMover_a22a3132ed0579d2a155b1573a27604f3}{\+\_\+fb}
+\item 
+float \hyperlink{classMover_aaf143c6da9fb16aa10d041b73107d68b}{\+\_\+x}
+\item 
+float \hyperlink{classMover_ab0accef354ef4f78b61404fbc81c1ade}{\+\_\+y}
+\item 
+int \hyperlink{classMover_a76d84bfa5079c3a8ddf6d7f17e3898e2}{\+\_\+angle}
+\item 
+void $\ast$ \hyperlink{classMover_a92885841309ed1f2703fcfe7c56fcf42}{\+\_\+model}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres privées statiques}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \hyperlink{classMover_a838ebd14a8a3f2a561ac3df0841f7a29}{init} (const char $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
 \mbox{\Hypertarget{classMover_a19c916be0b9f7d6beda92bb04aa338bb}\label{classMover_a19c916be0b9f7d6beda92bb04aa338bb}} 
-{\bfseries Mover} (int x, int y, \hyperlink{classLabyrinthe}{Labyrinthe} $\ast$l, const char $\ast$modele)
-\item 
-\mbox{\Hypertarget{classMover_afc87cc38041a7ccc2a0129d33b0b2a6a}\label{classMover_afc87cc38041a7ccc2a0129d33b0b2a6a}} 
-void {\bfseries tomber} ()
-\item 
-\mbox{\Hypertarget{classMover_a05ac684f0ace96b717bb9aa016671e8e}\label{classMover_a05ac684f0ace96b717bb9aa016671e8e}} 
-void {\bfseries rester\+\_\+au\+\_\+sol} ()
-\item 
-\mbox{\Hypertarget{classMover_a77684ae3483af98c82c9488ef3e80f05}\label{classMover_a77684ae3483af98c82c9488ef3e80f05}} 
-virtual void {\bfseries update} (void)=0
-\item 
-\mbox{\Hypertarget{classMover_a6d794056f34e2348d32ae4ff49326070}\label{classMover_a6d794056f34e2348d32ae4ff49326070}} 
-virtual bool {\bfseries process\+\_\+fireball} (float dx, float dy)=0
-\item 
-\mbox{\Hypertarget{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}\label{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}} 
-virtual bool {\bfseries move} (double dx, double dy)=0
-\item 
+\index{Mover@{Mover}!Mover@{Mover}}
+\index{Mover@{Mover}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{Mover()}{Mover()}}
+{\footnotesize\ttfamily Mover\+::\+Mover (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\hyperlink{classLabyrinthe}{Labyrinthe} $\ast$}]{l,  }\item[{const char $\ast$}]{modele }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMover_a906ab777eb5f6e49a85e3758aca9e913}\label{classMover_a906ab777eb5f6e49a85e3758aca9e913}} 
+\index{Mover@{Mover}!````~Mover@{$\sim$\+Mover}}
+\index{````~Mover@{$\sim$\+Mover}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{$\sim$\+Mover()}{~Mover()}}
+{\footnotesize\ttfamily virtual Mover\+::$\sim$\+Mover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\subsection{Documentation des fonctions membres}
 \mbox{\Hypertarget{classMover_a670fb72f8e496de3420b89c84def7418}\label{classMover_a670fb72f8e496de3420b89c84def7418}} 
-virtual void {\bfseries fire} (int angle\+\_\+vertical)=0
-\item 
+\index{Mover@{Mover}!fire@{fire}}
+\index{fire@{fire}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{fire()}{fire()}}
+{\footnotesize\ttfamily virtual void Mover\+::fire (\begin{DoxyParamCaption}\item[{int}]{angle\+\_\+vertical }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \hyperlink{classGardien_aa0e2e0fbdca75ddc5e0501b5498d5f55}{Gardien}, et \hyperlink{classChasseur_ae4610a58bb02ee492e8bdfbee917db8a}{Chasseur}.
+
+\mbox{\Hypertarget{classMover_a838ebd14a8a3f2a561ac3df0841f7a29}\label{classMover_a838ebd14a8a3f2a561ac3df0841f7a29}} 
+\index{Mover@{Mover}!init@{init}}
+\index{init@{init}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily static void$\ast$ Mover\+::init (\begin{DoxyParamCaption}\item[{const char $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}\label{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}} 
+\index{Mover@{Mover}!move@{move}}
+\index{move@{move}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily virtual bool Mover\+::move (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \hyperlink{classGardien_a1de6511bda736ad456457c51fa9d8d68}{Gardien}, et \hyperlink{classChasseur_ac5275e34388084bc3ca2114b45a0b725}{Chasseur}.
+
+\mbox{\Hypertarget{classMover_a6d794056f34e2348d32ae4ff49326070}\label{classMover_a6d794056f34e2348d32ae4ff49326070}} 
+\index{Mover@{Mover}!process\+\_\+fireball@{process\+\_\+fireball}}
+\index{process\+\_\+fireball@{process\+\_\+fireball}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{process\+\_\+fireball()}{process\_fireball()}}
+{\footnotesize\ttfamily virtual bool Mover\+::process\+\_\+fireball (\begin{DoxyParamCaption}\item[{float}]{dx,  }\item[{float}]{dy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \hyperlink{classGardien_ad1d0f6aca8be28477e16dae7a30301b8}{Gardien}, et \hyperlink{classChasseur_a00710f53a84dfcf6ae60deed589cea1e}{Chasseur}.
+
+\mbox{\Hypertarget{classMover_a05ac684f0ace96b717bb9aa016671e8e}\label{classMover_a05ac684f0ace96b717bb9aa016671e8e}} 
+\index{Mover@{Mover}!rester\+\_\+au\+\_\+sol@{rester\+\_\+au\+\_\+sol}}
+\index{rester\+\_\+au\+\_\+sol@{rester\+\_\+au\+\_\+sol}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{rester\+\_\+au\+\_\+sol()}{rester\_au\_sol()}}
+{\footnotesize\ttfamily void Mover\+::rester\+\_\+au\+\_\+sol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{classMover_ac32ed126c01d60c6df0090dd590b70b2}\label{classMover_ac32ed126c01d60c6df0090dd590b70b2}} 
-virtual void {\bfseries right\+\_\+click} (bool shift, bool control)
-\end{DoxyCompactItemize}
-\subsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classMover_abb7d4bee1bba787f98e9c0b23624d914}\label{classMover_abb7d4bee1bba787f98e9c0b23624d914}} 
-\hyperlink{classEnvironnement}{Environnement} $\ast$ {\bfseries \+\_\+l}
-\item 
-\mbox{\Hypertarget{classMover_a22a3132ed0579d2a155b1573a27604f3}\label{classMover_a22a3132ed0579d2a155b1573a27604f3}} 
-\hyperlink{classFireBall}{Fire\+Ball} $\ast$ {\bfseries \+\_\+fb}
-\item 
-\mbox{\Hypertarget{classMover_aaf143c6da9fb16aa10d041b73107d68b}\label{classMover_aaf143c6da9fb16aa10d041b73107d68b}} 
-float {\bfseries \+\_\+x}
-\item 
-\mbox{\Hypertarget{classMover_ab0accef354ef4f78b61404fbc81c1ade}\label{classMover_ab0accef354ef4f78b61404fbc81c1ade}} 
-float {\bfseries \+\_\+y}
-\item 
+\index{Mover@{Mover}!right\+\_\+click@{right\+\_\+click}}
+\index{right\+\_\+click@{right\+\_\+click}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{right\+\_\+click()}{right\_click()}}
+{\footnotesize\ttfamily virtual void Mover\+::right\+\_\+click (\begin{DoxyParamCaption}\item[{bool}]{shift,  }\item[{bool}]{control }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Réimplémentée dans \hyperlink{classChasseur_ac33c7c026b2bb1c05d074fa196bd1fae}{Chasseur}.
+
+\mbox{\Hypertarget{classMover_afc87cc38041a7ccc2a0129d33b0b2a6a}\label{classMover_afc87cc38041a7ccc2a0129d33b0b2a6a}} 
+\index{Mover@{Mover}!tomber@{tomber}}
+\index{tomber@{tomber}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{tomber()}{tomber()}}
+{\footnotesize\ttfamily void Mover\+::tomber (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMover_a77684ae3483af98c82c9488ef3e80f05}\label{classMover_a77684ae3483af98c82c9488ef3e80f05}} 
+\index{Mover@{Mover}!update@{update}}
+\index{update@{update}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Mover\+::update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implémenté dans \hyperlink{classGardien_aed498f0d6bbb526e0373a914ba6bf9aa}{Gardien}, et \hyperlink{classChasseur_a6ea64de0a2708b21326dcb980f0e06ac}{Chasseur}.
+
+
+
+\subsection{Documentation des données membres}
 \mbox{\Hypertarget{classMover_a76d84bfa5079c3a8ddf6d7f17e3898e2}\label{classMover_a76d84bfa5079c3a8ddf6d7f17e3898e2}} 
-int {\bfseries \+\_\+angle}
-\item 
+\index{Mover@{Mover}!\+\_\+angle@{\+\_\+angle}}
+\index{\+\_\+angle@{\+\_\+angle}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{\+\_\+angle}{\_angle}}
+{\footnotesize\ttfamily int Mover\+::\+\_\+angle}
+
+\mbox{\Hypertarget{classMover_a22a3132ed0579d2a155b1573a27604f3}\label{classMover_a22a3132ed0579d2a155b1573a27604f3}} 
+\index{Mover@{Mover}!\+\_\+fb@{\+\_\+fb}}
+\index{\+\_\+fb@{\+\_\+fb}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{\+\_\+fb}{\_fb}}
+{\footnotesize\ttfamily \hyperlink{classFireBall}{Fire\+Ball}$\ast$ Mover\+::\+\_\+fb}
+
+\mbox{\Hypertarget{classMover_abb7d4bee1bba787f98e9c0b23624d914}\label{classMover_abb7d4bee1bba787f98e9c0b23624d914}} 
+\index{Mover@{Mover}!\+\_\+l@{\+\_\+l}}
+\index{\+\_\+l@{\+\_\+l}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{\+\_\+l}{\_l}}
+{\footnotesize\ttfamily \hyperlink{classEnvironnement}{Environnement}$\ast$ Mover\+::\+\_\+l}
+
 \mbox{\Hypertarget{classMover_a92885841309ed1f2703fcfe7c56fcf42}\label{classMover_a92885841309ed1f2703fcfe7c56fcf42}} 
-void $\ast$ {\bfseries \+\_\+model}
-\end{DoxyCompactItemize}
+\index{Mover@{Mover}!\+\_\+model@{\+\_\+model}}
+\index{\+\_\+model@{\+\_\+model}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{\+\_\+model}{\_model}}
+{\footnotesize\ttfamily void$\ast$ Mover\+::\+\_\+model}
+
+\mbox{\Hypertarget{classMover_aaf143c6da9fb16aa10d041b73107d68b}\label{classMover_aaf143c6da9fb16aa10d041b73107d68b}} 
+\index{Mover@{Mover}!\+\_\+x@{\+\_\+x}}
+\index{\+\_\+x@{\+\_\+x}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{\+\_\+x}{\_x}}
+{\footnotesize\ttfamily float Mover\+::\+\_\+x}
+
+\mbox{\Hypertarget{classMover_ab0accef354ef4f78b61404fbc81c1ade}\label{classMover_ab0accef354ef4f78b61404fbc81c1ade}} 
+\index{Mover@{Mover}!\+\_\+y@{\+\_\+y}}
+\index{\+\_\+y@{\+\_\+y}!Mover@{Mover}}
+\subsubsection{\texorpdfstring{\+\_\+y}{\_y}}
+{\footnotesize\ttfamily float Mover\+::\+\_\+y}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-Mover.\+h\end{DoxyCompactItemize}
+\hyperlink{Mover_8h}{Mover.\+h}\end{DoxyCompactItemize}

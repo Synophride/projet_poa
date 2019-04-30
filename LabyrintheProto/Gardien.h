@@ -22,7 +22,9 @@ struct node {
     int y;
 };
 
-
+/**
+ * \brief Classe implémentant les gardes
+ **/
 class Gardien : public Mover {
     private:
     bool fired = false; //!< Indique si une boule de feu a déjà été tirée. Si c'est le cas, il est impossible pour le gardien d'en tirer une autre.  
