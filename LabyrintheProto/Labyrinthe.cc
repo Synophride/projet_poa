@@ -212,8 +212,8 @@ Labyrinthe::Labyrinthe(char* path){
 	      lab_height,
 	      lab_width);
 
-    init_data();
-    build_guards(guard_list, player_pos);
+    init_data(); // Initialisation de data : matrice de taille (lab_width, lab_height), pour l'instant vide
+    build_guards(guard_list, player_pos); 
     build_walls(wall_list);
     build_boxes(box_list);
     build_treasure(treasure_pos);
@@ -230,6 +230,7 @@ void Labyrinthe::init_data(){
 	    _data[i][j] = EMPTY;
     }
 }
+
 
 void Labyrinthe::build_guards(list<coord> guards, const coord &player_pos){
     _nguards = guards.size() + 1;
@@ -408,6 +409,7 @@ void Labyrinthe::hurt_joueur(){
     Chasseur * c = (Chasseur*) _guards[0];
     c->hurt();
 }
+
 void Labyrinthe::hurt_gardien_at(int x, int y){
     for(int i = 1; i < _nguards; i++){
 	int guard_x = _guards[i]->_x / scale,
@@ -416,10 +418,7 @@ void Labyrinthe::hurt_gardien_at(int x, int y){
 	if(guard_x == x && guard_y == y){
 	    Gardien* g = (Gardien*) _guards[i];
 	    g->hurt();
-	}
-	    
-	 
-	
+	}	
     }
 }
     

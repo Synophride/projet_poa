@@ -1,0 +1,63 @@
+\hypertarget{classMover}{}\section{Mover Class Reference}
+\label{classMover}\index{Mover@{Mover}}
+
+
+Inheritance diagram for Mover\+:
+% FIG 0
+
+
+Collaboration diagram for Mover\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMover_a19c916be0b9f7d6beda92bb04aa338bb}\label{classMover_a19c916be0b9f7d6beda92bb04aa338bb}} 
+{\bfseries Mover} (int x, int y, \hyperlink{classLabyrinthe}{Labyrinthe} $\ast$l, const char $\ast$modele)
+\item 
+\mbox{\Hypertarget{classMover_afc87cc38041a7ccc2a0129d33b0b2a6a}\label{classMover_afc87cc38041a7ccc2a0129d33b0b2a6a}} 
+void {\bfseries tomber} ()
+\item 
+\mbox{\Hypertarget{classMover_a05ac684f0ace96b717bb9aa016671e8e}\label{classMover_a05ac684f0ace96b717bb9aa016671e8e}} 
+void {\bfseries rester\+\_\+au\+\_\+sol} ()
+\item 
+\mbox{\Hypertarget{classMover_a77684ae3483af98c82c9488ef3e80f05}\label{classMover_a77684ae3483af98c82c9488ef3e80f05}} 
+virtual void {\bfseries update} (void)=0
+\item 
+\mbox{\Hypertarget{classMover_a6d794056f34e2348d32ae4ff49326070}\label{classMover_a6d794056f34e2348d32ae4ff49326070}} 
+virtual bool {\bfseries process\+\_\+fireball} (float dx, float dy)=0
+\item 
+\mbox{\Hypertarget{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}\label{classMover_a2e1858e5c93ddaa85ff7b446ad403b79}} 
+virtual bool {\bfseries move} (double dx, double dy)=0
+\item 
+\mbox{\Hypertarget{classMover_a670fb72f8e496de3420b89c84def7418}\label{classMover_a670fb72f8e496de3420b89c84def7418}} 
+virtual void {\bfseries fire} (int angle\+\_\+vertical)=0
+\item 
+\mbox{\Hypertarget{classMover_ac32ed126c01d60c6df0090dd590b70b2}\label{classMover_ac32ed126c01d60c6df0090dd590b70b2}} 
+virtual void {\bfseries right\+\_\+click} (bool shift, bool control)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMover_abb7d4bee1bba787f98e9c0b23624d914}\label{classMover_abb7d4bee1bba787f98e9c0b23624d914}} 
+\hyperlink{classEnvironnement}{Environnement} $\ast$ {\bfseries \+\_\+l}
+\item 
+\mbox{\Hypertarget{classMover_a22a3132ed0579d2a155b1573a27604f3}\label{classMover_a22a3132ed0579d2a155b1573a27604f3}} 
+\hyperlink{classFireBall}{Fire\+Ball} $\ast$ {\bfseries \+\_\+fb}
+\item 
+\mbox{\Hypertarget{classMover_aaf143c6da9fb16aa10d041b73107d68b}\label{classMover_aaf143c6da9fb16aa10d041b73107d68b}} 
+float {\bfseries \+\_\+x}
+\item 
+\mbox{\Hypertarget{classMover_ab0accef354ef4f78b61404fbc81c1ade}\label{classMover_ab0accef354ef4f78b61404fbc81c1ade}} 
+float {\bfseries \+\_\+y}
+\item 
+\mbox{\Hypertarget{classMover_a76d84bfa5079c3a8ddf6d7f17e3898e2}\label{classMover_a76d84bfa5079c3a8ddf6d7f17e3898e2}} 
+int {\bfseries \+\_\+angle}
+\item 
+\mbox{\Hypertarget{classMover_a92885841309ed1f2703fcfe7c56fcf42}\label{classMover_a92885841309ed1f2703fcfe7c56fcf42}} 
+void $\ast$ {\bfseries \+\_\+model}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mover.\+h\end{DoxyCompactItemize}

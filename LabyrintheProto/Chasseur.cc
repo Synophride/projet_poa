@@ -79,10 +79,12 @@ bool Chasseur::process_fireball(float dx, float dy){
  */
 void Chasseur::fire (int angle_vertical)
 {
-    message ("Woooshh...");
+    int true_ang = (_angle +  (rand() % (2 * perte_precision) - perte_precision)) % 360;
+    angle_vertical = (angle_vertical + (rand() % (perte_precision) - (perte_precision/2))) % 360;
+    
     _hunter_fire -> play ();
     _fb -> init (/* position initiale de la boule */ _x, _y, 10.,
-		 /* angles de visée */ angle_vertical, _angle);
+		 /* angles de visée */ angle_vertical, true_ang);
 }
 
 
@@ -102,6 +104,7 @@ void Chasseur::right_click (bool shift, bool control) {
 
 void Chasseur::hurt(){
     message("j'ai mal snif");
+    perte_precision += 5;
     _pv--;
     printf("nombre de PV restants : %d", _pv);
     if(_pv == 0)

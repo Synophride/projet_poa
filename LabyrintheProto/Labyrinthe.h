@@ -14,12 +14,12 @@
 #include <unistd.h>
 
 #include "Environnement.h"
-using namespace std;
+using namespace std; // à virer
 
 
+const bool HORIZONTAL = false; //!< booléen permettant d'indiquer le sens des affiches
+const bool VERTICAL   =  true; //!< booléen permettant d'indiquer le sens des affiches
 
-const bool HORIZONTAL = false;
-const bool VERTICAL   =  true;
 
 const char WALL = 1;
 const char BOX = 2;
@@ -27,6 +27,7 @@ const char GARDE  = 3;
 const char JOUEUR = 4;
 const char TREASURE = 5;
 
+/// Structure représentant une coordonnée du labyrinthe 
 struct coord{
     int x;
     int y;
@@ -94,23 +95,30 @@ bool is_blank(const string &str);
  */
 char first_char(const string &str);
 
+
 class Labyrinthe : public Environnement {
 
     private:
 
     char  **_data;	//!< indique si la case est libre ou occupée.
-    int   lab_width;	//!< dimensions du rectangle.
-    int   lab_height;	//!<  englobant le labyrinthe.
-    int   _nb_alive;
+    int   lab_width;	//!< Dimension de l'axe 'x' du labyrinthe. 
+    int   lab_height;	//!< Dimension de l'axe 'y' du labyrinthe.
+    int   _nb_alive;    //!< Indique le nombre 
 
-    vector<vector<int>> _dist_vect;
+    
+    vector<vector<int>> _dist_vect; //!< Vecteur contenant les distances entre chaque case et le trésor
 
     /**
      * \brief initialise _data[][], en fonction de lab_with et lab_height
      **/
     void init_data();
 
-    void fill_dist(int, int);
+    /**
+     * \brief remplit la matrice de distance au trésor, récursivement, 
+     * en partant de la case de coordonnées (x, y) qu'on sait déjà remplie
+     */
+    void fill_dist(int x, int y);
+    
     /**
      * \brief Initialise _guards et _nguard dans la classe
      * \param guards     (in) : une liste des coordonnées des gardes 
@@ -149,10 +157,13 @@ class Labyrinthe : public Environnement {
      * \param text_list (in): Une liste des textures, où chaque élément contient la coordonnée 
      * de la texture, le caractère représentant la texture, ainsi que l'orientation de la texture
      * (égale à HORIZONTAL ou VERTICAL)
-     * 
      **/
     void build_text(map<char, string> text_map, list<tuple<coord, char, bool>> text_list);
-    void get_directon(int x, int y);
+
+
+    /**
+     * \brief initialise le vecteur des distances. Doit être appellé à la fin du constructeur
+     **/
     void init_vector_dist();
 
     public:
@@ -162,24 +173,66 @@ class Labyrinthe : public Environnement {
     /// \brief  retourne la largeur du labyrinthe.
     int width () { return lab_width;}
 
-    // \brief retourne la longueur du labyrinthe.
+    /// \brief retourne la longueur du labyrinthe.
     int height () {return lab_height;}
 
-    // retourne l'état (occupation) de la case (i, j).
+    /** \brief Informe sur l'état d'occupation de la case (i, j).
+    * \returns WALL si la case est un mur,
+    * BOX si la case est occupée par une boîte, 
+    * GARDE si la case est occupée par un garde, 
+    * JOUEUR si la case est occupée par le joueur, 
+    * TREASURE si la case est occupée par le trésor
+    **/
     char data (int i, int j){
 	return _data [i][j];
     }
 
+    /**
+     * \brief indique au labyrinthe qu'un des gardes est mort
+     **/
     void iamdying(){_nb_alive--;}
-    
+
+    /** 
+     * \brief Indique le nombre de gardiens encore en vie dans le labyrinthe 
+     * \returns le nombre de gardes encore en vie.
+     **/
     int nb_alive(){
 	return _nb_alive;
     }
 
+    /**
+     * ·\brief indique que une instance de Fireball du joueur a explosé à l'endroit où était placé un (ou plusieurs) des gardiens. 
+     * Va donc "Blesser" le gardien via la méthode Gardien::hurt()
+     * \param x la composante dans l'axe des abcisses de la case dans laquelle la boule de feu explose
+     * \parap y la composante dans l'axe des ordonnées de la case dans laquelle la boule de feu explose
+**/
     void hurt_gardien_at(int x, int y);
+
+    /**
+     * \brief indique au labyrinthe que le joueur a été touché par une boule de 
+     * feu provenant d'un des gardiens 
+     *
+     * Va donc appeller la méthode Chasseur::hurt()
+     **/
     void hurt_joueur();
+
+    /**
+     * \brief change la valeur d'une case de la matrice _data, par exemple lors du déplacement d'un gardien
+     * \param x 
+     * \param y
+     * \param value La nouvelle valeur de la case _data[x][y]. 
+     * En théorie, compris entre EMPTY et TREASURE, mais dans les faits ce sera EMPTY, JOUEUR, ou GARDE, étant donné que seules ces entités se déplacent)
+     **/
     void set_data(int x, int y, char value);
-    
+
+    /**
+     * \brief rend la distance de la case courante 
+     * \param x la coordonnée dans l'axe des abcisses
+     * \param y la coordonnée dans l'axe des ordonnées
+     * \returns -1 si la case est un mur, 
+     * 1 000 000 s'il n'existe pas de chemin entre le point de coordonnées (x,y),
+     * La distance en nombre de cases entre le point (x,y) et le trésor dans les autres cas
+     **/
     int dist_of_treasure(int x, int y){
 	return _dist_vect[x][y];
     }

@@ -1,0 +1,141 @@
+\hypertarget{classLabyrinthe}{}\section{Labyrinthe Class Reference}
+\label{classLabyrinthe}\index{Labyrinthe@{Labyrinthe}}
+
+
+Inheritance diagram for Labyrinthe\+:
+% FIG 0
+
+
+Collaboration diagram for Labyrinthe\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLabyrinthe_a16aa4865644d59a8ed9fde15cd5e7275}\label{classLabyrinthe_a16aa4865644d59a8ed9fde15cd5e7275}} 
+{\bfseries Labyrinthe} (char $\ast$)
+\item 
+\mbox{\Hypertarget{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}\label{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}} 
+int \hyperlink{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}{width} ()
+\begin{DoxyCompactList}\small\item\em retourne la largeur du labyrinthe. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}\label{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}} 
+int \hyperlink{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}{height} ()
+\begin{DoxyCompactList}\small\item\em retourne la longueur du labyrinthe. \end{DoxyCompactList}\item 
+char \hyperlink{classLabyrinthe_a433936ae60ddf3f0b85a407f414b8d38}{data} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Informe sur l\textquotesingle{}état d\textquotesingle{}occupation de la case (i, j). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLabyrinthe_a987dc5663797cae6f75853e24a9f3ffb}\label{classLabyrinthe_a987dc5663797cae6f75853e24a9f3ffb}} 
+void \hyperlink{classLabyrinthe_a987dc5663797cae6f75853e24a9f3ffb}{iamdying} ()
+\begin{DoxyCompactList}\small\item\em indique au labyrinthe qu\textquotesingle{}un des gardes est mort \end{DoxyCompactList}\item 
+int \hyperlink{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}{nb\+\_\+alive} ()
+\begin{DoxyCompactList}\small\item\em Indique le nombre de gardiens encore en vie dans le labyrinthe. \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a9c7c46b8c376f8b9ab0310ae1d0a369c}{hurt\+\_\+gardien\+\_\+at} (int x, int y)
+\begin{DoxyCompactList}\small\item\em indique que une instance de Fireball du joueur a explosé à l\textquotesingle{}endroit où était placé un (ou plusieurs) des gardiens. Va donc \char`\"{}\+Blesser\char`\"{} le gardien via la méthode \hyperlink{classGardien_ac4ba490e309de80c1449fc5baef90390}{Gardien\+::hurt()} \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a28666f6cd5a5f32d41d664204a717593}{hurt\+\_\+joueur} ()
+\begin{DoxyCompactList}\small\item\em indique au labyrinthe que le joueur a été touché par une boule de feu provenant d\textquotesingle{}un des gardiens \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_acc7682cd69ca12f27cb65457c9c8e89b}{set\+\_\+data} (int x, int y, char value)
+\begin{DoxyCompactList}\small\item\em change la valeur d\textquotesingle{}une case de la matrice \+\_\+data, par exemple lors du déplacement d\textquotesingle{}un gardien \end{DoxyCompactList}\item 
+int \hyperlink{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}{dist\+\_\+of\+\_\+treasure} (int x, int y)
+\begin{DoxyCompactList}\small\item\em rend la distance de la case courante \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classLabyrinthe_a433936ae60ddf3f0b85a407f414b8d38}\label{classLabyrinthe_a433936ae60ddf3f0b85a407f414b8d38}} 
+\index{Labyrinthe@{Labyrinthe}!data@{data}}
+\index{data@{data}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily char Labyrinthe\+::data (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Informe sur l\textquotesingle{}état d\textquotesingle{}occupation de la case (i, j). 
+
+\begin{DoxyReturn}{Returns}
+W\+A\+LL si la case est un mur, B\+OX si la case est occupée par une boîte, G\+A\+R\+DE si la case est occupée par un garde, J\+O\+U\+E\+UR si la case est occupée par le joueur, T\+R\+E\+A\+S\+U\+RE si la case est occupée par le trésor 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classEnvironnement}{Environnement}.
+
+\mbox{\Hypertarget{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}\label{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}} 
+\index{Labyrinthe@{Labyrinthe}!dist\+\_\+of\+\_\+treasure@{dist\+\_\+of\+\_\+treasure}}
+\index{dist\+\_\+of\+\_\+treasure@{dist\+\_\+of\+\_\+treasure}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{dist\+\_\+of\+\_\+treasure()}{dist\_of\_treasure()}}
+{\footnotesize\ttfamily int Labyrinthe\+::dist\+\_\+of\+\_\+treasure (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+rend la distance de la case courante 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & la coordonnée dans l\textquotesingle{}axe des abcisses \\
+\hline
+{\em y} & la coordonnée dans l\textquotesingle{}axe des ordonnées \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 si la case est un mur, 1 000 000 s\textquotesingle{}il n\textquotesingle{}existe pas de chemin entre le point de coordonnées (x,y), La distance en nombre de cases entre le point (x,y) et le trésor dans les autres cas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLabyrinthe_a9c7c46b8c376f8b9ab0310ae1d0a369c}\label{classLabyrinthe_a9c7c46b8c376f8b9ab0310ae1d0a369c}} 
+\index{Labyrinthe@{Labyrinthe}!hurt\+\_\+gardien\+\_\+at@{hurt\+\_\+gardien\+\_\+at}}
+\index{hurt\+\_\+gardien\+\_\+at@{hurt\+\_\+gardien\+\_\+at}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{hurt\+\_\+gardien\+\_\+at()}{hurt\_gardien\_at()}}
+{\footnotesize\ttfamily void Labyrinthe\+::hurt\+\_\+gardien\+\_\+at (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+indique que une instance de Fireball du joueur a explosé à l\textquotesingle{}endroit où était placé un (ou plusieurs) des gardiens. Va donc \char`\"{}\+Blesser\char`\"{} le gardien via la méthode \hyperlink{classGardien_ac4ba490e309de80c1449fc5baef90390}{Gardien\+::hurt()} 
+
+·
+\begin{DoxyParams}{Parameters}
+{\em x} & la composante dans l\textquotesingle{}axe des abcisses de la case dans laquelle la boule de feu explose  y la composante dans l\textquotesingle{}axe des ordonnées de la case dans laquelle la boule de feu explose \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLabyrinthe_a28666f6cd5a5f32d41d664204a717593}\label{classLabyrinthe_a28666f6cd5a5f32d41d664204a717593}} 
+\index{Labyrinthe@{Labyrinthe}!hurt\+\_\+joueur@{hurt\+\_\+joueur}}
+\index{hurt\+\_\+joueur@{hurt\+\_\+joueur}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{hurt\+\_\+joueur()}{hurt\_joueur()}}
+{\footnotesize\ttfamily void Labyrinthe\+::hurt\+\_\+joueur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+indique au labyrinthe que le joueur a été touché par une boule de feu provenant d\textquotesingle{}un des gardiens 
+
+Va donc appeller la méthode \hyperlink{classChasseur_ac75a09254dea5b1d25c7dbf49809a273}{Chasseur\+::hurt()} \mbox{\Hypertarget{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}\label{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}} 
+\index{Labyrinthe@{Labyrinthe}!nb\+\_\+alive@{nb\+\_\+alive}}
+\index{nb\+\_\+alive@{nb\+\_\+alive}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{nb\+\_\+alive()}{nb\_alive()}}
+{\footnotesize\ttfamily int Labyrinthe\+::nb\+\_\+alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indique le nombre de gardiens encore en vie dans le labyrinthe. 
+
+\begin{DoxyReturn}{Returns}
+le nombre de gardes encore en vie. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLabyrinthe_acc7682cd69ca12f27cb65457c9c8e89b}\label{classLabyrinthe_acc7682cd69ca12f27cb65457c9c8e89b}} 
+\index{Labyrinthe@{Labyrinthe}!set\+\_\+data@{set\+\_\+data}}
+\index{set\+\_\+data@{set\+\_\+data}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{set\+\_\+data()}{set\_data()}}
+{\footnotesize\ttfamily void Labyrinthe\+::set\+\_\+data (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{char}]{value }\end{DoxyParamCaption})}
+
+
+
+change la valeur d\textquotesingle{}une case de la matrice \+\_\+data, par exemple lors du déplacement d\textquotesingle{}un gardien 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em value} & La nouvelle valeur de la case \+\_\+data\mbox{[}x\mbox{]}\mbox{[}y\mbox{]}. En théorie, compris entre E\+M\+P\+TY et T\+R\+E\+A\+S\+U\+RE, mais dans les faits ce sera E\+M\+P\+TY, J\+O\+U\+E\+UR, ou G\+A\+R\+DE, étant donné que seules ces entités se déplacent) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Labyrinthe.\+h\item 
+Labyrinthe.\+cc\end{DoxyCompactItemize}

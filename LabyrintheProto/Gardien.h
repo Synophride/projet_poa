@@ -25,18 +25,25 @@ struct node {
 
 class Gardien : public Mover {
     private:
-    bool fired = false;
+    bool fired = false; //!< Indique si une boule de feu a déjà été tirée. Si c'est le cas, il est impossible pour le gardien d'en tirer une autre.  
 
-    static const int RELOAD_TIME = 50;
-    bool reloading = false;
-    int reload = 0;
+    static const int RELOAD_TIME = 100; //!< Temps de rechargement pour les gardiens (en nombre d'appels de update())
+    bool reloading = false; //!< indique si le gardien est en train de recharger (si c'est le cas, il ne peut pas tirer)
+    int reload = 0; //!< indique le statut du rechargement
 
-    int perte_precision = 0;
-    static const int BASE_PV = 10;
-    bool dead = false;
-    Labyrinthe * l;
-    int _pv = BASE_PV;
-    bool can_see_player();
+    int perte_precision = 5; //!< indique la perte de précision, en degrés, du gardien
+    static const int BASE_PV = 10; //!< Nombre de PV de base du gardien
+    bool dead = false; //!< indique si le gardien est mort
+    Labyrinthe * l; //!< pointeur vers le labyrinthe
+    int _pv = BASE_PV; //!< Nombre de PV restants au gardien
+
+    /**
+     * \brief indique si le gardien peut voir le joueur 
+     * (ie s'il n'y a ni mur ni obstacle entre les deux). 
+     * \returns true si pas d'obstacle entre le garde et le joueur,
+     * false inon
+     **/
+    bool can_see_player(); 
     /**
     * \brief teste si le mouvement de coordonnées (dx, dy) est acceptable, 
     * id est que ça implique pas de marcher au travers d'un mur
@@ -49,10 +56,19 @@ class Gardien : public Mover {
      **/
     bool try_move(double dx, double dy);
 
+    /**
+     * \brief fait marcher le gardien vers l'avant
+     **/
     bool avancer();
 
+    /**
+     * \brief fait en sorte que le gardien aille vers le trésor
+     */
     bool move_to_treasure();
 
+    /**
+     * \brief fonction appellée lors de la mort du gardien
+     **/
     void die();
     
     public:
@@ -64,7 +80,14 @@ class Gardien : public Mover {
     
     // mon gardien pense très mal!
     void update(void);
-    
+
+
+    /**
+     * \brief fonction indiquant au gardien qu'il a été touché par une 
+     * boule de feu provenant du joueur. Baissera sa précision et son nombre
+     * de points de vie
+     *
+     **/
     void hurt();
     
     /**
@@ -77,10 +100,18 @@ class Gardien : public Mover {
     bool move (double dx, double dy);
 
     
-    // ne sait pas tirer sur un ennemi.
+    /**
+     * \brief initialisera une boule de feu, qui sera envoyée
+     *
+     **/
     void fire (int angle_vertical);
 
-    // quand a faire bouger la boule de feu...
+    /**
+     * \brief Gère le déplacement de la boule de feu venant du garde
+     * \param dx le déplacement sur la coordonnée x
+     * \param dy le déplacement sur la coordonnée y
+     * 
+     */
     bool process_fireball (float dx, float dy);
 };
 #endif

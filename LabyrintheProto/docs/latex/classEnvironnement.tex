@@ -1,0 +1,85 @@
+\hypertarget{classEnvironnement}{}\section{Environnement Class Reference}
+\label{classEnvironnement}\index{Environnement@{Environnement}}
+
+
+Inheritance diagram for Environnement\+:
+% FIG 0
+
+
+Collaboration diagram for Environnement\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}\label{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}} 
+virtual int {\bfseries width} ()=0
+\item 
+\mbox{\Hypertarget{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}\label{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}} 
+virtual int {\bfseries height} ()=0
+\item 
+\mbox{\Hypertarget{classEnvironnement_a0fae4716da729dbf13f52f09f2d293cd}\label{classEnvironnement_a0fae4716da729dbf13f52f09f2d293cd}} 
+virtual char {\bfseries data} (int i, int j)=0
+\item 
+\mbox{\Hypertarget{classEnvironnement_ae0d41172775150add2e20ff9a5d94943}\label{classEnvironnement_ae0d41172775150add2e20ff9a5d94943}} 
+void {\bfseries reconfigure} ()
+\item 
+\mbox{\Hypertarget{classEnvironnement_a3e4f0241c8241d00161697b9ff167970}\label{classEnvironnement_a3e4f0241c8241d00161697b9ff167970}} 
+int {\bfseries wall\+\_\+texture} (char $\ast$)
+\item 
+\mbox{\Hypertarget{classEnvironnement_a4d16b604c6ab4cdcc3d20a6045f18c45}\label{classEnvironnement_a4d16b604c6ab4cdcc3d20a6045f18c45}} 
+void {\bfseries make\+\_\+fireballs} (void)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a10f6862db4b62690c262a4aea0837cf7}\label{classEnvironnement_a10f6862db4b62690c262a4aea0837cf7}} 
+static \hyperlink{classEnvironnement}{Environnement} $\ast$ {\bfseries init} (char $\ast$filename)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEnvironnement_ad7db3beb18b180b5c132f36228f914bf}\label{classEnvironnement_ad7db3beb18b180b5c132f36228f914bf}} 
+\hyperlink{structWall}{Wall} $\ast$ {\bfseries \+\_\+walls}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a0acbc48c7cf4b59bf973ce741fc6af61}\label{classEnvironnement_a0acbc48c7cf4b59bf973ce741fc6af61}} 
+int {\bfseries \+\_\+nwall}
+\item 
+\mbox{\Hypertarget{classEnvironnement_adbe17c962f07d4def3e2edf579462fc0}\label{classEnvironnement_adbe17c962f07d4def3e2edf579462fc0}} 
+\hyperlink{structWall}{Wall} $\ast$ {\bfseries \+\_\+picts}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a0470d88c2e3e55eee41cb119deb412b9}\label{classEnvironnement_a0470d88c2e3e55eee41cb119deb412b9}} 
+int {\bfseries \+\_\+npicts}
+\item 
+\mbox{\Hypertarget{classEnvironnement_ab32874eb0b8a28d5bde0b2d46bae6115}\label{classEnvironnement_ab32874eb0b8a28d5bde0b2d46bae6115}} 
+\hyperlink{structBox}{Box} $\ast$ {\bfseries \+\_\+boxes}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a8451eb91d83b9f2368bf739afb56187e}\label{classEnvironnement_a8451eb91d83b9f2368bf739afb56187e}} 
+int {\bfseries \+\_\+nboxes}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a1d774f2021c1db814bfea3accdaf534a}\label{classEnvironnement_a1d774f2021c1db814bfea3accdaf534a}} 
+\hyperlink{structBox}{Box} {\bfseries \+\_\+treasor}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a9dca8e24e5dde03341cb9a2156232906}\label{classEnvironnement_a9dca8e24e5dde03341cb9a2156232906}} 
+\hyperlink{classMover}{Mover} $\ast$$\ast$ {\bfseries \+\_\+guards}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a2af64d36a567edf8b6f359ce94ef181b}\label{classEnvironnement_a2af64d36a567edf8b6f359ce94ef181b}} 
+int {\bfseries \+\_\+nguards}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEnvironnement_ab4246782b933af447e3cb2692180dafe}\label{classEnvironnement_ab4246782b933af447e3cb2692180dafe}} 
+static const int {\bfseries scale}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a70c437280e85144533da98532bd8e910}\label{classEnvironnement_a70c437280e85144533da98532bd8e910}} 
+static const char $\ast$ {\bfseries texture\+\_\+dir}
+\item 
+\mbox{\Hypertarget{classEnvironnement_a8296fdb8c70e56b61adbefac0630cc97}\label{classEnvironnement_a8296fdb8c70e56b61adbefac0630cc97}} 
+static const char $\ast$ {\bfseries modele\+\_\+dir}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Environnement.\+h\item 
+Labyrinthe.\+cc\end{DoxyCompactItemize}
