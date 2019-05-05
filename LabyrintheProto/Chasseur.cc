@@ -115,6 +115,7 @@ void Chasseur::right_click (bool shift, bool control) {
 void Chasseur::hurt(){
     perte_precision ++;
     _pv--;
+    _hunter_hit -> play ();
     message("PV : (%d, %d)", _pv, PVMAX);
     if(_pv == 0)
 	die();

@@ -89,6 +89,15 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a46d8e42b8f59bf7e24ac7a967ac30e6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16aa4865644d59a8ed9fde15cd5e7275"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a16aa4865644d59a8ed9fde15cd5e7275">Labyrinthe</a> (char *)</td></tr>
 <tr class="separator:a16aa4865644d59a8ed9fde15cd5e7275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced71da0513e259c3f6ac9eead7a24b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#aced71da0513e259c3f6ac9eead7a24b3">spot</a> (int x, int y)</td></tr>
+<tr class="memdesc:aced71da0513e259c3f6ac9eead7a24b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique aux gardiens que le joueur a été détecté (= vu par un gardien ou ayant tiré une boule de feu) , et met la matrice des distances au joueur estimée par les gardiens ą jour.  <a href="#aced71da0513e259c3f6ac9eead7a24b3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aced71da0513e259c3f6ac9eead7a24b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e1bf06193f8e7763ebf733a9eaf4a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a9e1bf06193f8e7763ebf733a9eaf4a17">hurt_box_at</a> (int x, int y)</td></tr>
+<tr class="memdesc:a9e1bf06193f8e7763ebf733a9eaf4a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">indique que la boite située aux coordonnées en paramčtre a été touchée par une boule de feu  <a href="#a9e1bf06193f8e7763ebf733a9eaf4a17">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9e1bf06193f8e7763ebf733a9eaf4a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abee287932a7d9e1088224d0564d39d46"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#abee287932a7d9e1088224d0564d39d46">is_spotted</a> ()</td></tr>
+<tr class="memdesc:abee287932a7d9e1088224d0564d39d46"><td class="mdescLeft">&#160;</td><td class="mdescRight">indique si le joueur a été vu dans le labyrinthe durant la partie  <a href="#abee287932a7d9e1088224d0564d39d46">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abee287932a7d9e1088224d0564d39d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55373ffb068b7f84c24108ce0f7d111c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a55373ffb068b7f84c24108ce0f7d111c">width</a> ()</td></tr>
 <tr class="memdesc:a55373ffb068b7f84c24108ce0f7d111c"><td class="mdescLeft">&#160;</td><td class="mdescRight">retourne la largeur du labyrinthe.  <a href="#a55373ffb068b7f84c24108ce0f7d111c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a55373ffb068b7f84c24108ce0f7d111c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,6 +125,12 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:afed17fdb2dce31cb4671da03c05b88d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#afed17fdb2dce31cb4671da03c05b88d7">dist_of_treasure</a> (int x, int y)</td></tr>
 <tr class="memdesc:afed17fdb2dce31cb4671da03c05b88d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">rend la distance de la case courante  <a href="#afed17fdb2dce31cb4671da03c05b88d7">Plus de détails...</a><br /></td></tr>
 <tr class="separator:afed17fdb2dce31cb4671da03c05b88d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e8fffb2a5acb505b860174f66a3456"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a66e8fffb2a5acb505b860174f66a3456">dist_of_player</a> (int x, int y)</td></tr>
+<tr class="memdesc:a66e8fffb2a5acb505b860174f66a3456"><td class="mdescLeft">&#160;</td><td class="mdescRight">rend la distance estimée par les gardiens entre la case de coord (x, y) et le chasseur.  <a href="#a66e8fffb2a5acb505b860174f66a3456">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a66e8fffb2a5acb505b860174f66a3456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0aee40381eb415bccaa2f9ca2e3d0c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#ac0aee40381eb415bccaa2f9ca2e3d0c4">maj_player_dist</a> (int x, int y)</td></tr>
+<tr class="memdesc:ac0aee40381eb415bccaa2f9ca2e3d0c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">met ą jour les estimations de distances au joueur, en partant du principe que le joueur est aux coordonnéees (x, y)  <a href="#ac0aee40381eb415bccaa2f9ca2e3d0c4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac0aee40381eb415bccaa2f9ca2e3d0c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classEnvironnement"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classEnvironnement')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="classEnvironnement.html">Environnement</a></td></tr>
 <tr class="memitem:a6754a865157f3f38e8243ed3cbe63993 inherit pub_methods_classEnvironnement"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvironnement.html#a6754a865157f3f38e8243ed3cbe63993">~Environnement</a> ()</td></tr>
 <tr class="separator:a6754a865157f3f38e8243ed3cbe63993 inherit pub_methods_classEnvironnement"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,9 +146,9 @@ Fonctions membres privées</h2></td></tr>
 <tr class="memitem:afc3f86c4ce00a37bd2b033d1e343c7c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#afc3f86c4ce00a37bd2b033d1e343c7c5">init_data</a> ()</td></tr>
 <tr class="memdesc:afc3f86c4ce00a37bd2b033d1e343c7c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialise _data[][], en fonction de lab_with et lab_height  <a href="#afc3f86c4ce00a37bd2b033d1e343c7c5">Plus de détails...</a><br /></td></tr>
 <tr class="separator:afc3f86c4ce00a37bd2b033d1e343c7c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac465d56c311759a7f55a54da90329e17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#ac465d56c311759a7f55a54da90329e17">fill_dist</a> (int x, int y)</td></tr>
-<tr class="memdesc:ac465d56c311759a7f55a54da90329e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">remplit la matrice de distance au trésor, récursivement, en partant de la case de coordonnées (x, y) qu'on sait déją remplie  <a href="#ac465d56c311759a7f55a54da90329e17">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ac465d56c311759a7f55a54da90329e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa420cdcee7e54812b8faa5b27f317955"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#aa420cdcee7e54812b8faa5b27f317955">fill_dist</a> (int x, int y, vector&lt; vector&lt; int &gt;&gt; &amp;t)</td></tr>
+<tr class="memdesc:aa420cdcee7e54812b8faa5b27f317955"><td class="mdescLeft">&#160;</td><td class="mdescRight">remplit la matrice de distance au trésor, récursivement, en partant de la case de coordonnées (x, y) qu'on sait déją remplie  <a href="#aa420cdcee7e54812b8faa5b27f317955">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa420cdcee7e54812b8faa5b27f317955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fc2a0b2bbf0d1101fd7a3804bda9584"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a3fc2a0b2bbf0d1101fd7a3804bda9584">build_guards</a> (list&lt; <a class="el" href="structcoord.html">coord</a> &gt; guards, const <a class="el" href="structcoord.html">coord</a> &amp;player_pos)</td></tr>
 <tr class="memdesc:a3fc2a0b2bbf0d1101fd7a3804bda9584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise _guards et _nguard dans la classe.  <a href="#a3fc2a0b2bbf0d1101fd7a3804bda9584">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3fc2a0b2bbf0d1101fd7a3804bda9584"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +167,11 @@ Fonctions membres privées</h2></td></tr>
 <tr class="memitem:aabe4e77af2b2e156608741a0b08aabdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#aabe4e77af2b2e156608741a0b08aabdc">init_vector_dist</a> ()</td></tr>
 <tr class="memdesc:aabe4e77af2b2e156608741a0b08aabdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialise le vecteur des distances. Doit źtre appellé ą la fin du constructeur  <a href="#aabe4e77af2b2e156608741a0b08aabdc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aabe4e77af2b2e156608741a0b08aabdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39850e108317404081a0dfe09a064975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a39850e108317404081a0dfe09a064975">init_vector_playerdist</a> ()</td></tr>
+<tr class="memdesc:a39850e108317404081a0dfe09a064975"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialise le vecteur des distances estimées vers le joueur  <a href="#a39850e108317404081a0dfe09a064975">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a39850e108317404081a0dfe09a064975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90eb03157e5078f9b84162474e0de77f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a90eb03157e5078f9b84162474e0de77f">echange_boites</a> (int x)</td></tr>
+<tr class="separator:a90eb03157e5078f9b84162474e0de77f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
@@ -170,6 +190,15 @@ Attributs privés</h2></td></tr>
 <tr class="memitem:a63f1ac088c5b93cd8c099e7cce3ef4dc"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a63f1ac088c5b93cd8c099e7cce3ef4dc">_dist_vect</a></td></tr>
 <tr class="memdesc:a63f1ac088c5b93cd8c099e7cce3ef4dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vecteur contenant les distances entre chaque case et le trésor.  <a href="#a63f1ac088c5b93cd8c099e7cce3ef4dc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a63f1ac088c5b93cd8c099e7cce3ef4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a19bc0082a98842deb7426ef945c1b"><td class="memItemLeft" align="right" valign="top">vector&lt; vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a09a19bc0082a98842deb7426ef945c1b">_estimated_dist_player</a></td></tr>
+<tr class="memdesc:a09a19bc0082a98842deb7426ef945c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vecteur contenant les distances estimées par les gardiens au joueur.  <a href="#a09a19bc0082a98842deb7426ef945c1b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a09a19bc0082a98842deb7426ef945c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a228978d8d96f63a3e97b07c7d04b3594"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#a228978d8d96f63a3e97b07c7d04b3594">spotted</a> = false</td></tr>
+<tr class="memdesc:a228978d8d96f63a3e97b07c7d04b3594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si le joueur a été vu par les gardiens.  <a href="#a228978d8d96f63a3e97b07c7d04b3594">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a228978d8d96f63a3e97b07c7d04b3594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abadb9e695ee1bdcf1467611f62ff374e"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLabyrinthe.html#abadb9e695ee1bdcf1467611f62ff374e">_box_pv</a></td></tr>
+<tr class="memdesc:abadb9e695ee1bdcf1467611f62ff374e"><td class="mdescLeft">&#160;</td><td class="mdescRight">tableau indiquant le nombre de pv restant ą chaque boite  <a href="#abadb9e695ee1bdcf1467611f62ff374e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abadb9e695ee1bdcf1467611f62ff374e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Membres hérités additionnels</h2></td></tr>
@@ -312,7 +341,7 @@ Membres hérités additionnels</h2></td></tr>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">guards</td><td>(in) : une liste des coordonnées des gardes </td></tr>
-    <tr><td class="paramname">player_pos</td><td>(in) : La coordonnée du joueur TODO : génération de gardes différents </td></tr>
+    <tr><td class="paramname">player_pos</td><td>(in) : La coordonnée du joueur </td></tr>
   </table>
   </dd>
 </dl>
@@ -473,6 +502,52 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
+<a id="a66e8fffb2a5acb505b860174f66a3456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66e8fffb2a5acb505b860174f66a3456">&#9670;&nbsp;</a></span>dist_of_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Labyrinthe::dist_of_player </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>rend la distance estimée par les gardiens entre la case de coord (x, y) et le chasseur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La distance estimée par les gardiens entre le point donné en paramčtre et la valeur réelle. </dd></dl>
+
+</div>
+</div>
 <a id="afed17fdb2dce31cb4671da03c05b88d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afed17fdb2dce31cb4671da03c05b88d7">&#9670;&nbsp;</a></span>dist_of_treasure()</h2>
 
@@ -519,8 +594,34 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
-<a id="ac465d56c311759a7f55a54da90329e17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac465d56c311759a7f55a54da90329e17">&#9670;&nbsp;</a></span>fill_dist()</h2>
+<a id="a90eb03157e5078f9b84162474e0de77f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90eb03157e5078f9b84162474e0de77f">&#9670;&nbsp;</a></span>echange_boites()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Labyrinthe::echange_boites </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa420cdcee7e54812b8faa5b27f317955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa420cdcee7e54812b8faa5b27f317955">&#9670;&nbsp;</a></span>fill_dist()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -538,7 +639,13 @@ Membres hérités additionnels</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; vector&lt; int &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -583,6 +690,43 @@ Membres hérités additionnels</h2></td></tr>
 <p>retourne la longueur du labyrinthe. </p>
 
 <p>Implémente <a class="el" href="classEnvironnement.html#af7629ab7f15ec65476eadcc80c46b50c">Environnement</a>.</p>
+
+</div>
+</div>
+<a id="a9e1bf06193f8e7763ebf733a9eaf4a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e1bf06193f8e7763ebf733a9eaf4a17">&#9670;&nbsp;</a></span>hurt_box_at()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Labyrinthe::hurt_box_at </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>indique que la boite située aux coordonnées en paramčtre a été touchée par une boule de feu </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>la coord en x de la boite touchée </td></tr>
+    <tr><td class="paramname">y</td><td>la coord en y de la boite touchée </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -723,6 +867,91 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
+<a id="a39850e108317404081a0dfe09a064975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39850e108317404081a0dfe09a064975">&#9670;&nbsp;</a></span>init_vector_playerdist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Labyrinthe::init_vector_playerdist </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>initialise le vecteur des distances estimées vers le joueur </p>
+
+</div>
+</div>
+<a id="abee287932a7d9e1088224d0564d39d46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abee287932a7d9e1088224d0564d39d46">&#9670;&nbsp;</a></span>is_spotted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Labyrinthe::is_spotted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>indique si le joueur a été vu dans le labyrinthe durant la partie </p>
+<dl class="section return"><dt>Renvoie</dt><dd>true si le joueur a été vu, false sinon </dd></dl>
+
+</div>
+</div>
+<a id="ac0aee40381eb415bccaa2f9ca2e3d0c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0aee40381eb415bccaa2f9ca2e3d0c4">&#9670;&nbsp;</a></span>maj_player_dist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Labyrinthe::maj_player_dist </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>met ą jour les estimations de distances au joueur, en partant du principe que le joueur est aux coordonnéees (x, y) </p>
+
+</div>
+</div>
 <a id="ab13197de5f094c67422e558c2347dbe8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab13197de5f094c67422e558c2347dbe8">&#9670;&nbsp;</a></span>nb_alive()</h2>
 
@@ -795,6 +1024,51 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
+<a id="aced71da0513e259c3f6ac9eead7a24b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aced71da0513e259c3f6ac9eead7a24b3">&#9670;&nbsp;</a></span>spot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Labyrinthe::spot </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indique aux gardiens que le joueur a été détecté (= vu par un gardien ou ayant tiré une boule de feu) , et met la matrice des distances au joueur estimée par les gardiens ą jour. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>la coord x ą laquelle le joueur a été détécté </td></tr>
+    <tr><td class="paramname">y</td><td>la coord y ą laquelle le joueur a été vu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a55373ffb068b7f84c24108ce0f7d111c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55373ffb068b7f84c24108ce0f7d111c">&#9670;&nbsp;</a></span>width()</h2>
 
@@ -825,6 +1099,30 @@ Membres hérités additionnels</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentation des données membres</h2>
+<a id="abadb9e695ee1bdcf1467611f62ff374e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abadb9e695ee1bdcf1467611f62ff374e">&#9670;&nbsp;</a></span>_box_pv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* Labyrinthe::_box_pv</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>tableau indiquant le nombre de pv restant ą chaque boite </p>
+
+</div>
+</div>
 <a id="a93ccbd26c14359bec6a9898575f69237"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93ccbd26c14359bec6a9898575f69237">&#9670;&nbsp;</a></span>_data</h2>
 
@@ -870,6 +1168,30 @@ Membres hérités additionnels</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Vecteur contenant les distances entre chaque case et le trésor. </p>
+
+</div>
+</div>
+<a id="a09a19bc0082a98842deb7426ef945c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09a19bc0082a98842deb7426ef945c1b">&#9670;&nbsp;</a></span>_estimated_dist_player</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;vector&lt;int&gt; &gt; Labyrinthe::_estimated_dist_player</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vecteur contenant les distances estimées par les gardiens au joueur. </p>
 
 </div>
 </div>
@@ -942,6 +1264,30 @@ Membres hérités additionnels</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Dimension de l'axe 'x' du labyrinthe. </p>
+
+</div>
+</div>
+<a id="a228978d8d96f63a3e97b07c7d04b3594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a228978d8d96f63a3e97b07c7d04b3594">&#9670;&nbsp;</a></span>spotted</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Labyrinthe::spotted = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indique si le joueur a été vu par les gardiens. </p>
 
 </div>
 </div>

@@ -52,4 +52,8 @@ digraph "Gardien.cc"
   Node15 -> Node22 [color="midnightblue",fontsize="10",style="solid"];
   Node22 [label="unistd.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node15 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node0 -> Node16 [color="midnightblue",fontsize="10",style="solid"];
+  Node0 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node0 -> Node23 [color="midnightblue",fontsize="10",style="solid"];
+  Node23 [label="time.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
 }

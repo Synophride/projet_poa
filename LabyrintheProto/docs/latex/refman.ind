@@ -1,0 +1,558 @@
+\begin{theindex}
+
+  \item {\+\_\+angle}
+    \subitem {Fire\+Ball}, \hyperpage{18}
+    \subitem {Mover}, \hyperpage{35}
+  \item {\+\_\+angle2}
+    \subitem {Fire\+Ball}, \hyperpage{19}
+  \item {\+\_\+azimuth}
+    \subitem {Fire\+Ball}, \hyperpage{19}
+  \item {\+\_\+boxes}
+    \subitem {Environnement}, \hyperpage{15}
+  \item {\+\_\+channel}
+    \subitem {Sound}, \hyperpage{38}
+  \item {\+\_\+data}
+    \subitem {Labyrinthe}, \hyperpage{32}
+  \item {\+\_\+dist\+\_\+vect}
+    \subitem {Labyrinthe}, \hyperpage{32}
+  \item {\+\_\+fb}
+    \subitem {Mover}, \hyperpage{35}
+  \item {\+\_\+fire\+\_\+list}
+    \subitem {Fire\+Ball}, \hyperpage{19}
+  \item {\+\_\+fire\+\_\+texture}
+    \subitem {Fire\+Ball}, \hyperpage{19}
+  \item {\+\_\+guards}
+    \subitem {Environnement}, \hyperpage{15}
+  \item {\+\_\+hunter\+\_\+fire}
+    \subitem {Chasseur}, \hyperpage{11}
+  \item {\+\_\+hunter\+\_\+hit}
+    \subitem {Chasseur}, \hyperpage{11}
+  \item {\+\_\+l}
+    \subitem {Mover}, \hyperpage{36}
+  \item {\+\_\+model}
+    \subitem {Mover}, \hyperpage{36}
+  \item {\+\_\+move\+\_\+angle}
+    \subitem {Fire\+Ball}, \hyperpage{19}
+  \item {\+\_\+nb\+\_\+alive}
+    \subitem {Labyrinthe}, \hyperpage{32}
+  \item {\+\_\+nboxes}
+    \subitem {Environnement}, \hyperpage{15}
+  \item {\+\_\+nguards}
+    \subitem {Environnement}, \hyperpage{15}
+  \item {\+\_\+npicts}
+    \subitem {Environnement}, \hyperpage{15}
+  \item {\+\_\+nsounds}
+    \subitem {Sound}, \hyperpage{39}
+  \item {\+\_\+ntex}
+    \subitem {Box}, \hyperpage{7}
+    \subitem {Wall}, \hyperpage{39}
+  \item {\+\_\+nwall}
+    \subitem {Environnement}, \hyperpage{15}
+  \item {\+\_\+orig\+\_\+size}
+    \subitem {Fire\+Ball}, \hyperpage{19}
+  \item {\+\_\+owner}
+    \subitem {Fire\+Ball}, \hyperpage{19}
+  \item {\+\_\+picts}
+    \subitem {Environnement}, \hyperpage{15}
+  \item {\+\_\+pv}
+    \subitem {Chasseur}, \hyperpage{11}
+    \subitem {Gardien}, \hyperpage{24}
+  \item {\+\_\+size}
+    \subitem {Fire\+Ball}, \hyperpage{19}
+  \item {\+\_\+sound}
+    \subitem {Sound}, \hyperpage{39}
+  \item {\+\_\+state}
+    \subitem {Fire\+Ball}, \hyperpage{20}
+  \item {\+\_\+system}
+    \subitem {Sound}, \hyperpage{39}
+  \item {\+\_\+treasor}
+    \subitem {Environnement}, \hyperpage{16}
+  \item {\+\_\+wall\+\_\+hit}
+    \subitem {Chasseur}, \hyperpage{11}
+  \item {\+\_\+walls}
+    \subitem {Environnement}, \hyperpage{16}
+  \item {\+\_\+x}
+    \subitem {Box}, \hyperpage{7}
+    \subitem {Fire\+Ball}, \hyperpage{20}
+    \subitem {Mover}, \hyperpage{36}
+  \item {\+\_\+x1}
+    \subitem {Wall}, \hyperpage{39}
+  \item {\+\_\+x2}
+    \subitem {Wall}, \hyperpage{40}
+  \item {\+\_\+y}
+    \subitem {Box}, \hyperpage{7}
+    \subitem {Fire\+Ball}, \hyperpage{20}
+    \subitem {Mover}, \hyperpage{36}
+  \item {\+\_\+y1}
+    \subitem {Wall}, \hyperpage{40}
+  \item {\+\_\+y2}
+    \subitem {Wall}, \hyperpage{40}
+  \item {\+\_\+z}
+    \subitem {Fire\+Ball}, \hyperpage{20}
+  \item {$\sim$\+Environnement}
+    \subitem {Environnement}, \hyperpage{13}
+  \item {$\sim$\+Gardien}
+    \subitem {Gardien}, \hyperpage{22}
+  \item {$\sim$\+Mover}
+    \subitem {Mover}, \hyperpage{34}
+  \item {$\sim$\+Sound}
+    \subitem {Sound}, \hyperpage{38}
+
+  \indexspace
+
+  \item {add\+\_\+to\+\_\+wall\+\_\+list}
+    \subitem {Labyrinthe.\+cc}, \hyperpage{44}
+    \subitem {Labyrinthe.\+h}, \hyperpage{47}
+  \item {avancer}
+    \subitem {Gardien}, \hyperpage{22}
+
+  \indexspace
+
+  \item {B\+A\+S\+E\+\_\+\+PV}
+    \subitem {Gardien}, \hyperpage{25}
+  \item {B\+OX}
+    \subitem {Labyrinthe.\+h}, \hyperpage{50}
+  \item {Box}, \hyperpage{7}
+    \subitem {\+\_\+ntex}, \hyperpage{7}
+    \subitem {\+\_\+x}, \hyperpage{7}
+    \subitem {\+\_\+y}, \hyperpage{7}
+  \item {build\+\_\+boxes}
+    \subitem {Labyrinthe}, \hyperpage{27}
+  \item {build\+\_\+guards}
+    \subitem {Labyrinthe}, \hyperpage{28}
+  \item {build\+\_\+map}
+    \subitem {Labyrinthe.\+cc}, \hyperpage{45}
+    \subitem {Labyrinthe.\+h}, \hyperpage{48}
+  \item {build\+\_\+solution}
+    \subitem {old\+\_\+gardien.\+cc}, \hyperpage{52}
+  \item {build\+\_\+text}
+    \subitem {Labyrinthe}, \hyperpage{28}
+  \item {build\+\_\+treasure}
+    \subitem {Labyrinthe}, \hyperpage{28}
+  \item {build\+\_\+walls}
+    \subitem {Labyrinthe}, \hyperpage{29}
+
+  \indexspace
+
+  \item {can\+\_\+see\+\_\+player}
+    \subitem {Gardien}, \hyperpage{22}
+  \item {Chasseur}, \hyperpage{8}
+    \subitem {\+\_\+hunter\+\_\+fire}, \hyperpage{11}
+    \subitem {\+\_\+hunter\+\_\+hit}, \hyperpage{11}
+    \subitem {\+\_\+pv}, \hyperpage{11}
+    \subitem {\+\_\+wall\+\_\+hit}, \hyperpage{11}
+    \subitem {Chasseur}, \hyperpage{8}
+    \subitem {die}, \hyperpage{9}
+    \subitem {fire}, \hyperpage{9}
+    \subitem {hurt}, \hyperpage{9}
+    \subitem {l}, \hyperpage{11}
+    \subitem {move}, \hyperpage{9}
+    \subitem {move\+\_\+aux}, \hyperpage{9}
+    \subitem {perte\+\_\+precision}, \hyperpage{11}
+    \subitem {process\+\_\+fireball}, \hyperpage{10}
+    \subitem {right\+\_\+click}, \hyperpage{10}
+    \subitem {update}, \hyperpage{10}
+  \item {Chasseur.\+cc}, \hyperpage{41}
+  \item {Chasseur.\+h}, \hyperpage{41}
+  \item {coord}, \hyperpage{12}
+    \subitem {x}, \hyperpage{12}
+    \subitem {y}, \hyperpage{12}
+
+  \indexspace
+
+  \item {data}
+    \subitem {Environnement}, \hyperpage{13}
+    \subitem {Labyrinthe}, \hyperpage{29}
+  \item {dead}
+    \subitem {Gardien}, \hyperpage{25}
+  \item {die}
+    \subitem {Chasseur}, \hyperpage{9}
+    \subitem {Gardien}, \hyperpage{22}
+  \item {display}
+    \subitem {Fire\+Ball}, \hyperpage{17}
+  \item {dist\+\_\+of\+\_\+treasure}
+    \subitem {Labyrinthe}, \hyperpage{29}
+
+  \indexspace
+
+  \item {E\+M\+P\+TY}
+    \subitem {Environnement.\+h}, \hyperpage{42}
+  \item {Environnement}, \hyperpage{13}
+    \subitem {\+\_\+boxes}, \hyperpage{15}
+    \subitem {\+\_\+guards}, \hyperpage{15}
+    \subitem {\+\_\+nboxes}, \hyperpage{15}
+    \subitem {\+\_\+nguards}, \hyperpage{15}
+    \subitem {\+\_\+npicts}, \hyperpage{15}
+    \subitem {\+\_\+nwall}, \hyperpage{15}
+    \subitem {\+\_\+picts}, \hyperpage{15}
+    \subitem {\+\_\+treasor}, \hyperpage{16}
+    \subitem {\+\_\+walls}, \hyperpage{16}
+    \subitem {$\sim$\+Environnement}, \hyperpage{13}
+    \subitem {data}, \hyperpage{13}
+    \subitem {height}, \hyperpage{14}
+    \subitem {init}, \hyperpage{14}
+    \subitem {make\+\_\+fireballs}, \hyperpage{14}
+    \subitem {modele\+\_\+dir}, \hyperpage{16}
+    \subitem {reconfigure}, \hyperpage{14}
+    \subitem {scale}, \hyperpage{16}
+    \subitem {texture\+\_\+dir}, \hyperpage{16}
+    \subitem {wall\+\_\+texture}, \hyperpage{14}
+    \subitem {width}, \hyperpage{14}
+  \item {Environnement.\+h}, \hyperpage{41}
+    \subitem {E\+M\+P\+TY}, \hyperpage{42}
+    \subitem {message}, \hyperpage{42}
+    \subitem {partie\+\_\+terminee}, \hyperpage{42}
+  \item {estimation\+\_\+dist}
+    \subitem {old\+\_\+gardien.\+cc}, \hyperpage{52}
+  \item {explode}
+    \subitem {Fire\+Ball}, \hyperpage{17}
+
+  \indexspace
+
+  \item {F\+Bstat}
+    \subitem {Fire\+Ball.\+h}, \hyperpage{43}
+  \item {fill\+\_\+dist}
+    \subitem {Labyrinthe}, \hyperpage{30}
+  \item {fire}
+    \subitem {Chasseur}, \hyperpage{9}
+    \subitem {Gardien}, \hyperpage{22}
+    \subitem {Mover}, \hyperpage{34}
+  \item {Fire\+Ball}, \hyperpage{16}
+    \subitem {\+\_\+angle}, \hyperpage{18}
+    \subitem {\+\_\+angle2}, \hyperpage{19}
+    \subitem {\+\_\+azimuth}, \hyperpage{19}
+    \subitem {\+\_\+fire\+\_\+list}, \hyperpage{19}
+    \subitem {\+\_\+fire\+\_\+texture}, \hyperpage{19}
+    \subitem {\+\_\+move\+\_\+angle}, \hyperpage{19}
+    \subitem {\+\_\+orig\+\_\+size}, \hyperpage{19}
+    \subitem {\+\_\+owner}, \hyperpage{19}
+    \subitem {\+\_\+size}, \hyperpage{19}
+    \subitem {\+\_\+state}, \hyperpage{20}
+    \subitem {\+\_\+x}, \hyperpage{20}
+    \subitem {\+\_\+y}, \hyperpage{20}
+    \subitem {\+\_\+z}, \hyperpage{20}
+    \subitem {display}, \hyperpage{17}
+    \subitem {explode}, \hyperpage{17}
+    \subitem {Fire\+Ball}, \hyperpage{17}
+    \subitem {get\+\_\+x}, \hyperpage{18}
+    \subitem {get\+\_\+y}, \hyperpage{18}
+    \subitem {init}, \hyperpage{18}
+    \subitem {move\+\_\+step}, \hyperpage{18}
+    \subitem {set\+\_\+orig\+\_\+size}, \hyperpage{18}
+  \item {Fire\+Ball.\+h}, \hyperpage{42}
+    \subitem {F\+Bstat}, \hyperpage{43}
+    \subitem {M\+\_\+\+PI}, \hyperpage{43}
+  \item {fired}
+    \subitem {Gardien}, \hyperpage{25}
+  \item {first\+\_\+char}
+    \subitem {Labyrinthe.\+cc}, \hyperpage{45}
+    \subitem {Labyrinthe.\+h}, \hyperpage{48}
+
+  \indexspace
+
+  \item {G\+A\+R\+DE}
+    \subitem {Labyrinthe.\+h}, \hyperpage{50}
+  \item {Gardien}, \hyperpage{20}
+    \subitem {\+\_\+pv}, \hyperpage{24}
+    \subitem {$\sim$\+Gardien}, \hyperpage{22}
+    \subitem {avancer}, \hyperpage{22}
+    \subitem {B\+A\+S\+E\+\_\+\+PV}, \hyperpage{25}
+    \subitem {can\+\_\+see\+\_\+player}, \hyperpage{22}
+    \subitem {dead}, \hyperpage{25}
+    \subitem {die}, \hyperpage{22}
+    \subitem {fire}, \hyperpage{22}
+    \subitem {fired}, \hyperpage{25}
+    \subitem {Gardien}, \hyperpage{22}
+    \subitem {hurt}, \hyperpage{23}
+    \subitem {is\+\_\+legit\+\_\+move}, \hyperpage{23}
+    \subitem {l}, \hyperpage{25}
+    \subitem {move}, \hyperpage{23}
+    \subitem {move\+\_\+to\+\_\+treasure}, \hyperpage{23}
+    \subitem {perte\+\_\+precision}, \hyperpage{25}
+    \subitem {process\+\_\+fireball}, \hyperpage{24}
+    \subitem {R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME}, \hyperpage{26}
+    \subitem {reload}, \hyperpage{25}
+    \subitem {reloading}, \hyperpage{26}
+    \subitem {try\+\_\+move}, \hyperpage{24}
+    \subitem {update}, \hyperpage{24}
+  \item {Gardien.\+cc}, \hyperpage{43}
+  \item {Gardien.\+h}, \hyperpage{43}
+  \item {get}
+    \subitem {old\+\_\+gardien.\+cc}, \hyperpage{52}
+  \item {get\+\_\+shortest\+\_\+path}
+    \subitem {old\+\_\+gardien.\+cc}, \hyperpage{52}
+  \item {get\+\_\+x}
+    \subitem {Fire\+Ball}, \hyperpage{18}
+  \item {get\+\_\+y}
+    \subitem {Fire\+Ball}, \hyperpage{18}
+
+  \indexspace
+
+  \item {H\+O\+R\+I\+Z\+O\+N\+T\+AL}
+    \subitem {Labyrinthe.\+h}, \hyperpage{50}
+  \item {height}
+    \subitem {Environnement}, \hyperpage{14}
+    \subitem {Labyrinthe}, \hyperpage{30}
+  \item {hurt}
+    \subitem {Chasseur}, \hyperpage{9}
+    \subitem {Gardien}, \hyperpage{23}
+  \item {hurt\+\_\+gardien\+\_\+at}
+    \subitem {Labyrinthe}, \hyperpage{30}
+  \item {hurt\+\_\+joueur}
+    \subitem {Labyrinthe}, \hyperpage{30}
+
+  \indexspace
+
+  \item {iamdying}
+    \subitem {Labyrinthe}, \hyperpage{31}
+  \item {init}
+    \subitem {Environnement}, \hyperpage{14}
+    \subitem {Fire\+Ball}, \hyperpage{18}
+    \subitem {Mover}, \hyperpage{34}
+    \subitem {Sound}, \hyperpage{38}
+  \item {init\+\_\+data}
+    \subitem {Labyrinthe}, \hyperpage{31}
+  \item {init\+\_\+vector\+\_\+dist}
+    \subitem {Labyrinthe}, \hyperpage{31}
+  \item {is\+\_\+blank}
+    \subitem {Labyrinthe.\+cc}, \hyperpage{45}
+    \subitem {Labyrinthe.\+h}, \hyperpage{48}
+  \item {is\+\_\+legit\+\_\+move}
+    \subitem {Gardien}, \hyperpage{23}
+
+  \indexspace
+
+  \item {J\+O\+U\+E\+UR}
+    \subitem {Labyrinthe.\+h}, \hyperpage{50}
+
+  \indexspace
+
+  \item {l}
+    \subitem {Chasseur}, \hyperpage{11}
+    \subitem {Gardien}, \hyperpage{25}
+  \item {lab\+\_\+height}
+    \subitem {Labyrinthe}, \hyperpage{32}
+  \item {lab\+\_\+width}
+    \subitem {Labyrinthe}, \hyperpage{33}
+  \item {laby2.\+c}, \hyperpage{44}
+  \item {Labyrinthe}, \hyperpage{26}
+    \subitem {\+\_\+data}, \hyperpage{32}
+    \subitem {\+\_\+dist\+\_\+vect}, \hyperpage{32}
+    \subitem {\+\_\+nb\+\_\+alive}, \hyperpage{32}
+    \subitem {build\+\_\+boxes}, \hyperpage{27}
+    \subitem {build\+\_\+guards}, \hyperpage{28}
+    \subitem {build\+\_\+text}, \hyperpage{28}
+    \subitem {build\+\_\+treasure}, \hyperpage{28}
+    \subitem {build\+\_\+walls}, \hyperpage{29}
+    \subitem {data}, \hyperpage{29}
+    \subitem {dist\+\_\+of\+\_\+treasure}, \hyperpage{29}
+    \subitem {fill\+\_\+dist}, \hyperpage{30}
+    \subitem {height}, \hyperpage{30}
+    \subitem {hurt\+\_\+gardien\+\_\+at}, \hyperpage{30}
+    \subitem {hurt\+\_\+joueur}, \hyperpage{30}
+    \subitem {iamdying}, \hyperpage{31}
+    \subitem {init\+\_\+data}, \hyperpage{31}
+    \subitem {init\+\_\+vector\+\_\+dist}, \hyperpage{31}
+    \subitem {lab\+\_\+height}, \hyperpage{32}
+    \subitem {lab\+\_\+width}, \hyperpage{33}
+    \subitem {Labyrinthe}, \hyperpage{27}
+    \subitem {nb\+\_\+alive}, \hyperpage{31}
+    \subitem {set\+\_\+data}, \hyperpage{31}
+    \subitem {width}, \hyperpage{32}
+  \item {Labyrinthe.\+cc}, \hyperpage{44}
+    \subitem {add\+\_\+to\+\_\+wall\+\_\+list}, \hyperpage{44}
+    \subitem {build\+\_\+map}, \hyperpage{45}
+    \subitem {first\+\_\+char}, \hyperpage{45}
+    \subitem {is\+\_\+blank}, \hyperpage{45}
+    \subitem {parse\+\_\+map}, \hyperpage{45}
+    \subitem {parse\+\_\+wall\+\_\+extr}, \hyperpage{46}
+  \item {Labyrinthe.\+h}, \hyperpage{46}
+    \subitem {add\+\_\+to\+\_\+wall\+\_\+list}, \hyperpage{47}
+    \subitem {B\+OX}, \hyperpage{50}
+    \subitem {build\+\_\+map}, \hyperpage{48}
+    \subitem {first\+\_\+char}, \hyperpage{48}
+    \subitem {G\+A\+R\+DE}, \hyperpage{50}
+    \subitem {H\+O\+R\+I\+Z\+O\+N\+T\+AL}, \hyperpage{50}
+    \subitem {is\+\_\+blank}, \hyperpage{48}
+    \subitem {J\+O\+U\+E\+UR}, \hyperpage{50}
+    \subitem {parse\+\_\+map}, \hyperpage{49}
+    \subitem {parse\+\_\+wall\+\_\+extr}, \hyperpage{49}
+    \subitem {T\+R\+E\+A\+S\+U\+RE}, \hyperpage{50}
+    \subitem {V\+E\+R\+T\+I\+C\+AL}, \hyperpage{50}
+    \subitem {W\+A\+LL}, \hyperpage{51}
+
+  \indexspace
+
+  \item {M\+\_\+\+PI}
+    \subitem {Fire\+Ball.\+h}, \hyperpage{43}
+  \item {M\+AX}
+    \subitem {old\+\_\+gardien.\+cc}, \hyperpage{52}
+  \item {M\+IN}
+    \subitem {old\+\_\+gardien.\+cc}, \hyperpage{53}
+  \item {make\+\_\+fireballs}
+    \subitem {Environnement}, \hyperpage{14}
+  \item {message}
+    \subitem {Environnement.\+h}, \hyperpage{42}
+  \item {modele\+\_\+dir}
+    \subitem {Environnement}, \hyperpage{16}
+  \item {move}
+    \subitem {Chasseur}, \hyperpage{9}
+    \subitem {Gardien}, \hyperpage{23}
+    \subitem {Mover}, \hyperpage{34}
+  \item {move\+\_\+aux}
+    \subitem {Chasseur}, \hyperpage{9}
+  \item {move\+\_\+step}
+    \subitem {Fire\+Ball}, \hyperpage{18}
+  \item {move\+\_\+to\+\_\+treasure}
+    \subitem {Gardien}, \hyperpage{23}
+  \item {Mover}, \hyperpage{33}
+    \subitem {\+\_\+angle}, \hyperpage{35}
+    \subitem {\+\_\+fb}, \hyperpage{35}
+    \subitem {\+\_\+l}, \hyperpage{36}
+    \subitem {\+\_\+model}, \hyperpage{36}
+    \subitem {\+\_\+x}, \hyperpage{36}
+    \subitem {\+\_\+y}, \hyperpage{36}
+    \subitem {$\sim$\+Mover}, \hyperpage{34}
+    \subitem {fire}, \hyperpage{34}
+    \subitem {init}, \hyperpage{34}
+    \subitem {move}, \hyperpage{34}
+    \subitem {Mover}, \hyperpage{34}
+    \subitem {process\+\_\+fireball}, \hyperpage{34}
+    \subitem {rester\+\_\+au\+\_\+sol}, \hyperpage{35}
+    \subitem {right\+\_\+click}, \hyperpage{35}
+    \subitem {tomber}, \hyperpage{35}
+    \subitem {update}, \hyperpage{35}
+  \item {Mover.\+h}, \hyperpage{51}
+
+  \indexspace
+
+  \item {nb\+\_\+alive}
+    \subitem {Labyrinthe}, \hyperpage{31}
+  \item {node}, \hyperpage{36}
+    \subitem {x}, \hyperpage{36}
+    \subitem {y}, \hyperpage{37}
+  \item {node\+\_\+comparator}, \hyperpage{37}
+    \subitem {operator()}, \hyperpage{37}
+
+  \indexspace
+
+  \item {old\+\_\+gardien.\+cc}, \hyperpage{51}
+    \subitem {build\+\_\+solution}, \hyperpage{52}
+    \subitem {estimation\+\_\+dist}, \hyperpage{52}
+    \subitem {get}, \hyperpage{52}
+    \subitem {get\+\_\+shortest\+\_\+path}, \hyperpage{52}
+    \subitem {M\+AX}, \hyperpage{52}
+    \subitem {M\+IN}, \hyperpage{53}
+    \subitem {operator==}, \hyperpage{52}
+  \item {operator()}
+    \subitem {node\+\_\+comparator}, \hyperpage{37}
+  \item {operator==}
+    \subitem {old\+\_\+gardien.\+cc}, \hyperpage{52}
+
+  \indexspace
+
+  \item {parse\+\_\+map}
+    \subitem {Labyrinthe.\+cc}, \hyperpage{45}
+    \subitem {Labyrinthe.\+h}, \hyperpage{49}
+  \item {parse\+\_\+wall\+\_\+extr}
+    \subitem {Labyrinthe.\+cc}, \hyperpage{46}
+    \subitem {Labyrinthe.\+h}, \hyperpage{49}
+  \item {partie\+\_\+terminee}
+    \subitem {Environnement.\+h}, \hyperpage{42}
+  \item {perte\+\_\+precision}
+    \subitem {Chasseur}, \hyperpage{11}
+    \subitem {Gardien}, \hyperpage{25}
+  \item {play}
+    \subitem {Sound}, \hyperpage{38}
+  \item {process\+\_\+fireball}
+    \subitem {Chasseur}, \hyperpage{10}
+    \subitem {Gardien}, \hyperpage{24}
+    \subitem {Mover}, \hyperpage{34}
+
+  \indexspace
+
+  \item {R\+E\+L\+O\+A\+D\+\_\+\+T\+I\+ME}
+    \subitem {Gardien}, \hyperpage{26}
+  \item {reconfigure}
+    \subitem {Environnement}, \hyperpage{14}
+  \item {reload}
+    \subitem {Gardien}, \hyperpage{25}
+  \item {reloading}
+    \subitem {Gardien}, \hyperpage{26}
+  \item {rester\+\_\+au\+\_\+sol}
+    \subitem {Mover}, \hyperpage{35}
+  \item {right\+\_\+click}
+    \subitem {Chasseur}, \hyperpage{10}
+    \subitem {Mover}, \hyperpage{35}
+
+  \indexspace
+
+  \item {scale}
+    \subitem {Environnement}, \hyperpage{16}
+  \item {set\+\_\+data}
+    \subitem {Labyrinthe}, \hyperpage{31}
+  \item {set\+\_\+orig\+\_\+size}
+    \subitem {Fire\+Ball}, \hyperpage{18}
+  \item {Sound}, \hyperpage{37}
+    \subitem {\+\_\+channel}, \hyperpage{38}
+    \subitem {\+\_\+nsounds}, \hyperpage{39}
+    \subitem {\+\_\+sound}, \hyperpage{39}
+    \subitem {\+\_\+system}, \hyperpage{39}
+    \subitem {$\sim$\+Sound}, \hyperpage{38}
+    \subitem {init}, \hyperpage{38}
+    \subitem {play}, \hyperpage{38}
+    \subitem {Sound}, \hyperpage{38}
+  \item {Sound.\+h}, \hyperpage{53}
+
+  \indexspace
+
+  \item {T\+R\+E\+A\+S\+U\+RE}
+    \subitem {Labyrinthe.\+h}, \hyperpage{50}
+  \item {texture\+\_\+dir}
+    \subitem {Environnement}, \hyperpage{16}
+  \item {tomber}
+    \subitem {Mover}, \hyperpage{35}
+  \item {try\+\_\+move}
+    \subitem {Gardien}, \hyperpage{24}
+
+  \indexspace
+
+  \item {update}
+    \subitem {Chasseur}, \hyperpage{10}
+    \subitem {Gardien}, \hyperpage{24}
+    \subitem {Mover}, \hyperpage{35}
+
+  \indexspace
+
+  \item {V\+E\+R\+T\+I\+C\+AL}
+    \subitem {Labyrinthe.\+h}, \hyperpage{50}
+
+  \indexspace
+
+  \item {W\+A\+LL}
+    \subitem {Labyrinthe.\+h}, \hyperpage{51}
+  \item {Wall}, \hyperpage{39}
+    \subitem {\+\_\+ntex}, \hyperpage{39}
+    \subitem {\+\_\+x1}, \hyperpage{39}
+    \subitem {\+\_\+x2}, \hyperpage{40}
+    \subitem {\+\_\+y1}, \hyperpage{40}
+    \subitem {\+\_\+y2}, \hyperpage{40}
+  \item {wall\+\_\+texture}
+    \subitem {Environnement}, \hyperpage{14}
+  \item {width}
+    \subitem {Environnement}, \hyperpage{14}
+    \subitem {Labyrinthe}, \hyperpage{32}
+
+  \indexspace
+
+  \item {x}
+    \subitem {coord}, \hyperpage{12}
+    \subitem {node}, \hyperpage{36}
+
+  \indexspace
+
+  \item {y}
+    \subitem {coord}, \hyperpage{12}
+    \subitem {node}, \hyperpage{37}
+
+\end{theindex}

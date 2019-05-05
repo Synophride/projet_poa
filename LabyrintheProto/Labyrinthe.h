@@ -14,12 +14,10 @@
 #include <unistd.h>
 
 #include "Environnement.h"
-using namespace std; // à virer
-
+using namespace std; 
 
 const bool HORIZONTAL = false; //!< booléen permettant d'indiquer le sens des affiches
 const bool VERTICAL   =  true; //!< booléen permettant d'indiquer le sens des affiches
-
 
 const char WALL = 1;
 const char BOX = 2;
@@ -95,16 +93,13 @@ bool is_blank(const string &str);
  */
 char first_char(const string &str);
 
-
 class Labyrinthe : public Environnement {
 
  private:
-
     char  **_data;	//!< indique si la case est libre ou occupée.
     int   lab_width;	//!< Dimension de l'axe 'x' du labyrinthe. 
     int   lab_height;	//!< Dimension de l'axe 'y' du labyrinthe.
     int   _nb_alive;    //!< Indique le nombre 
-
     
     vector<vector<int>> _dist_vect; //!< Vecteur contenant les distances entre chaque case et le trésor
     vector<vector<int>> _estimated_dist_player; //!< Vecteur contenant les distances estimées par les gardiens au joueur
@@ -125,7 +120,7 @@ class Labyrinthe : public Environnement {
      * \brief Initialise _guards et _nguard dans la classe
      * \param guards     (in) : une liste des coordonnées des gardes 
      * \param player_pos (in) : La coordonnée du joueur
-     * TODO : génération de gardes différents
+     * 
      **/
     void build_guards(list<coord> guards, const coord &player_pos);
 
@@ -172,26 +167,52 @@ class Labyrinthe : public Environnement {
      **/
     void init_vector_playerdist();
     
-    bool spotted = false;
-    int* _box_pv;
+    bool spotted = false; //!< Indique si le joueur a été vu par les gardiens
+    int* _box_pv; //!< tableau indiquant le nombre de pv restant à chaque boite
+
+    
     void echange_boites(int x);
+    
  public:
     Labyrinthe();
     Labyrinthe (char*);
-    
+
+    /**
+     * \brief Indique aux gardiens que le joueur a été 
+     * détecté (= vu par un gardien ou ayant tiré une boule de feu)
+     * , et met la matrice des distances au joueur
+     * estimée par les gardiens à jour
+     * \param x la coord x à laquelle le joueur a été détécté
+     * \param y la coord y à laquelle le joueur a été vu
+     
+     **/
     void spot(int x, int y){
 	spotted = true;
 	maj_player_dist(x, y);
     }
 
+    /**
+     * \brief indique que la boite située aux coordonnées en paramètre a été touchée
+     * par une boule de feu
+     * \param x la coord en x de la boite touchée
+     * \param y la coord en y de la boite touchée
+     **/
     void hurt_box_at(int x, int y);
+
+    /**
+     * \brief indique si le joueur a été vu dans le labyrinthe durant la partie
+     * \returns true si le joueur a été vu, false sinon
+     **/
     bool is_spotted(){return spotted;}
     
     
-    /// \brief  retourne la largeur du labyrinthe.
+    /**
+     * \brief  retourne la largeur du labyrinthe. 
+     */
     int width () { return lab_width;}
 
-    /// \brief retourne la longueur du labyrinthe.
+    /**
+     * \brief retourne la longueur du labyrinthe. */
     int height () {return lab_height;}
 
     /**

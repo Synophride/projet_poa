@@ -42,7 +42,7 @@ char Gardien::decision(){
 	return EXPLORATION;
     float seuil_haut = 3;
     float seuil_bas  = -3;
-    float rand_modif = 5.;
+    float rand_modif = 10.;
     float random = 2 * rand_modif * (float) (rand()/RAND_MAX);
     float modif = random - rand_modif;
     float pot_d = get_potentiel_defense();
@@ -121,7 +121,7 @@ void Gardien::update(){
     
     if(_tours_avant_question == 0){
 	_strategie = decision();
-	_tours_avant_question = rand() % 2000 + 500;
+	_tours_avant_question = rand() % 1000;
     }
 
     switch(_strategie){
@@ -315,7 +315,7 @@ bool Gardien::is_legit_move(double dx, double dy){
 	       && new_x <  _l->width()
 	       && new_y >= 0
 	       && new_y <  _l->height()
-	       && (EMPTY == _l->data(new_x, new_y) || GARDE == _l->data(new_x, new_y)));
+		 && (EMPTY == _l->data(new_x, new_y) || GARDE == _l->data(new_x, new_y)));
 }
 
 

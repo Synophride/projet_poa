@@ -5,5 +5,6 @@ var searchData=
   ['partie_5fterminee',['partie_terminee',['../Environnement_8h.html#af567f7b9aa48812f750733e3673abf09',1,'Environnement.h']]],
   ['perte_5fprecision',['perte_precision',['../classChasseur.html#af49bab4221ac24439c87bbda4cc9293d',1,'Chasseur::perte_precision()'],['../classGardien.html#a5d7e6815e221a4c2038efaf6e8ba9d2e',1,'Gardien::perte_precision()']]],
   ['play',['play',['../classSound.html#aeaa88e449a4e8f3503628452238d833c',1,'Sound']]],
-  ['process_5ffireball',['process_fireball',['../classChasseur.html#a00710f53a84dfcf6ae60deed589cea1e',1,'Chasseur::process_fireball()'],['../classGardien.html#ad1d0f6aca8be28477e16dae7a30301b8',1,'Gardien::process_fireball()'],['../classMover.html#a6d794056f34e2348d32ae4ff49326070',1,'Mover::process_fireball()']]]
+  ['process_5ffireball',['process_fireball',['../classChasseur.html#a00710f53a84dfcf6ae60deed589cea1e',1,'Chasseur::process_fireball()'],['../classGardien.html#ad1d0f6aca8be28477e16dae7a30301b8',1,'Gardien::process_fireball()'],['../classMover.html#a6d794056f34e2348d32ae4ff49326070',1,'Mover::process_fireball()']]],
+  ['pvmax',['PVMAX',['../classChasseur.html#a7b7fed3026976e62f8f730cc71c5b2db',1,'Chasseur']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vertical',['VERTICAL',['../Labyrinthe_8h.html#ac25c1fcb5a5d51c06684fddb413cab00',1,'Labyrinthe.h']]]
+  ['scale',['scale',['../classEnvironnement.html#ab4246782b933af447e3cb2692180dafe',1,'Environnement']]],
+  ['spotted',['spotted',['../classLabyrinthe.html#a228978d8d96f63a3e97b07c7d04b3594',1,'Labyrinthe']]]
 ];

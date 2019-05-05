@@ -50,8 +50,8 @@ class Gardien : public Mover {
 
     int _pv = BASE_PV; //!< Nombre de PV restants au gardien
     
-    char _strategie = EXPLORATION;
-    int _tours_avant_question = rand()%2000;
+    char _strategie = EXPLORATION; //!< indique la stratégie à suivre 
+    int _tours_avant_question = rand()%2000; //!< temps avant reconsidération de la stratégie
     /**
      * \brief indique si le gardien peut voir le joueur 
      * (ie s'il n'y a ni mur ni obstacle entre les deux). 
@@ -81,26 +81,41 @@ class Gardien : public Mover {
      */
     bool move_to_treasure();
 
+
+    /**
+     * \brief Stratégie d'exploration : explorer au hasard le labyrinthe en ligne droite
+     **/
     void exploration();
 
+    /**
+    * \brief indique si le gardien est près du trésor
+    **/
     bool close_of_treasure();
 
+    /**
+     * \brief donne le potentiel de défense du gardien
+     **/
     float get_potentiel_defense();
+
     
+    // Pas utilisé
     char basic_decision();
+    
     /**
      * \brief fait en sorte que le gardien aille vers un point du labyrinthe
      */
     bool move_to_player();
 
-    
+    /**
+     * \brief fait en sorte que le gardien se tourne vers le joueur
+     **/
     void watch_player();
     
     /**
      * \brief fonction appellée lors de la mort du gardien
      **/
     void die();
-    list<int> last_pos_chasseur;
+    
     
     public:
     Gardien (Labyrinthe* laby, const char* modele) : Mover (120, 80, laby, modele){

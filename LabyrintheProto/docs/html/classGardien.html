@@ -99,14 +99,17 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memdesc:ac4ba490e309de80c1449fc5baef90390"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction indiquant au gardien qu'il a été touché par une boule de feu provenant du joueur. Baissera sa précision et son nombre de points de vie  <a href="#ac4ba490e309de80c1449fc5baef90390">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac4ba490e309de80c1449fc5baef90390"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1de6511bda736ad456457c51fa9d8d68"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a1de6511bda736ad456457c51fa9d8d68">move</a> (double dx, double dy)</td></tr>
-<tr class="memdesc:a1de6511bda736ad456457c51fa9d8d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tente d'accomplir le mouvement en paramčtre. Meme principe que try_move, mais va faire en sorte de glisser sur les murs.  <a href="#a1de6511bda736ad456457c51fa9d8d68">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a1de6511bda736ad456457c51fa9d8d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tente d'accomplir le mouvement en paramļæ½tre. Meme principe que try_move, mais va faire en sorte de glisser sur les murs.  <a href="#a1de6511bda736ad456457c51fa9d8d68">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1de6511bda736ad456457c51fa9d8d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0e2e0fbdca75ddc5e0501b5498d5f55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#aa0e2e0fbdca75ddc5e0501b5498d5f55">fire</a> (int angle_vertical)</td></tr>
-<tr class="memdesc:aa0e2e0fbdca75ddc5e0501b5498d5f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialisera une boule de feu, qui sera envoyée  <a href="#aa0e2e0fbdca75ddc5e0501b5498d5f55">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:aa0e2e0fbdca75ddc5e0501b5498d5f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialisera une boule de feu, qui sera envoyļæ½e  <a href="#aa0e2e0fbdca75ddc5e0501b5498d5f55">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aa0e2e0fbdca75ddc5e0501b5498d5f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1d0f6aca8be28477e16dae7a30301b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#ad1d0f6aca8be28477e16dae7a30301b8">process_fireball</a> (float dx, float dy)</td></tr>
 <tr class="memdesc:ad1d0f6aca8be28477e16dae7a30301b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gčre le déplacement de la boule de feu venant du garde.  <a href="#ad1d0f6aca8be28477e16dae7a30301b8">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad1d0f6aca8be28477e16dae7a30301b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab840e41dd18ea6bd8306fa15bb611372"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#ab840e41dd18ea6bd8306fa15bb611372">decision</a> ()</td></tr>
+<tr class="memdesc:ab840e41dd18ea6bd8306fa15bb611372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie la décision de stratégie du gardien:  <a href="#ab840e41dd18ea6bd8306fa15bb611372">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab840e41dd18ea6bd8306fa15bb611372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classMover"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classMover')"><img src="closed.png" alt="-"/>&#160;Fonctions membres publiques hérités de <a class="el" href="classMover.html">Mover</a></td></tr>
 <tr class="memitem:a19c916be0b9f7d6beda92bb04aa338bb inherit pub_methods_classMover"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMover.html#a19c916be0b9f7d6beda92bb04aa338bb">Mover</a> (int x, int y, <a class="el" href="classLabyrinthe.html">Labyrinthe</a> *l, const char *modele)</td></tr>
 <tr class="separator:a19c916be0b9f7d6beda92bb04aa338bb inherit pub_methods_classMover"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,6 +139,23 @@ Fonctions membres privées</h2></td></tr>
 <tr class="memitem:a1661d21c1b1f3155fd626c1af22db4fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a1661d21c1b1f3155fd626c1af22db4fc">move_to_treasure</a> ()</td></tr>
 <tr class="memdesc:a1661d21c1b1f3155fd626c1af22db4fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">fait en sorte que le gardien aille vers le trésor  <a href="#a1661d21c1b1f3155fd626c1af22db4fc">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a1661d21c1b1f3155fd626c1af22db4fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b3b6c0120adeaf40365c1b5f95b1a18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a8b3b6c0120adeaf40365c1b5f95b1a18">exploration</a> ()</td></tr>
+<tr class="memdesc:a8b3b6c0120adeaf40365c1b5f95b1a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stratégie d'exploration : explorer au hasard le labyrinthe en ligne droite.  <a href="#a8b3b6c0120adeaf40365c1b5f95b1a18">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8b3b6c0120adeaf40365c1b5f95b1a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8563417984b4aa5416ade0d8650e5f00"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a8563417984b4aa5416ade0d8650e5f00">close_of_treasure</a> ()</td></tr>
+<tr class="memdesc:a8563417984b4aa5416ade0d8650e5f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">indique si le gardien est prčs du trésor  <a href="#a8563417984b4aa5416ade0d8650e5f00">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8563417984b4aa5416ade0d8650e5f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0376cc8fd56e65812e23bf32eaa31c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#acb0376cc8fd56e65812e23bf32eaa31c">get_potentiel_defense</a> ()</td></tr>
+<tr class="memdesc:acb0376cc8fd56e65812e23bf32eaa31c"><td class="mdescLeft">&#160;</td><td class="mdescRight">donne le potentiel de défense du gardien  <a href="#acb0376cc8fd56e65812e23bf32eaa31c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acb0376cc8fd56e65812e23bf32eaa31c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd0c3eba7264ae8fce2f92cae359dfdb"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#afd0c3eba7264ae8fce2f92cae359dfdb">basic_decision</a> ()</td></tr>
+<tr class="separator:afd0c3eba7264ae8fce2f92cae359dfdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accc4aeb42df9851b31bea75b9a06807b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#accc4aeb42df9851b31bea75b9a06807b">move_to_player</a> ()</td></tr>
+<tr class="memdesc:accc4aeb42df9851b31bea75b9a06807b"><td class="mdescLeft">&#160;</td><td class="mdescRight">fait en sorte que le gardien aille vers un point du labyrinthe  <a href="#accc4aeb42df9851b31bea75b9a06807b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:accc4aeb42df9851b31bea75b9a06807b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f3ed71c1b37ed1e6c3b39ffd16d3fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#ae4f3ed71c1b37ed1e6c3b39ffd16d3fa">watch_player</a> ()</td></tr>
+<tr class="memdesc:ae4f3ed71c1b37ed1e6c3b39ffd16d3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">fait en sorte que le gardien se tourne vers le joueur  <a href="#ae4f3ed71c1b37ed1e6c3b39ffd16d3fa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae4f3ed71c1b37ed1e6c3b39ffd16d3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17d57e80bce205161c98c557bb6e7a9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a17d57e80bce205161c98c557bb6e7a9c">die</a> ()</td></tr>
 <tr class="memdesc:a17d57e80bce205161c98c557bb6e7a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction appellée lors de la mort du gardien  <a href="#a17d57e80bce205161c98c557bb6e7a9c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a17d57e80bce205161c98c557bb6e7a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,7 +171,7 @@ Attributs privés</h2></td></tr>
 <tr class="memitem:a58cdd1f05ebd54e3f638b69e4978837d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a58cdd1f05ebd54e3f638b69e4978837d">reload</a> = 0</td></tr>
 <tr class="memdesc:a58cdd1f05ebd54e3f638b69e4978837d"><td class="mdescLeft">&#160;</td><td class="mdescRight">indique le statut du rechargement  <a href="#a58cdd1f05ebd54e3f638b69e4978837d">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a58cdd1f05ebd54e3f638b69e4978837d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d7e6815e221a4c2038efaf6e8ba9d2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a5d7e6815e221a4c2038efaf6e8ba9d2e">perte_precision</a> = 5</td></tr>
+<tr class="memitem:a5d7e6815e221a4c2038efaf6e8ba9d2e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a5d7e6815e221a4c2038efaf6e8ba9d2e">perte_precision</a> = 8</td></tr>
 <tr class="memdesc:a5d7e6815e221a4c2038efaf6e8ba9d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">indique la perte de précision, en degrés, du gardien  <a href="#a5d7e6815e221a4c2038efaf6e8ba9d2e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a5d7e6815e221a4c2038efaf6e8ba9d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad418641d97373fb9304fc76f78c817ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#ad418641d97373fb9304fc76f78c817ac">dead</a> = false</td></tr>
@@ -163,6 +183,12 @@ Attributs privés</h2></td></tr>
 <tr class="memitem:a252683c50522c13f9604bea387d1af34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a252683c50522c13f9604bea387d1af34">_pv</a> = <a class="el" href="classGardien.html#a1832c02b32c6e47b240536fd6ba47812">BASE_PV</a></td></tr>
 <tr class="memdesc:a252683c50522c13f9604bea387d1af34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de PV restants au gardien.  <a href="#a252683c50522c13f9604bea387d1af34">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a252683c50522c13f9604bea387d1af34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3a196e3f722dd3f18895a73b92949c4"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#ac3a196e3f722dd3f18895a73b92949c4">_strategie</a> = <a class="el" href="Gardien_8h.html#aa319d22141059c1da948546b4f32e640">EXPLORATION</a></td></tr>
+<tr class="memdesc:ac3a196e3f722dd3f18895a73b92949c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">indique la stratégie ą suivre  <a href="#ac3a196e3f722dd3f18895a73b92949c4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac3a196e3f722dd3f18895a73b92949c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e6143b00deafef1608eac95bead20ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGardien.html#a7e6143b00deafef1608eac95bead20ce">_tours_avant_question</a> = rand()%2000</td></tr>
+<tr class="memdesc:a7e6143b00deafef1608eac95bead20ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">temps avant reconsidération de la stratégie  <a href="#a7e6143b00deafef1608eac95bead20ce">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7e6143b00deafef1608eac95bead20ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Attributs privés statiques</h2></td></tr>
@@ -281,6 +307,31 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
+<a id="afd0c3eba7264ae8fce2f92cae359dfdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0c3eba7264ae8fce2f92cae359dfdb">&#9670;&nbsp;</a></span>basic_decision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Gardien::basic_decision </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab4cae0375789f78258d37ccb16004a4d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab4cae0375789f78258d37ccb16004a4d">&#9670;&nbsp;</a></span>can_see_player()</h2>
 
@@ -306,6 +357,53 @@ Membres hérités additionnels</h2></td></tr>
 
 <p>indique si le gardien peut voir le joueur (ie s'il n'y a ni mur ni obstacle entre les deux). </p>
 <dl class="section return"><dt>Renvoie</dt><dd>true si pas d'obstacle entre le garde et le joueur, false inon </dd></dl>
+
+</div>
+</div>
+<a id="a8563417984b4aa5416ade0d8650e5f00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8563417984b4aa5416ade0d8650e5f00">&#9670;&nbsp;</a></span>close_of_treasure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Gardien::close_of_treasure </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>indique si le gardien est prčs du trésor </p>
+
+</div>
+</div>
+<a id="ab840e41dd18ea6bd8306fa15bb611372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab840e41dd18ea6bd8306fa15bb611372">&#9670;&nbsp;</a></span>decision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Gardien::decision </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie la décision de stratégie du gardien: </p>
+<dl class="section return"><dt>Renvoie</dt><dd>EXPLORATION si le gardien décide d'explorer, ATTAQUE si le gardien décide d'attaquer le joueur, DEFENSE si le gardien décide d'aller défendre le trésor </dd></dl>
 
 </div>
 </div>
@@ -336,6 +434,33 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
+<a id="a8b3b6c0120adeaf40365c1b5f95b1a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b3b6c0120adeaf40365c1b5f95b1a18">&#9670;&nbsp;</a></span>exploration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Gardien::exploration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stratégie d'exploration : explorer au hasard le labyrinthe en ligne droite. </p>
+
+</div>
+</div>
 <a id="aa0e2e0fbdca75ddc5e0501b5498d5f55"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0e2e0fbdca75ddc5e0501b5498d5f55">&#9670;&nbsp;</a></span>fire()</h2>
 
@@ -360,9 +485,36 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>initialisera une boule de feu, qui sera envoyée </p>
+<p>initialisera une boule de feu, qui sera envoyļæ½e </p>
 
 <p>Implémente <a class="el" href="classMover.html#a670fb72f8e496de3420b89c84def7418">Mover</a>.</p>
+
+</div>
+</div>
+<a id="acb0376cc8fd56e65812e23bf32eaa31c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0376cc8fd56e65812e23bf32eaa31c">&#9670;&nbsp;</a></span>get_potentiel_defense()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Gardien::get_potentiel_defense </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>donne le potentiel de défense du gardien </p>
 
 </div>
 </div>
@@ -457,7 +609,7 @@ Membres hérités additionnels</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tente d'accomplir le mouvement en paramčtre. Meme principe que try_move, mais va faire en sorte de glisser sur les murs. </p>
+<p>Tente d'accomplir le mouvement en paramļæ½tre. Meme principe que try_move, mais va faire en sorte de glisser sur les murs. </p>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">dx</td><td>mouvement en x tenté par le gardien </td></tr>
@@ -468,6 +620,33 @@ Membres hérités additionnels</h2></td></tr>
 <dl class="section return"><dt>Renvoie</dt><dd>true si le mouvement a été accompli, false sinon </dd></dl>
 
 <p>Implémente <a class="el" href="classMover.html#a2e1858e5c93ddaa85ff7b446ad403b79">Mover</a>.</p>
+
+</div>
+</div>
+<a id="accc4aeb42df9851b31bea75b9a06807b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accc4aeb42df9851b31bea75b9a06807b">&#9670;&nbsp;</a></span>move_to_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Gardien::move_to_player </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>fait en sorte que le gardien aille vers un point du labyrinthe </p>
 
 </div>
 </div>
@@ -611,6 +790,33 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
+<a id="ae4f3ed71c1b37ed1e6c3b39ffd16d3fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f3ed71c1b37ed1e6c3b39ffd16d3fa">&#9670;&nbsp;</a></span>watch_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Gardien::watch_player </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>fait en sorte que le gardien se tourne vers le joueur </p>
+
+</div>
+</div>
 <h2 class="groupheader">Documentation des données membres</h2>
 <a id="a252683c50522c13f9604bea387d1af34"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a252683c50522c13f9604bea387d1af34">&#9670;&nbsp;</a></span>_pv</h2>
@@ -633,6 +839,54 @@ Membres hérités additionnels</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Nombre de PV restants au gardien. </p>
+
+</div>
+</div>
+<a id="ac3a196e3f722dd3f18895a73b92949c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a196e3f722dd3f18895a73b92949c4">&#9670;&nbsp;</a></span>_strategie</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Gardien::_strategie = <a class="el" href="Gardien_8h.html#aa319d22141059c1da948546b4f32e640">EXPLORATION</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>indique la stratégie ą suivre </p>
+
+</div>
+</div>
+<a id="a7e6143b00deafef1608eac95bead20ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e6143b00deafef1608eac95bead20ce">&#9670;&nbsp;</a></span>_tours_avant_question</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Gardien::_tours_avant_question = rand()%2000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>temps avant reconsidération de la stratégie </p>
 
 </div>
 </div>
@@ -742,7 +996,7 @@ Membres hérités additionnels</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Gardien::perte_precision = 5</td>
+          <td class="memname">int Gardien::perte_precision = 8</td>
         </tr>
       </table>
   </td>

@@ -21,6 +21,8 @@ void \hyperlink{classChasseur_ac75a09254dea5b1d25c7dbf49809a273}{hurt} ()
 \begin{DoxyCompactList}\small\item\em fonction indiquant au chasseur qu\textquotesingle{}il a été touché \end{DoxyCompactList}\item 
 bool \hyperlink{classChasseur_ac5275e34388084bc3ca2114b45a0b725}{move} (double dx, double dy)
 \begin{DoxyCompactList}\small\item\em fonction de mouvement du chasseur \end{DoxyCompactList}\item 
+void \hyperlink{classChasseur_a12f5813aa74534ad928c788ddbcd2c31}{soin} ()
+\begin{DoxyCompactList}\small\item\em soin du chasseur, réaugmente ses PV et diminue le manque de précision. \end{DoxyCompactList}\item 
 void \hyperlink{classChasseur_a6ea64de0a2708b21326dcb980f0e06ac}{update} (void)
 \item 
 bool \hyperlink{classChasseur_a00710f53a84dfcf6ae60deed589cea1e}{process\+\_\+fireball} (float dx, float dy)
@@ -48,12 +50,17 @@ void \hyperlink{classChasseur_ad618f782898a99810dae7ad8ee2c2f74}{die} ()
 \subsection*{Attributs privés}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{classChasseur_a3c8f5b959145976c4d110a5a583791ab}{\+\_\+pv} = 10
+int \hyperlink{classChasseur_a3c8f5b959145976c4d110a5a583791ab}{\+\_\+pv} = \hyperlink{classChasseur_a7b7fed3026976e62f8f730cc71c5b2db}{P\+V\+M\+AX}
 \begin{DoxyCompactList}\small\item\em nombre de points de vie du chasseur \end{DoxyCompactList}\item 
 \hyperlink{classLabyrinthe}{Labyrinthe} $\ast$ \hyperlink{classChasseur_a96372f6800e28733746f01393aa47ff6}{l}
 \begin{DoxyCompactList}\small\item\em \hyperlink{classLabyrinthe}{Labyrinthe} correspondant ą l\textquotesingle{}environnement. \end{DoxyCompactList}\item 
 int \hyperlink{classChasseur_af49bab4221ac24439c87bbda4cc9293d}{perte\+\_\+precision} = 0
 \begin{DoxyCompactList}\small\item\em perte de précision du chasseur \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classChasseur_a7b7fed3026976e62f8f730cc71c5b2db}{P\+V\+M\+AX} = 40
+\end{DoxyCompactItemize}
 \subsection*{Membres hérités additionnels}
 
 
@@ -168,6 +175,16 @@ Implémente \hyperlink{classMover_a6d794056f34e2348d32ae4ff49326070}{Mover}.
 
 Réimplémentée à partir de \hyperlink{classMover_ac32ed126c01d60c6df0090dd590b70b2}{Mover}.
 
+\mbox{\Hypertarget{classChasseur_a12f5813aa74534ad928c788ddbcd2c31}\label{classChasseur_a12f5813aa74534ad928c788ddbcd2c31}} 
+\index{Chasseur@{Chasseur}!soin@{soin}}
+\index{soin@{soin}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{soin()}{soin()}}
+{\footnotesize\ttfamily void Chasseur\+::soin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+soin du chasseur, réaugmente ses PV et diminue le manque de précision. 
+
 \mbox{\Hypertarget{classChasseur_a6ea64de0a2708b21326dcb980f0e06ac}\label{classChasseur_a6ea64de0a2708b21326dcb980f0e06ac}} 
 \index{Chasseur@{Chasseur}!update@{update}}
 \index{update@{update}!Chasseur@{Chasseur}}
@@ -205,7 +222,7 @@ cri du chasseur touché.
 \index{Chasseur@{Chasseur}!\+\_\+pv@{\+\_\+pv}}
 \index{\+\_\+pv@{\+\_\+pv}!Chasseur@{Chasseur}}
 \subsubsection{\texorpdfstring{\+\_\+pv}{\_pv}}
-{\footnotesize\ttfamily int Chasseur\+::\+\_\+pv = 10\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily int Chasseur\+::\+\_\+pv = \hyperlink{classChasseur_a7b7fed3026976e62f8f730cc71c5b2db}{P\+V\+M\+AX}\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -240,6 +257,12 @@ on a tapé un mur.
 
 
 perte de précision du chasseur 
+
+\mbox{\Hypertarget{classChasseur_a7b7fed3026976e62f8f730cc71c5b2db}\label{classChasseur_a7b7fed3026976e62f8f730cc71c5b2db}} 
+\index{Chasseur@{Chasseur}!P\+V\+M\+AX@{P\+V\+M\+AX}}
+\index{P\+V\+M\+AX@{P\+V\+M\+AX}!Chasseur@{Chasseur}}
+\subsubsection{\texorpdfstring{P\+V\+M\+AX}{PVMAX}}
+{\footnotesize\ttfamily const int Chasseur\+::\+P\+V\+M\+AX = 40\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 
 

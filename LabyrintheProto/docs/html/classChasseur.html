@@ -64,6 +64,7 @@ $(function() {
 <a href="#pub-static-attribs">Attributs publics statiques</a> &#124;
 <a href="#pri-methods">Fonctions membres privées</a> &#124;
 <a href="#pri-attribs">Attributs privés</a> &#124;
+<a href="#pri-static-attribs">Attributs privés statiques</a> &#124;
 <a href="classChasseur-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe Chasseur</div>  </div>
@@ -95,6 +96,9 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:ac5275e34388084bc3ca2114b45a0b725"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#ac5275e34388084bc3ca2114b45a0b725">move</a> (double dx, double dy)</td></tr>
 <tr class="memdesc:ac5275e34388084bc3ca2114b45a0b725"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction de mouvement du chasseur  <a href="#ac5275e34388084bc3ca2114b45a0b725">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac5275e34388084bc3ca2114b45a0b725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12f5813aa74534ad928c788ddbcd2c31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#a12f5813aa74534ad928c788ddbcd2c31">soin</a> ()</td></tr>
+<tr class="memdesc:a12f5813aa74534ad928c788ddbcd2c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">soin du chasseur, réaugmente ses PV et diminue le manque de précision.  <a href="#a12f5813aa74534ad928c788ddbcd2c31">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a12f5813aa74534ad928c788ddbcd2c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ea64de0a2708b21326dcb980f0e06ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#a6ea64de0a2708b21326dcb980f0e06ac">update</a> (void)</td></tr>
 <tr class="separator:a6ea64de0a2708b21326dcb980f0e06ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00710f53a84dfcf6ae60deed589cea1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#a00710f53a84dfcf6ae60deed589cea1e">process_fireball</a> (float dx, float dy)</td></tr>
@@ -138,7 +142,7 @@ Fonctions membres privées</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Attributs privés</h2></td></tr>
-<tr class="memitem:a3c8f5b959145976c4d110a5a583791ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#a3c8f5b959145976c4d110a5a583791ab">_pv</a> = 10</td></tr>
+<tr class="memitem:a3c8f5b959145976c4d110a5a583791ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#a3c8f5b959145976c4d110a5a583791ab">_pv</a> = <a class="el" href="classChasseur.html#a7b7fed3026976e62f8f730cc71c5b2db">PVMAX</a></td></tr>
 <tr class="memdesc:a3c8f5b959145976c4d110a5a583791ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">nombre de points de vie du chasseur  <a href="#a3c8f5b959145976c4d110a5a583791ab">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3c8f5b959145976c4d110a5a583791ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96372f6800e28733746f01393aa47ff6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLabyrinthe.html">Labyrinthe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#a96372f6800e28733746f01393aa47ff6">l</a></td></tr>
@@ -147,6 +151,11 @@ Attributs privés</h2></td></tr>
 <tr class="memitem:af49bab4221ac24439c87bbda4cc9293d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#af49bab4221ac24439c87bbda4cc9293d">perte_precision</a> = 0</td></tr>
 <tr class="memdesc:af49bab4221ac24439c87bbda4cc9293d"><td class="mdescLeft">&#160;</td><td class="mdescRight">perte de précision du chasseur  <a href="#af49bab4221ac24439c87bbda4cc9293d">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af49bab4221ac24439c87bbda4cc9293d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Attributs privés statiques</h2></td></tr>
+<tr class="memitem:a7b7fed3026976e62f8f730cc71c5b2db"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChasseur.html#a7b7fed3026976e62f8f730cc71c5b2db">PVMAX</a> = 40</td></tr>
+<tr class="separator:a7b7fed3026976e62f8f730cc71c5b2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Membres hérités additionnels</h2></td></tr>
@@ -434,6 +443,33 @@ Membres hérités additionnels</h2></td></tr>
 
 </div>
 </div>
+<a id="a12f5813aa74534ad928c788ddbcd2c31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12f5813aa74534ad928c788ddbcd2c31">&#9670;&nbsp;</a></span>soin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Chasseur::soin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>soin du chasseur, réaugmente ses PV et diminue le manque de précision. </p>
+
+</div>
+</div>
 <a id="a6ea64de0a2708b21326dcb980f0e06ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6ea64de0a2708b21326dcb980f0e06ac">&#9670;&nbsp;</a></span>update()</h2>
 
@@ -521,7 +557,7 @@ Membres hérités additionnels</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Chasseur::_pv = 10</td>
+          <td class="memname">int Chasseur::_pv = <a class="el" href="classChasseur.html#a7b7fed3026976e62f8f730cc71c5b2db">PVMAX</a></td>
         </tr>
       </table>
   </td>
@@ -604,6 +640,28 @@ Membres hérités additionnels</h2></td></tr>
 </div><div class="memdoc">
 
 <p>perte de précision du chasseur </p>
+
+</div>
+</div>
+<a id="a7b7fed3026976e62f8f730cc71c5b2db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b7fed3026976e62f8f730cc71c5b2db">&#9670;&nbsp;</a></span>PVMAX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int Chasseur::PVMAX = 40</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

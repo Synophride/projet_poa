@@ -51,6 +51,10 @@ public:
 	bool move (double dx, double dy) {
 	    return move_aux (dx, dy) || move_aux (dx, 0.0) || move_aux (0.0, dy);
 	}
+	
+	/**
+	 * \brief soin du chasseur,  réaugmente ses PV et diminue le manque de précision.
+	 **/
 	void soin(){
 	    message("Soin du chasseur");
 	    _pv = PVMAX;

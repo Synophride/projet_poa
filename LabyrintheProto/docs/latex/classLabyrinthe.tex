@@ -19,6 +19,12 @@ Graphe de collaboration de Labyrinthe\+:
 \item 
 \hyperlink{classLabyrinthe_a16aa4865644d59a8ed9fde15cd5e7275}{Labyrinthe} (char $\ast$)
 \item 
+void \hyperlink{classLabyrinthe_aced71da0513e259c3f6ac9eead7a24b3}{spot} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Indique aux gardiens que le joueur a été détecté (= vu par un gardien ou ayant tiré une boule de feu) , et met la matrice des distances au joueur estimée par les gardiens ą jour. \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a9e1bf06193f8e7763ebf733a9eaf4a17}{hurt\+\_\+box\+\_\+at} (int x, int y)
+\begin{DoxyCompactList}\small\item\em indique que la boite située aux coordonnées en paramčtre a été touchée par une boule de feu \end{DoxyCompactList}\item 
+bool \hyperlink{classLabyrinthe_abee287932a7d9e1088224d0564d39d46}{is\+\_\+spotted} ()
+\begin{DoxyCompactList}\small\item\em indique si le joueur a été vu dans le labyrinthe durant la partie \end{DoxyCompactList}\item 
 int \hyperlink{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}{width} ()
 \begin{DoxyCompactList}\small\item\em retourne la largeur du labyrinthe. \end{DoxyCompactList}\item 
 int \hyperlink{classLabyrinthe_a71d545c9606ad5e8bf840293f22e552b}{height} ()
@@ -36,13 +42,17 @@ void \hyperlink{classLabyrinthe_a28666f6cd5a5f32d41d664204a717593}{hurt\+\_\+jou
 void \hyperlink{classLabyrinthe_acc7682cd69ca12f27cb65457c9c8e89b}{set\+\_\+data} (int x, int y, char value)
 \begin{DoxyCompactList}\small\item\em change la valeur d\textquotesingle{}une case de la matrice \+\_\+data, par exemple lors du déplacement d\textquotesingle{}un gardien \end{DoxyCompactList}\item 
 int \hyperlink{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}{dist\+\_\+of\+\_\+treasure} (int x, int y)
-\begin{DoxyCompactList}\small\item\em rend la distance de la case courante \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em rend la distance de la case courante \end{DoxyCompactList}\item 
+int \hyperlink{classLabyrinthe_a66e8fffb2a5acb505b860174f66a3456}{dist\+\_\+of\+\_\+player} (int x, int y)
+\begin{DoxyCompactList}\small\item\em rend la distance estimée par les gardiens entre la case de coord (x, y) et le chasseur. \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_ac0aee40381eb415bccaa2f9ca2e3d0c4}{maj\+\_\+player\+\_\+dist} (int x, int y)
+\begin{DoxyCompactList}\small\item\em met ą jour les estimations de distances au joueur, en partant du principe que le joueur est aux coordonnéees (x, y) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Fonctions membres privées}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{classLabyrinthe_afc3f86c4ce00a37bd2b033d1e343c7c5}{init\+\_\+data} ()
 \begin{DoxyCompactList}\small\item\em initialise \+\_\+data\mbox{[}\mbox{]}\mbox{[}\mbox{]}, en fonction de lab\+\_\+with et lab\+\_\+height \end{DoxyCompactList}\item 
-void \hyperlink{classLabyrinthe_ac465d56c311759a7f55a54da90329e17}{fill\+\_\+dist} (int x, int y)
+void \hyperlink{classLabyrinthe_aa420cdcee7e54812b8faa5b27f317955}{fill\+\_\+dist} (int x, int y, vector$<$ vector$<$ int $>$$>$ \&t)
 \begin{DoxyCompactList}\small\item\em remplit la matrice de distance au trésor, récursivement, en partant de la case de coordonnées (x, y) qu\textquotesingle{}on sait déją remplie \end{DoxyCompactList}\item 
 void \hyperlink{classLabyrinthe_a3fc2a0b2bbf0d1101fd7a3804bda9584}{build\+\_\+guards} (list$<$ \hyperlink{structcoord}{coord} $>$ guards, const \hyperlink{structcoord}{coord} \&player\+\_\+pos)
 \begin{DoxyCompactList}\small\item\em Initialise \+\_\+guards et \+\_\+nguard dans la classe. \end{DoxyCompactList}\item 
@@ -55,7 +65,11 @@ void \hyperlink{classLabyrinthe_a2e30105a06c0512ea2078f825fae17bd}{build\+\_\+tr
 void \hyperlink{classLabyrinthe_a719b7fe3a3e8f6be8299aab9cc1cf338}{build\+\_\+text} (map$<$ char, string $>$ text\+\_\+map, list$<$ tuple$<$ \hyperlink{structcoord}{coord}, char, bool $>$$>$ text\+\_\+list)
 \begin{DoxyCompactList}\small\item\em initialisation des textures \end{DoxyCompactList}\item 
 void \hyperlink{classLabyrinthe_aabe4e77af2b2e156608741a0b08aabdc}{init\+\_\+vector\+\_\+dist} ()
-\begin{DoxyCompactList}\small\item\em initialise le vecteur des distances. Doit źtre appellé ą la fin du constructeur \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em initialise le vecteur des distances. Doit źtre appellé ą la fin du constructeur \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a39850e108317404081a0dfe09a064975}{init\+\_\+vector\+\_\+playerdist} ()
+\begin{DoxyCompactList}\small\item\em initialise le vecteur des distances estimées vers le joueur \end{DoxyCompactList}\item 
+void \hyperlink{classLabyrinthe_a90eb03157e5078f9b84162474e0de77f}{echange\+\_\+boites} (int x)
+\end{DoxyCompactItemize}
 \subsection*{Attributs privés}
 \begin{DoxyCompactItemize}
 \item 
@@ -68,7 +82,13 @@ int \hyperlink{classLabyrinthe_af48dc244a25af5aac1a9fca668dee82d}{lab\+\_\+heigh
 int \hyperlink{classLabyrinthe_ad97a56882b720fa0f94acffde1d2c275}{\+\_\+nb\+\_\+alive}
 \begin{DoxyCompactList}\small\item\em Indique le nombre. \end{DoxyCompactList}\item 
 vector$<$ vector$<$ int $>$ $>$ \hyperlink{classLabyrinthe_a63f1ac088c5b93cd8c099e7cce3ef4dc}{\+\_\+dist\+\_\+vect}
-\begin{DoxyCompactList}\small\item\em Vecteur contenant les distances entre chaque case et le trésor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vecteur contenant les distances entre chaque case et le trésor. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classLabyrinthe_a09a19bc0082a98842deb7426ef945c1b}{\+\_\+estimated\+\_\+dist\+\_\+player}
+\begin{DoxyCompactList}\small\item\em Vecteur contenant les distances estimées par les gardiens au joueur. \end{DoxyCompactList}\item 
+bool \hyperlink{classLabyrinthe_a228978d8d96f63a3e97b07c7d04b3594}{spotted} = false
+\begin{DoxyCompactList}\small\item\em Indique si le joueur a été vu par les gardiens. \end{DoxyCompactList}\item 
+int $\ast$ \hyperlink{classLabyrinthe_abadb9e695ee1bdcf1467611f62ff374e}{\+\_\+box\+\_\+pv}
+\begin{DoxyCompactList}\small\item\em tableau indiquant le nombre de pv restant ą chaque boite \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Membres hérités additionnels}
 
 
@@ -117,7 +137,7 @@ Initialise \+\_\+guards et \+\_\+nguard dans la classe.
 \begin{DoxyParams}{Paramètres}
 {\em guards} & (in) \+: une liste des coordonnées des gardes \\
 \hline
-{\em player\+\_\+pos} & (in) \+: La coordonnée du joueur T\+O\+DO \+: génération de gardes différents \\
+{\em player\+\_\+pos} & (in) \+: La coordonnée du joueur \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classLabyrinthe_a719b7fe3a3e8f6be8299aab9cc1cf338}\label{classLabyrinthe_a719b7fe3a3e8f6be8299aab9cc1cf338}} 
@@ -184,6 +204,26 @@ W\+A\+LL si la case est un mur, B\+OX si la case est occupée par une boīte, G\
 
 Implémente \hyperlink{classEnvironnement_a0fae4716da729dbf13f52f09f2d293cd}{Environnement}.
 
+\mbox{\Hypertarget{classLabyrinthe_a66e8fffb2a5acb505b860174f66a3456}\label{classLabyrinthe_a66e8fffb2a5acb505b860174f66a3456}} 
+\index{Labyrinthe@{Labyrinthe}!dist\+\_\+of\+\_\+player@{dist\+\_\+of\+\_\+player}}
+\index{dist\+\_\+of\+\_\+player@{dist\+\_\+of\+\_\+player}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{dist\+\_\+of\+\_\+player()}{dist\_of\_player()}}
+{\footnotesize\ttfamily int Labyrinthe\+::dist\+\_\+of\+\_\+player (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+rend la distance estimée par les gardiens entre la case de coord (x, y) et le chasseur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La distance estimée par les gardiens entre le point donné en paramčtre et la valeur réelle. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}\label{classLabyrinthe_afed17fdb2dce31cb4671da03c05b88d7}} 
 \index{Labyrinthe@{Labyrinthe}!dist\+\_\+of\+\_\+treasure@{dist\+\_\+of\+\_\+treasure}}
 \index{dist\+\_\+of\+\_\+treasure@{dist\+\_\+of\+\_\+treasure}!Labyrinthe@{Labyrinthe}}
@@ -204,11 +244,17 @@ rend la distance de la case courante
 \begin{DoxyReturn}{Renvoie}
 -\/1 si la case est un mur, 1 000 000 s\textquotesingle{}il n\textquotesingle{}existe pas de chemin entre le point de coordonnées (x,y), La distance en nombre de cases entre le point (x,y) et le trésor dans les autres cas 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classLabyrinthe_ac465d56c311759a7f55a54da90329e17}\label{classLabyrinthe_ac465d56c311759a7f55a54da90329e17}} 
+\mbox{\Hypertarget{classLabyrinthe_a90eb03157e5078f9b84162474e0de77f}\label{classLabyrinthe_a90eb03157e5078f9b84162474e0de77f}} 
+\index{Labyrinthe@{Labyrinthe}!echange\+\_\+boites@{echange\+\_\+boites}}
+\index{echange\+\_\+boites@{echange\+\_\+boites}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{echange\+\_\+boites()}{echange\_boites()}}
+{\footnotesize\ttfamily void Labyrinthe\+::echange\+\_\+boites (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classLabyrinthe_aa420cdcee7e54812b8faa5b27f317955}\label{classLabyrinthe_aa420cdcee7e54812b8faa5b27f317955}} 
 \index{Labyrinthe@{Labyrinthe}!fill\+\_\+dist@{fill\+\_\+dist}}
 \index{fill\+\_\+dist@{fill\+\_\+dist}!Labyrinthe@{Labyrinthe}}
 \subsubsection{\texorpdfstring{fill\+\_\+dist()}{fill\_dist()}}
-{\footnotesize\ttfamily void Labyrinthe\+::fill\+\_\+dist (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily void Labyrinthe\+::fill\+\_\+dist (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{vector$<$ vector$<$ int $>$$>$ \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -228,6 +274,23 @@ retourne la longueur du labyrinthe.
 
 Implémente \hyperlink{classEnvironnement_af7629ab7f15ec65476eadcc80c46b50c}{Environnement}.
 
+\mbox{\Hypertarget{classLabyrinthe_a9e1bf06193f8e7763ebf733a9eaf4a17}\label{classLabyrinthe_a9e1bf06193f8e7763ebf733a9eaf4a17}} 
+\index{Labyrinthe@{Labyrinthe}!hurt\+\_\+box\+\_\+at@{hurt\+\_\+box\+\_\+at}}
+\index{hurt\+\_\+box\+\_\+at@{hurt\+\_\+box\+\_\+at}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{hurt\+\_\+box\+\_\+at()}{hurt\_box\_at()}}
+{\footnotesize\ttfamily void Labyrinthe\+::hurt\+\_\+box\+\_\+at (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+indique que la boite située aux coordonnées en paramčtre a été touchée par une boule de feu 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & la coord en x de la boite touchée \\
+\hline
+{\em y} & la coord en y de la boite touchée \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classLabyrinthe_a9c7c46b8c376f8b9ab0310ae1d0a369c}\label{classLabyrinthe_a9c7c46b8c376f8b9ab0310ae1d0a369c}} 
 \index{Labyrinthe@{Labyrinthe}!hurt\+\_\+gardien\+\_\+at@{hurt\+\_\+gardien\+\_\+at}}
 \index{hurt\+\_\+gardien\+\_\+at@{hurt\+\_\+gardien\+\_\+at}!Labyrinthe@{Labyrinthe}}
@@ -283,6 +346,39 @@ initialise \+\_\+data\mbox{[}\mbox{]}\mbox{[}\mbox{]}, en fonction de lab\+\_\+w
 
 initialise le vecteur des distances. Doit źtre appellé ą la fin du constructeur 
 
+\mbox{\Hypertarget{classLabyrinthe_a39850e108317404081a0dfe09a064975}\label{classLabyrinthe_a39850e108317404081a0dfe09a064975}} 
+\index{Labyrinthe@{Labyrinthe}!init\+\_\+vector\+\_\+playerdist@{init\+\_\+vector\+\_\+playerdist}}
+\index{init\+\_\+vector\+\_\+playerdist@{init\+\_\+vector\+\_\+playerdist}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{init\+\_\+vector\+\_\+playerdist()}{init\_vector\_playerdist()}}
+{\footnotesize\ttfamily void Labyrinthe\+::init\+\_\+vector\+\_\+playerdist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+initialise le vecteur des distances estimées vers le joueur 
+
+\mbox{\Hypertarget{classLabyrinthe_abee287932a7d9e1088224d0564d39d46}\label{classLabyrinthe_abee287932a7d9e1088224d0564d39d46}} 
+\index{Labyrinthe@{Labyrinthe}!is\+\_\+spotted@{is\+\_\+spotted}}
+\index{is\+\_\+spotted@{is\+\_\+spotted}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{is\+\_\+spotted()}{is\_spotted()}}
+{\footnotesize\ttfamily bool Labyrinthe\+::is\+\_\+spotted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+indique si le joueur a été vu dans le labyrinthe durant la partie 
+
+\begin{DoxyReturn}{Renvoie}
+true si le joueur a été vu, false sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLabyrinthe_ac0aee40381eb415bccaa2f9ca2e3d0c4}\label{classLabyrinthe_ac0aee40381eb415bccaa2f9ca2e3d0c4}} 
+\index{Labyrinthe@{Labyrinthe}!maj\+\_\+player\+\_\+dist@{maj\+\_\+player\+\_\+dist}}
+\index{maj\+\_\+player\+\_\+dist@{maj\+\_\+player\+\_\+dist}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{maj\+\_\+player\+\_\+dist()}{maj\_player\_dist()}}
+{\footnotesize\ttfamily void Labyrinthe\+::maj\+\_\+player\+\_\+dist (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+met ą jour les estimations de distances au joueur, en partant du principe que le joueur est aux coordonnéees (x, y) 
+
 \mbox{\Hypertarget{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}\label{classLabyrinthe_ab13197de5f094c67422e558c2347dbe8}} 
 \index{Labyrinthe@{Labyrinthe}!nb\+\_\+alive@{nb\+\_\+alive}}
 \index{nb\+\_\+alive@{nb\+\_\+alive}!Labyrinthe@{Labyrinthe}}
@@ -315,6 +411,23 @@ change la valeur d\textquotesingle{}une case de la matrice \+\_\+data, par exemp
 {\em value} & La nouvelle valeur de la case \+\_\+data\mbox{[}x\mbox{]}\mbox{[}y\mbox{]}. En théorie, compris entre E\+M\+P\+TY et T\+R\+E\+A\+S\+U\+RE, mais dans les faits ce sera E\+M\+P\+TY, J\+O\+U\+E\+UR, ou G\+A\+R\+DE, étant donné que seules ces entités se déplacent) \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classLabyrinthe_aced71da0513e259c3f6ac9eead7a24b3}\label{classLabyrinthe_aced71da0513e259c3f6ac9eead7a24b3}} 
+\index{Labyrinthe@{Labyrinthe}!spot@{spot}}
+\index{spot@{spot}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{spot()}{spot()}}
+{\footnotesize\ttfamily void Labyrinthe\+::spot (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indique aux gardiens que le joueur a été détecté (= vu par un gardien ou ayant tiré une boule de feu) , et met la matrice des distances au joueur estimée par les gardiens ą jour. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & la coord x ą laquelle le joueur a été détécté \\
+\hline
+{\em y} & la coord y ą laquelle le joueur a été vu \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}\label{classLabyrinthe_a55373ffb068b7f84c24108ce0f7d111c}} 
 \index{Labyrinthe@{Labyrinthe}!width@{width}}
 \index{width@{width}!Labyrinthe@{Labyrinthe}}
@@ -332,6 +445,16 @@ Implémente \hyperlink{classEnvironnement_a9f5945b3cde5bd2b0d46250446989081}{Env
 
 
 \subsection{Documentation des données membres}
+\mbox{\Hypertarget{classLabyrinthe_abadb9e695ee1bdcf1467611f62ff374e}\label{classLabyrinthe_abadb9e695ee1bdcf1467611f62ff374e}} 
+\index{Labyrinthe@{Labyrinthe}!\+\_\+box\+\_\+pv@{\+\_\+box\+\_\+pv}}
+\index{\+\_\+box\+\_\+pv@{\+\_\+box\+\_\+pv}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{\+\_\+box\+\_\+pv}{\_box\_pv}}
+{\footnotesize\ttfamily int$\ast$ Labyrinthe\+::\+\_\+box\+\_\+pv\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tableau indiquant le nombre de pv restant ą chaque boite 
+
 \mbox{\Hypertarget{classLabyrinthe_a93ccbd26c14359bec6a9898575f69237}\label{classLabyrinthe_a93ccbd26c14359bec6a9898575f69237}} 
 \index{Labyrinthe@{Labyrinthe}!\+\_\+data@{\+\_\+data}}
 \index{\+\_\+data@{\+\_\+data}!Labyrinthe@{Labyrinthe}}
@@ -351,6 +474,16 @@ indique si la case est libre ou occupée.
 
 
 Vecteur contenant les distances entre chaque case et le trésor. 
+
+\mbox{\Hypertarget{classLabyrinthe_a09a19bc0082a98842deb7426ef945c1b}\label{classLabyrinthe_a09a19bc0082a98842deb7426ef945c1b}} 
+\index{Labyrinthe@{Labyrinthe}!\+\_\+estimated\+\_\+dist\+\_\+player@{\+\_\+estimated\+\_\+dist\+\_\+player}}
+\index{\+\_\+estimated\+\_\+dist\+\_\+player@{\+\_\+estimated\+\_\+dist\+\_\+player}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{\+\_\+estimated\+\_\+dist\+\_\+player}{\_estimated\_dist\_player}}
+{\footnotesize\ttfamily vector$<$vector$<$int$>$ $>$ Labyrinthe\+::\+\_\+estimated\+\_\+dist\+\_\+player\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vecteur contenant les distances estimées par les gardiens au joueur. 
 
 \mbox{\Hypertarget{classLabyrinthe_ad97a56882b720fa0f94acffde1d2c275}\label{classLabyrinthe_ad97a56882b720fa0f94acffde1d2c275}} 
 \index{Labyrinthe@{Labyrinthe}!\+\_\+nb\+\_\+alive@{\+\_\+nb\+\_\+alive}}
@@ -381,6 +514,16 @@ Dimension de l\textquotesingle{}axe \textquotesingle{}y\textquotesingle{} du lab
 
 
 Dimension de l\textquotesingle{}axe \textquotesingle{}x\textquotesingle{} du labyrinthe. 
+
+\mbox{\Hypertarget{classLabyrinthe_a228978d8d96f63a3e97b07c7d04b3594}\label{classLabyrinthe_a228978d8d96f63a3e97b07c7d04b3594}} 
+\index{Labyrinthe@{Labyrinthe}!spotted@{spotted}}
+\index{spotted@{spotted}!Labyrinthe@{Labyrinthe}}
+\subsubsection{\texorpdfstring{spotted}{spotted}}
+{\footnotesize\ttfamily bool Labyrinthe\+::spotted = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indique si le joueur a été vu par les gardiens. 
 
 
 
