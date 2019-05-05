@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{geometry} %[margin=3cm]
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+
+
+\title{Projet de programmation objet avancée}
+\author{Aurélien Terrain et Julien Guyot}
+\date{4 Mai 2019}
+
+
+\begin{document}
+\maketitle
+\section{Introduction}
+Ce projet porte sur la réalisation à partir d'une base
+d'un jeu de type «kill them all» :
+Le but est de tuer un ensemble de «gardiens» pour accéder à un trésor.
+
+
+Durant ce rapport, nous décrirons brièvement la structure du code
+ainsi que les choix faits, avant de conclure.
+
+
+
+Par ailleurs, nous avons généré une documentation basique
+décrivant chaque fonction ou attribut rajouté aux diverses classes
+, et qui est disponible dans les répertoires {\verb docs/html }
+et {\verb docs/latex } (respectivement pour la documentation
+html et \LaTeX, la dernière étant lisible via le fichier
+{\verb refman.pdf } )
+
+
+\section{Structure du code}
+Le code que nous avons produit est disponible dans les trois classes
+suivantes, comportant chacune un fichier {\verb .cc } et {\verb .h }.
+
+
+\subsection{ Labyrinthe }
+Le principal choix fait a été de modifier la structure du tableau
+{\verb _data[][] } : chaque case peut contenir une valeur comprise
+entre 0 ({\verb EMPTY }) et 5 ( {\verb TREASURE } ), indiquant sur la
+nature de ce qui occupe la case.
+
+
+Une fonctionnalité que nous avons implémenté a été de permettre que
+les boîtes soient destructibles pour permettre au joueur de regenérer
+sa santé.
+
+\subsection{ Gardien }
+Les gardiens sont dotés d'un certain nombre de points de vie au début
+du jeu, et perdent leur précision quand ils se font toucher par une
+boule de feu. On remarque aussi qu'ils possèdent une perte de
+précision de base, contrairement au chasseur.
+
+
+Nous pouvons remarquer que
+la fonction de mouvement
+utilisée par les gardien est très rustique, et conduit
+souvent à un ammoncellement de gardiens sur une
+case donnée.
+\subsection{ Chasseur }
+Le chasseur dispose d'un plus grand nombre de points de vie que les
+gardiens, et perd moins de précision.
+
+\section{ Conclusion }
+
+
+
+
+\end{document}
