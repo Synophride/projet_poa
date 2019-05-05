@@ -12,9 +12,10 @@ private:
      * \brief accepte ou non un déplacement
      **/
     bool move_aux (double dx, double dy);
-    int _pv = 10; //!< nombre de points de vie du chasseur
+    static const int PVMAX = 40;
+    int _pv = PVMAX; //!< nombre de points de vie du chasseur
     Labyrinthe* l; //!< Labyrinthe correspondant à l'environnement
-    int perte_precision = 1; //!< perte de précision du chasseur
+    int perte_precision = 0; //!< perte de précision du chasseur
 
     /**
      * \brief fonction indiquant au chasseur qu'il est mort
@@ -49,6 +50,11 @@ public:
 	 **/
 	bool move (double dx, double dy) {
 	    return move_aux (dx, dy) || move_aux (dx, 0.0) || move_aux (0.0, dy);
+	}
+	void soin(){
+	    message("Soin du chasseur");
+	    _pv = PVMAX;
+	    perte_precision = 0;
 	}
 	
 	// le chasseur ne pense pas!

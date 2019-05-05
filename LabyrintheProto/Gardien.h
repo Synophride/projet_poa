@@ -35,17 +35,23 @@ class Gardien : public Mover {
     bool fired = false; //!< Indique si une boule de feu a déjà été tirée. Si c'est le cas, il est impossible pour le gardien d'en tirer une autre.  
 
     static const int RELOAD_TIME = 100; //!< Temps de rechargement pour les gardiens (en nombre d'appels de update())
+
     bool reloading = false; //!< indique si le gardien est en train de recharger (si c'est le cas, il ne peut pas tirer)
+
     int reload = 0; //!< indique le statut du rechargement
     
-    int perte_precision = 5; //!< indique la perte de précision, en degrés, du gardien
+    int perte_precision = 8; //!< indique la perte de précision, en degrés, du gardien
+
     static const int BASE_PV = 10; //!< Nombre de PV de base du gardien
+
     bool dead = false; //!< indique si le gardien est mort
+
     Labyrinthe * l; //!< pointeur vers le labyrinthe
+
     int _pv = BASE_PV; //!< Nombre de PV restants au gardien
     
     char _strategie = EXPLORATION;
-    int _tours_avant_question = 2000;
+    int _tours_avant_question = rand()%2000;
     /**
      * \brief indique si le gardien peut voir le joueur 
      * (ie s'il n'y a ni mur ni obstacle entre les deux). 
@@ -77,12 +83,19 @@ class Gardien : public Mover {
 
     void exploration();
 
+    bool close_of_treasure();
+
+    float get_potentiel_defense();
+    
     char basic_decision();
     /**
      * \brief fait en sorte que le gardien aille vers un point du labyrinthe
      */
     bool move_to_player();
 
+    
+    void watch_player();
+    
     /**
      * \brief fonction appellée lors de la mort du gardien
      **/
@@ -93,7 +106,7 @@ class Gardien : public Mover {
     Gardien (Labyrinthe* laby, const char* modele) : Mover (120, 80, laby, modele){
 	l = (Labyrinthe*) _l;
     }
-
+    
     ~Gardien(){}
     
     // mon gardien pense trèss mal!
@@ -137,6 +150,5 @@ class Gardien : public Mover {
      */
     char decision();
     
-    void attaque();
 };
 #endif

@@ -173,6 +173,8 @@ class Labyrinthe : public Environnement {
     void init_vector_playerdist();
     
     bool spotted = false;
+    int* _box_pv;
+    void echange_boites(int x);
  public:
     Labyrinthe();
     Labyrinthe (char*);
@@ -182,8 +184,10 @@ class Labyrinthe : public Environnement {
 	maj_player_dist(x, y);
     }
 
+    void hurt_box_at(int x, int y);
     bool is_spotted(){return spotted;}
-
+    
+    
     /// \brief  retourne la largeur du labyrinthe.
     int width () { return lab_width;}
 
@@ -270,7 +274,7 @@ class Labyrinthe : public Environnement {
     * joueur est aux coordonnéees (x, y)
     **/
     void maj_player_dist(int x, int y);
-
+    
 };
 
 #endif

@@ -220,6 +220,11 @@ Labyrinthe::Labyrinthe(char* path){
     build_text(text_map, text_list);
     init_vector_dist();
     init_vector_playerdist();
+
+    _box_pv = (int*) malloc(sizeof(int) * _nboxes);
+    for(int i = 0; i<_nboxes; i++)
+	_box_pv[i] = 10;
+    
 }
 
 void Labyrinthe::init_data(){
@@ -231,6 +236,30 @@ void Labyrinthe::init_data(){
     }
 }
 
+void Labyrinthe::echange_boites(int x){
+    _boxes[x] = _boxes[_nboxes - 1];
+    _box_pv[x] = _box_pv[_nboxes - 1];
+    _nboxes --;
+    reconfigure();
+}
+
+void Labyrinthe::hurt_box_at(int x, int y){
+    for(int i = 0; i<_nboxes; i++){
+	Box b = _boxes[i];
+	int bx= b._x;
+	int by= b._y;
+	if( bx == x && by == y){
+	    _box_pv[i] --;
+	    if(_box_pv[i] == 0){
+		Chasseur* ch = (Chasseur*) _guards[0];
+		ch->soin();
+		echange_boites(i);
+		_data[bx][by] = EMPTY;
+	    }
+	    break;
+	}
+    }
+}
 
 void Labyrinthe::build_guards(list<coord> guards, const coord &player_pos){
     _nguards = guards.size() + 1;

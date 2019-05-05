@@ -10,7 +10,9 @@ bool Chasseur::move_aux (double dx, double dy)
 
     int old_x = _x / Environnement::scale,
     	old_y = _y / Environnement::scale;
-    if (EMPTY == contenu_case || JOUEUR == contenu_case){ 
+    
+    if (EMPTY == contenu_case || JOUEUR == contenu_case){
+	
 	_x += dx;
 	_y += dy;
 	int new_x = _x / Environnement::scale,
@@ -50,7 +52,6 @@ bool Chasseur::process_fireball(float dx, float dy){
 
 	// on bouge que dans le vide ou dans le joueur !
 	if(EMPTY ==  contenu_case || JOUEUR == contenu_case){
-		message ("Woooshh ..... %d", (int) dist2);
 		// il y a la place.
 		return true;
 	}
@@ -59,7 +60,7 @@ bool Chasseur::process_fireball(float dx, float dy){
 	float	dmax2 = (_l -> width ())*(_l -> width ()) + (_l -> height ())*(_l -> height ());
 	// faire exploser la boule de feu avec un bruit fonction de la distance.
 	_wall_hit -> play (1. - dist2/dmax2);
-	message ("Booom...");
+	
 	// teste si on a touché le trésor: juste pour montrer un exemple de la
 	// fonction « partie_terminee ».
 	if (TREASURE == contenu_case)
@@ -68,8 +69,9 @@ bool Chasseur::process_fireball(float dx, float dy){
 	} else if (GARDE == contenu_case){
 	    Labyrinthe * l = (Labyrinthe*) _l;
 	    l -> hurt_gardien_at(new_x, new_y);
+	} else if (BOX == contenu_case){
+	    l -> hurt_box_at(new_x, new_y);
 	}
-	
 	return false;
 }
 
@@ -77,14 +79,15 @@ bool Chasseur::process_fireball(float dx, float dy){
 /*
  *	Tire sur un ennemi.
  */
-void Chasseur::fire (int angle_vertical){
-    
+void Chasseur::fire (int angle_vertical){    
     int true_ang = _angle;
-    true_ang += rand() % (2 * perte_precision);
-    true_ang -= perte_precision;
-    true_ang = true_ang % 360;
+    if(perte_precision != 0){
+	true_ang += rand() % (2 * perte_precision);
+	true_ang -= perte_precision;
+	true_ang = true_ang % 360;
+	angle_vertical = (angle_vertical + (rand() % (perte_precision) - (perte_precision/2))) % 360;
+    }
     
-    angle_vertical = (angle_vertical + (rand() % (perte_precision) - (perte_precision/2))) % 360;
     int x = _x / Environnement ::scale,
 	y = _y / Environnement ::scale;
     
@@ -110,10 +113,9 @@ void Chasseur::right_click (bool shift, bool control) {
 
 
 void Chasseur::hurt(){
-    message("j'ai mal snif");
-    perte_precision += 5;
+    perte_precision ++;
     _pv--;
-    printf("nombre de PV restants : %d", _pv);
+    message("PV : (%d, %d)", _pv, PVMAX);
     if(_pv == 0)
 	die();
 }

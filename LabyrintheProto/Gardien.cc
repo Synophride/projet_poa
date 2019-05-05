@@ -5,6 +5,18 @@
 
 using namespace std;
 
+float m = 1;
+
+bool Gardien::close_of_treasure(){
+    float tx =(float) _l->_treasor._x,
+	ty = (float)_l->_treasor._y;
+
+    float gx = _x / Environnement :: scale,
+	gy = _y / Environnement :: scale;
+
+    return (sqrt((gx - tx) * (gx - tx) + (gy - ty) * (gy - ty)) < 10);
+}
+
 char Gardien::basic_decision(){
     if(! (l->is_spotted()))
 	return EXPLORATION;
@@ -22,67 +34,83 @@ char Gardien::basic_decision(){
 	if(rand()%4 == 0)
 	    return DEFENSE;
 	else return ATTAQUE;
-    }
-    
+    }    
 }
 
 char Gardien::decision(){
     if(! (l -> is_spotted()) )
 	return EXPLORATION;
-    
-    float a = 0;
-    a = (float)rand() / (float)RAND_MAX;
+    float seuil_haut = 3;
+    float seuil_bas  = -3;
+    float rand_modif = 5.;
+    float random = 2 * rand_modif * (float) (rand()/RAND_MAX);
+    float modif = random - rand_modif;
+    float pot_d = get_potentiel_defense();
+
+    if(pot_d + modif > seuil_bas)
+	return DEFENSE;
+    else if (pot_d + modif < seuil_haut)
+	return ATTAQUE;
+    else return EXPLORATION;
+	    
+    float a = (float)rand() / (float)RAND_MAX;
     
     if (a > 0.9){
         float b = 0;
         b = (float)rand() / (float)RAND_MAX;
 
         if (b < 0.5)
-            return 0;
+            return DEFENSE;
         else 
-            return 1;
+            return ATTAQUE;
     }
-
-    /* if() //IF gardien dans le groupe près du trésor
-        return 0;
+    
+    if(close_of_treasure()) //IF gardien dans le groupe près du trésor
+        return DEFENSE;
     else 
-    return 1; */
+	return ATTAQUE; 
 }
 
-void Gardien::attaque(){
-    int x = (_x) / Environnement::scale,
-	y = (_y) / Environnement::scale;
-    
-    int estimated_dist = l -> dist_of_player(x, y);
-	
-    int d_xpos = l -> dist_of_player(x+1, y),
-	d_xneg = l -> dist_of_player(x-1, y),
-	d_ypos = l -> dist_of_player(x, y+1),
-	d_yneg = l -> dist_of_player(x, y-1);
 
-    if(d_xpos == estimated_dist -1){
-	move(1, 0);
-    } else if(d_xneg == estimated_dist -1){
-	move(-1,0);
-    } else if(d_ypos == estimated_dist -1){
-	move(0,1);
-    } else if(d_yneg == estimated_dist -1){
-	move(0,-1);
-    }
+float Gardien::get_potentiel_defense(){
+    float LOWER_BOUND = 0;
+    float UPPER_BOUND = 0;
+    int x = (_x/Environnement::scale);
+    int y = (_y/Environnement::scale);
     
+    float distance_tresor((float) l -> dist_of_treasure(x, y));
+    float dist_player((float) l ->dist_of_player(x, y));
+    float nb_dead_guards((float) (l->_nguards - l->nb_alive()));
+    float nb_guards_alive= (float) (l->nb_alive());
+    float dist_chass_treasure((float)
+			      (l->dist_of_treasure(
+						   l -> _guards[0]->_x/Environnement::scale,
+						   l -> _guards[0]->_y/Environnement::scale) ));
+    float potentiel = 0;
+    potentiel =
+	distance_tresor/10
+	+ nb_dead_guards * 5
+	- nb_guards_alive * 6
+	- dist_chass_treasure / 7;
+    return potentiel;
+
 }
 
-void Gardien::update(){
+
+void Gardien::update(){    
     if(dead)
 	return;
-    if(can_see_player())
-	; //fire(0);
-    attaque();
-    return;
-	
+    if(can_see_player()){
+	int x_player = _l -> _guards[0] -> _x / Environnement :: scale,
+	    y_player = _l -> _guards[0] -> _y / Environnement :: scale;
+	if(l -> dist_of_player(x_player, y_player) > 15)
+	    l -> maj_player_dist(x_player, y_player);
+	watch_player();
+	fire(0);
+    }
+    
     if(reloading){
 	reload ++;
-	printf("Reloading...%d/%d\n", reload, RELOAD_TIME);
 	if(reload == RELOAD_TIME){
 	    reloading = false;
 	    reload = 0;
@@ -90,17 +118,20 @@ void Gardien::update(){
     }
 
     _tours_avant_question --;
-    if(_tours_avant_question == 0){
-	_strategie = basic_decision();
-	_tours_avant_question = 2000;
-    }
     
+    if(_tours_avant_question == 0){
+	_strategie = decision();
+	_tours_avant_question = rand() % 2000 + 500;
+    }
+
     switch(_strategie){
     case EXPLORATION:
 	exploration();
 	break;
     case ATTAQUE:
 	move_to_player();
+	
+	break;
     case DEFENSE:
 	move_to_treasure();
 	break;
@@ -108,15 +139,27 @@ void Gardien::update(){
 }
 
 void Gardien::exploration(){
-    printf("J'explore wow \n");
+    if(!avancer())
+	_angle = rand()%360;
 }
+
+void Gardien :: watch_player(){
+    float
+	x_player = _l -> _guards[0]->_x,
+	y_player = _l -> _guards[0]->_y,
+	angle = atan2((x_player - _x), (y_player - _y) );
+    
+    _angle = ((int)-(angle * 180./M_PI)) % 360;
+
+}
+
 bool Gardien::can_see_player(){
     float
 	x_player = _l -> _guards[0]->_x,
 	y_player = _l -> _guards[0]->_y,
 	angle = atan2((x_player - _x), (y_player - _y) );
 
-    _angle = ((int)-(angle * 180./M_PI)) % 360;
+
     
     for(float dist = 0; true; dist += 1.){	
 	float
@@ -135,41 +178,69 @@ bool Gardien::can_see_player(){
 }
 
 
+
 bool Gardien::move_to_treasure(){
     int x = (_x) / Environnement::scale,
 	y = (_y) / Environnement::scale;
 
-    cout << "Position du gardien : \t" << x << ',' << y << endl;
-    
-    int estimated_dist = l -> dist_of_treasure(x, y);
-    
-    cout << "Distance estimée : \t" << estimated_dist << endl;
+    int estimated_dist = l -> dist_of_treasure(x, y);    
 
     int d_xpos = l -> dist_of_treasure(x+1, y),
 	d_xneg = l -> dist_of_treasure(x-1, y),
 	d_ypos = l -> dist_of_treasure(x, y+1),
 	d_yneg = l -> dist_of_treasure(x, y-1);
-    
-    cout << "Valeur du tableau vers x+ \t" << d_xpos << endl
-	 << "Valeur du tableau vers x- \t" << d_xneg << endl
-	 << "Valeur du tableau vers y+ \t" << d_ypos << endl
-	 << "Valeur du tableau vers y- \t" << d_yneg << endl;
 
-    if(d_xpos == estimated_dist -1){
-	move(1, 0);
-	cout << "Choix : x+" <<endl;
-    } else if(d_xneg == estimated_dist -1){
-	move(-1,0);
-	cout << "Choix : x-" <<endl;
-    } else if(d_ypos == estimated_dist -1){
-	move(0,1);
-	cout << "Choix : y+" <<endl;
-    } else if(d_yneg == estimated_dist -1){
-	move(0,-1);
-	cout << "Choix : y-" <<endl;
+    int min = estimated_dist;
+    float move_x = 0;
+    float move_y = 0;
+    
+    if( l -> dist_of_treasure(x+1, y) < min && l -> dist_of_treasure(x+1, y) != -1){
+	move_x = 1; move_y = 0;
+	min = l -> dist_of_treasure(x+1, y);
+    }
+    if(l -> dist_of_treasure(x-1, y) < min && l -> dist_of_treasure(x-1, y) != -1){
+	move_x = -1; move_y = 0;
+	min = l -> dist_of_treasure(x-1, y);
+    }
+    if(l -> dist_of_treasure(x, y+1) < min && l -> dist_of_treasure(x, y+1) != -1){
+	move_x = 0; move_y = 1;
+	min = l -> dist_of_treasure(x, y+1);
+    }
+    if(l -> dist_of_treasure(x, y-1) < min && l -> dist_of_treasure(x, y-1) != -1){
+	move_x = 0;
+	move_y = -1;
+    	min = l -> dist_of_treasure(x, y-1);
+    }
+    printf("moving to treasure, move = (%f, %f)\n", move_x, move_y);
+    return move(move_x, move_y);
+    
+    // Pê virer ça plus tard
+    // Diagonales
+    if( l-> dist_of_treasure(x+1, y+1) < min && l -> dist_of_treasure(x+1, y+1) != -1){
+	move_x = m;
+	move_y = m;
+	min = l-> dist_of_treasure(x+1, y+1);
+    }
+    if( l-> dist_of_treasure(x+1, y-1) < min && l -> dist_of_treasure(x+1, y-1) != -1){
+	move_x =  m;
+	move_y = -m;
+	min = l-> dist_of_treasure(x+1, y-1);
     }
     
-    return false;
+    if( l-> dist_of_treasure(x-1, y+1) < min && l -> dist_of_treasure(x-1, y+1) != -1){
+	move_x = -m;
+	move_y = m;
+	min = l-> dist_of_treasure(x-1, y+1);
+    }
+    
+    if( l-> dist_of_treasure(x-1, y-1) < min && l -> dist_of_treasure(x-1, y-1) != -1){
+	move_x = -m;
+	move_y = m;
+	min = l-> dist_of_treasure(x-1, y+1);
+    }
+
+    move(move_x, move_y);
+    return true;
 }
 
 bool Gardien::avancer(){
@@ -180,9 +251,8 @@ bool Gardien::avancer(){
     return try_move(dx, dy);
 }
 
-// Appelé quand le gardien doit mourir
+
 void Gardien::die(){
-    message("je suis mort fdp");
     rester_au_sol();
     l->iamdying();
     dead=true;
@@ -190,7 +260,6 @@ void Gardien::die(){
 }
 
 bool Gardien::process_fireball(float dx, float dy){
-    // calculer la distance entre le chasseur et le lieu de l'explosion.
     float   x = (_x - _fb -> get_x ()) / Environnement::scale;
     float   y = (_y - _fb -> get_y ()) / Environnement::scale;
     float   dist2 = x*x + y*y;
@@ -198,16 +267,10 @@ bool Gardien::process_fireball(float dx, float dy){
     int new_x = (int)((_fb -> get_x () + dx) / Environnement::scale),
 	new_y = (int)((_fb -> get_y () + dy) / Environnement::scale);	    
     char contenu_case = _l -> data(new_x, new_y);
-    if(EMPTY ==  contenu_case || GARDE == contenu_case){
-		message ("Woooshh ..... %d", (int) dist2);
-		// il y a la place.
-		return true;
-	}
+    if(EMPTY ==  contenu_case || GARDE == contenu_case)
+	return true;
 
-    // collision...
     fired = false;
-    // calculer la distance maximum en ligne droite.
-    float dmax2 = (_l -> width ())*(_l -> width ()) + (_l -> height ())*(_l -> height ());
     if (JOUEUR == contenu_case){
 	Labyrinthe * l = (Labyrinthe*) _l;
 	l -> hurt_joueur();
@@ -217,7 +280,7 @@ bool Gardien::process_fireball(float dx, float dy){
 
 
 void Gardien::hurt(){
-    message("Aie fdp");
+
     perte_precision += 5;
     _pv--;
     if(_pv == 0)
@@ -247,6 +310,7 @@ void Gardien::fire(int angle_vertical){
 bool Gardien::is_legit_move(double dx, double dy){
     int new_x = ((_x + dx) / Environnement::scale);
     int new_y = ((_y + dy) / Environnement::scale);
+    
     return (      new_x >= 0 
 	       && new_x <  _l->width()
 	       && new_y >= 0
@@ -277,37 +341,69 @@ bool Gardien::move_to_player(){
     int x = (_x) / Environnement::scale,
 	y = (_y) / Environnement::scale;
 
-    cout << "Position du gardien : \t" << x << ',' << y << endl;
-    
     int estimated_dist = l -> dist_of_player(x, y);
-    
-    cout << "Distance estimée : \t" << estimated_dist << endl;
 
-    int d_xpos = l -> dist_of_player(x+1, y),
-	d_xneg = l -> dist_of_player(x-1, y),
-	d_ypos = l -> dist_of_player(x, y+1),
-	d_yneg = l -> dist_of_player(x, y-1);
+    int min = estimated_dist;
+    float move_x = 0;
+    float move_y = 0;
     
-    cout << "Valeur du tableau vers x+ \t" << d_xpos << endl
-	 << "Valeur du tableau vers x- \t" << d_xneg << endl
-	 << "Valeur du tableau vers y+ \t" << d_ypos << endl
-	 << "Valeur du tableau vers y- \t" << d_yneg << endl;
-
-    if(d_xpos == estimated_dist -1){
-	move(1, 0);
-	cout << "Choix : x+" <<endl;
-    } else if(d_xneg == estimated_dist -1){
-	move(-1,0);
-	cout << "Choix : x-" <<endl;
-    } else if(d_ypos == estimated_dist -1){
-	move(0,1);
-	cout << "Choix : y+" <<endl;
-    } else if(d_yneg == estimated_dist -1){
-	move(0,-1);
-	cout << "Choix : y-" <<endl;
+    if(    l -> dist_of_player(x+1, y) <  min
+	&& l -> dist_of_player(x+1, y) != -1 ){
+	
+	move_x = 1; move_y = 0;
+	min = l -> dist_of_player(x+1, y);
+    }
+    if(    l -> dist_of_player(x-1, y) <  min
+	&& l -> dist_of_player(x-1, y) != -1){
+	move_x = -1; move_y = 0;
+	min = l -> dist_of_player(x-1, y);
+    }
+    if(   l -> dist_of_player(x, y+1) < min
+       && l -> dist_of_player(x, y+1) != -1){
+	
+	move_x = 0; move_y = 1;
+	min = l -> dist_of_player(x, y+1);
+    }
+    if(   l -> dist_of_player(x, y-1) <  min
+       && l -> dist_of_player(x, y-1) != -1){
+	
+	move_x = 0; move_y = -1;
+    	min = l -> dist_of_player(x, y-1);
     }
     
-    return false;
+    printf("attack : moving(%f, %f) \n", move_x, move_y);
+    return move(move_x, move_y);
+    // Diagonales
+    if( l-> dist_of_player(x+1, y+1) < min
+	&& l -> dist_of_player(x+1, y+1) != -1){
+	
+	move_x = m;
+	move_y = m;
+	min = l-> dist_of_player(x+1, y+1);
+    }
+    if(    l -> dist_of_player(x+1, y-1) < min
+	&& l -> dist_of_player(x+1, y-1) != -1){
+	
+	move_x =  m;
+	move_y = -m;
+	min = l-> dist_of_player(x+1, y-1);
+    }
+    if(    l -> dist_of_player(x-1, y+1) < min
+	&& l -> dist_of_player(x-1, y+1) != -1){
+	
+	move_x = -m;
+	move_y = m;
+	min = l-> dist_of_player(x-1, y+1);
+    }
+    if(    l -> dist_of_player(x-1, y-1) <  min
+	&& l -> dist_of_player(x-1, y-1) != -1){
+	
+	move_x = -m;
+	move_y = m;
+	min = l-> dist_of_player(x-1, y+1);
+    }
+
+    return move(move_x, move_y);
 }
 
 
