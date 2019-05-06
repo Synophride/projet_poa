@@ -1,2 +1,0 @@
-g++ -I fmod/4.3 -O3 -Wall -Wextra -pedantic -L/opt/lib --std=c++11 -c Labyrinthe.cc
-Makefile:18: recipe for target 'Labyrinthe.o' failed
